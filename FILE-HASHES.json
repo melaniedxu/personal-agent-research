@@ -1,0 +1,3023 @@
+{
+  "algorithm": "SHA-256",
+  "excludes": [
+    "FILE-HASHES.json"
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 82,
+      "sha256": "427f142c8b0de6df2dceb5ea94b642e75b0249f369321394ebcf56700c733737"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 340,
+      "sha256": "5a88fd66be0e45bb8a4f32dc06ab3ff60b9b5c4ef4f79f0c88281b26849f1a63"
+    },
+    {
+      "path": "BUILD.md",
+      "bytes": 11186,
+      "sha256": "14584923ac4623c853ce3041e1ad4638163e06f3e9c0180ff5263509a5f31668"
+    },
+    {
+      "path": "CAPTURE.md",
+      "bytes": 6064,
+      "sha256": "cc796e090538122dfe823d90f8dad81f91f106c4442b040bb6acaf3f5a27d63c"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 974,
+      "sha256": "c6279823e8e15064dbcfbd499236a6e86388e1f372381c1b16e5767375775b98"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 3248,
+      "sha256": "dc0fc69eab32259649d68f81db129783ed190d4b497453bf7f60fc34eaa2f1f7"
+    },
+    {
+      "path": "LICENSE-ORIGINAL.txt",
+      "bytes": 1429,
+      "sha256": "e2aefcc8707fc1ea5d047939413e33b22006dabf48585e161bbe4b908db11ddc"
+    },
+    {
+      "path": "PROMPT-FOLLOWUP.md",
+      "bytes": 12663,
+      "sha256": "86d132f124aaace758005118abdac7979287783ae7f1cb5251e13fefbfbe48a0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9794,
+      "sha256": "f392fb48615a2a53cc63d5cef15d079459b8f5e7ea927f9152c350ac487cd20d"
+    },
+    {
+      "path": "ROADMAP.md",
+      "bytes": 3264,
+      "sha256": "ac9383dcc9be0744e77ce1faddfdddf11cbe6608987be38630502ec057581c58"
+    },
+    {
+      "path": "STUDY.md",
+      "bytes": 25165,
+      "sha256": "4933a861819c02103069eb0f040082cbf0e2d4bc8850281c7e63182d523e2be5"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 3266,
+      "sha256": "740eafd2c853336a8c5cbcf470bcf73d0b97cde744062917763578b8a6159625"
+    },
+    {
+      "path": "config/README.md",
+      "bytes": 1618,
+      "sha256": "83cc87d3080e42435b9c9040cfdeaa21c333da405ea3aac4118dfc8cdec4a7ec"
+    },
+    {
+      "path": "config/community-runtime.json",
+      "bytes": 3271,
+      "sha256": "2a65e1958a0cb0871ec7a689bf2e682ed2fc949fa90f43e487b529eaf506a1ff"
+    },
+    {
+      "path": "config/community-tools.json",
+      "bytes": 5013,
+      "sha256": "e75e3d42bd40b75fce260931f91b04c89d8378462b32e0eb2741ee4469ba8517"
+    },
+    {
+      "path": "config/grok-tool-diff.public-2026-08-21_to_2026-10-24.json",
+      "bytes": 8640,
+      "sha256": "f48fbe8cdbd82b4aad9ec2f5bda95645fcb34c6205441b8d9e1079cf7eb99fdb"
+    },
+    {
+      "path": "config/grok-tools.public-2026-08-21.json",
+      "bytes": 198611,
+      "sha256": "51b6d66af699a38f8bfae80df4a614252c91173cad1e82c37cdd88de6f3088de"
+    },
+    {
+      "path": "config/grok-tools.public-2026-10-24.json",
+      "bytes": 138205,
+      "sha256": "297658b35364dd18fbfd19de3116650ba0b26741d007fe7b4722c840d07afbb6"
+    },
+    {
+      "path": "config/muse-tools.normalized.json",
+      "bytes": 170328,
+      "sha256": "cb31385d62dd6cef047103fcefb99e73730185a39fb9cf26fd862a8caa288f58"
+    },
+    {
+      "path": "evidence/README.md",
+      "bytes": 1469,
+      "sha256": "f5bd6af1432e404c77a5052b6e0022d5ac3def11b72260a4282ff3bdc6bfb20a"
+    },
+    {
+      "path": "evidence/cue/README.md",
+      "bytes": 876,
+      "sha256": "85d0200a5b74fc7272702b51862d663f6de0fe9f4de791645de17e85ae539431"
+    },
+    {
+      "path": "evidence/cue/documentation-followup.json",
+      "bytes": 736,
+      "sha256": "6fe857b3aa0c0a6448c1694afda9122ef4810b030b54d9db187656f83a6d7619"
+    },
+    {
+      "path": "evidence/cue/manus-computer-use.addon.json",
+      "bytes": 1427,
+      "sha256": "d8e5fe6f28af83c8c7c88b24dbce34f36c62407967fb837f83148728b9082acf"
+    },
+    {
+      "path": "evidence/cue/skill-recorder.addon.json",
+      "bytes": 464,
+      "sha256": "05567d4a30180446ac006b16c850391da7a2cb9cae2039d955667512c6d050f9"
+    },
+    {
+      "path": "evidence/grok/README.md",
+      "bytes": 1270,
+      "sha256": "68391db9a440b91262b9e616bf9e8a835e940eb6c7f55567cf9f1c22fbebfc68"
+    },
+    {
+      "path": "evidence/grok/coordinator-method-labels.json",
+      "bytes": 6758,
+      "sha256": "1257f0621e0efda996b4978c0b60758688688504814a9520aa62d3c4351f474c"
+    },
+    {
+      "path": "evidence/grok/grok-public-previous-path-history.json",
+      "bytes": 292,
+      "sha256": "486b532243f0474e01702fb36eacd6e75041bacf8dcf3d7481569650af666d5b"
+    },
+    {
+      "path": "evidence/grok/grok-public-prompt-history.json",
+      "bytes": 153,
+      "sha256": "1993ac036c735a92228fe16f3ebd0b5c5f83e4b32489f68710a7f1112a9b7f29"
+    },
+    {
+      "path": "evidence/grok/local-prompt-override-check.json",
+      "bytes": 642,
+      "sha256": "30d44b2a82bc8cb82cf4114852aaa55ae7087c0566ff401a04b1ab09eeda6517"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-08-21/LICENSE-REPOSITORY-CC0.txt",
+      "bytes": 7049,
+      "sha256": "f99ae25b6325d3a2fcebe74ee92296e2058fe84e97f228a5b81b5e8a1821f04f"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-08-21/PROVENANCE.json",
+      "bytes": 2204,
+      "sha256": "921407c12be571fbcae94be38ebaacdab06cfc31fbf79421e22c1c0eb8a1022d"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-08-21/grok-bot.md",
+      "bytes": 305973,
+      "sha256": "5cf4d3f7ba98604f37992122e6be01ae00da57dcc447bf838ac27f686650dc0b"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/LICENSE-REPOSITORY-CC0.txt",
+      "bytes": 7049,
+      "sha256": "f99ae25b6325d3a2fcebe74ee92296e2058fe84e97f228a5b81b5e8a1821f04f"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/PROVENANCE.json",
+      "bytes": 2906,
+      "sha256": "48b4041e8edf0e9e26a01deaf3d7c5e56bc68366c5d46806be6df337dc3fa08e"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/grok-bot.md",
+      "bytes": 211184,
+      "sha256": "89f9619bf6a89855845c0e1b4911933aafe183126beb56ee962d095a619f47c0"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/reference/app-ui.md",
+      "bytes": 3174,
+      "sha256": "1b80152494f881e70fbc09e6f436d63f0784b861caa4fc0e2a9b6f87f171e9bc"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/reference/debugging-the-box.md",
+      "bytes": 4541,
+      "sha256": "55b01818e767a81f5b805ff9917be8ddfccd66856215ba79487ace74dfc1f7e8"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/accommodation-booking.md",
+      "bytes": 10235,
+      "sha256": "adcef0313fca524abb5650d901daea31700482e8d0521553e793181b893d71d4"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/add-connector.md",
+      "bytes": 5395,
+      "sha256": "38c226c2dfb661cee3c0377102b1f5492d9185e5b3efa2ba9eb609f23fa4a877"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/agent-email.md",
+      "bytes": 4538,
+      "sha256": "4f86d76370792334a21efcc22a37cdf09cd59d6f4ce184bae206cb33ebdda230"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/box-desktop.md",
+      "bytes": 3097,
+      "sha256": "cb8f46a74a20f3e5f7eb6f75d14ad136238a745ab8e161b8d008be652ceb8281"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/channels.md",
+      "bytes": 4874,
+      "sha256": "84db2847b3355d8c99b18dde67b4716fc84d715b3396ba3574609a7f29d9e3c9"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/code-changes.md",
+      "bytes": 13072,
+      "sha256": "45d019480baa972481e0c163236bc5cd3a9cc30f3a1dab19aaa5e90b2ffc83eb"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/export-bot-template.md",
+      "bytes": 5004,
+      "sha256": "2cfd1725472de2a069a1fc630b443dca74958392db3a5c63f3acf323484a3c5f"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/flight-booking.md",
+      "bytes": 11045,
+      "sha256": "fa9407f5a09800cd48c4e40292f723f424405a8b92572f562695fa5adfcd4f4d"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/food-ordering.md",
+      "bytes": 13167,
+      "sha256": "6f7968cc38c301a6b1d645c2438aefa9674248c047d830a86993f23d20e4cc1d"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/grocery-shopping.md",
+      "bytes": 11857,
+      "sha256": "c10f1624197cb31f909e9f8107a815eaee9a03ed141a435b6b9cdb53226824ca"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/group-chat-turns.md",
+      "bytes": 2824,
+      "sha256": "7f1238eafccbe29d5c1e2a437b99292ff134e35d4b494ec533c815bf876a1bca"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/in-chat-forms.md",
+      "bytes": 7475,
+      "sha256": "0c119d8cde4beb114cdf76abd57218de89b9176a6eccb585f71052c85ce18961"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/job-search.md",
+      "bytes": 8271,
+      "sha256": "9110079d9c13ae1082ce87b3b5998d5123ec5feb81f535fd804da3d6e5861cf7"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/learn-from-demonstration.md",
+      "bytes": 10157,
+      "sha256": "57d502878005f259974882013d70b66696abd2bcd45c372dd910a84d88468deb"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/no-connector-fallback.md",
+      "bytes": 6529,
+      "sha256": "2399564bde761802d14f26bbd7896b2141d792f98278bacf61537784bc841c4e"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/office-pptx.md",
+      "bytes": 20864,
+      "sha256": "c881b39409415025c2e5f85d8749cc14655eb2dc7d40fa150d5d25dc02751c1a"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/orders-and-returns.md",
+      "bytes": 7362,
+      "sha256": "040ce7a8827faeb9cf7b768ee9c80aa9b014a06648a9334c1e406054e40dbe9b"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/purchases.md",
+      "bytes": 6287,
+      "sha256": "bf51c31882fc1646d0b07d4326614a531014a608e7510992b0bc0a74d8d3197c"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/recent-changes.md",
+      "bytes": 2803,
+      "sha256": "e5d5b96bef57f053cf7694382ce5fe942368c30ba2f8f21b18a7d06269a6ff79"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/restaurant-booking.md",
+      "bytes": 11436,
+      "sha256": "39012cb28b70db679ad6bb39cd595b2baca1deb446ab4171a46236a8f54b26d0"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/restaurant-recommendations.md",
+      "bytes": 7560,
+      "sha256": "6345e6a32b8fe1bbb709e71ed59a4e4685b766a0cfa763ce6eab4792d753e598"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/rideshare.md",
+      "bytes": 6562,
+      "sha256": "9c1c90afca8e1d363b8a6ccde0aff09ee5cff2d120e9e678a1c7dfc6dca862b7"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/routines.md",
+      "bytes": 21186,
+      "sha256": "aea7f13e6cf7d1a6f16cb977e07a32a4da53fc9cbe1d206cd47070cf84244500"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/scheduling.md",
+      "bytes": 11544,
+      "sha256": "701c48a35561fe787da35832047e1c6ba3df89bce66ef209fc30528b480aa1ff"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/send-on-behalf.md",
+      "bytes": 5499,
+      "sha256": "4985f6bf9e93abd8f8a02a33cfec804aec06e8335d7c2af4bc15502d0695bf46"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/shopping.md",
+      "bytes": 19615,
+      "sha256": "87b1cbcb03b88b4b6074a5b5edcc6b066d1dca8ad13601110a4c1020f82a28b0"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/sign-in.md",
+      "bytes": 4814,
+      "sha256": "68a566bbe7b9fcfb9e5b736e9cafb0a6c51080313a3b8cc2a16b4dc94b9348de"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-airbnb.md",
+      "bytes": 15787,
+      "sha256": "62e9858ceb2fdb53648d42da49f751ec6b445c88d35903a3395b26c4a7c7a52f"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-bestbuy.md",
+      "bytes": 14935,
+      "sha256": "12b9646567ec7803ba560586e36dd2502b87810785e2e9432ed1b2676cab9f65"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-costco.md",
+      "bytes": 11595,
+      "sha256": "03b06f1cf249b139d85d28a01a2570b8dee2873c3de8d14bc63da358c631e93c"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-craigslist.md",
+      "bytes": 9989,
+      "sha256": "7745ed707a982672b3233ade3dc715ef77293722139b720c6b194a7f6dc4acf4"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-doordash.md",
+      "bytes": 22782,
+      "sha256": "bb01787864bf0f6e4e2dd6b919b479d534d656727f3c3b40717cb02ffcf108b5"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-ebay.md",
+      "bytes": 16063,
+      "sha256": "64f7162103713d27ee3fffcdafd4a57f90dc636780176e0bbe20a18b095630d1"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-etsy.md",
+      "bytes": 8574,
+      "sha256": "a9de53e4ddc6baee23578d5e7817a27811525e1437e3c2fbb393879a193ea636"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-expedia.md",
+      "bytes": 7552,
+      "sha256": "ac286f77d24d5d20d2012384535ed01536f33170a98367873297e6ec0ae3eece"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-facebook-marketplace.md",
+      "bytes": 13101,
+      "sha256": "91e95b4fdcf75c235b9f1a11925915e1d709a31a93e3867d203f017dd6b7791a"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-fedex.md",
+      "bytes": 8760,
+      "sha256": "0cb0609ffab7cec108663e93874a3e74cba4edefa8e4e1c5a800ea00e3b2af02"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-google-flights.md",
+      "bytes": 8556,
+      "sha256": "1c99c6d0c7b0308bde813b3ce543b40be64d1d6ee763916c15dd6516bbf7f82a"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-instacart.md",
+      "bytes": 9405,
+      "sha256": "55a3a0ae70c7923d00e70d681eaf30873e2467beccfeb0a6e0eae2616266eb3e"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-linkedin.md",
+      "bytes": 8482,
+      "sha256": "ca33b179849b6c29f47d9b7551af2d9f9cd0bf95f1a56179ccee932562f3bfd3"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-luma.md",
+      "bytes": 15283,
+      "sha256": "a6fecc4dda550bd0a141923784ebcc1754085a68860f7902116399da16b6575b"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-opentable.md",
+      "bytes": 7054,
+      "sha256": "007fca5c2ff21b08cbaa551005d68b4330cf6e90614ac635438162004c5ba636"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-realtor.md",
+      "bytes": 19902,
+      "sha256": "e15f6a1d2c61730ae28fceeed1341c6d266183fae7ea1675a5db2a5ba59a1cc8"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-resy.md",
+      "bytes": 8061,
+      "sha256": "3cbba82ecfdf655da06593f8fbfa7a0f4e1957e92d0d5b5fa32b852d147c48fb"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-southwest.md",
+      "bytes": 10221,
+      "sha256": "9fb5cf7b18c165c798423cb8630d128d135b51ea94111be99d5d7e2847386556"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-target.md",
+      "bytes": 16322,
+      "sha256": "d44b1c3a7054a5013551c7752ccdad9e5d33e2848a5dfdf5ebc6f29123be62e6"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-united.md",
+      "bytes": 11749,
+      "sha256": "fa945a3035dd7b33de261b7df353587058f3c2408c7ebce18efff72a67c9d855"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-ups.md",
+      "bytes": 8920,
+      "sha256": "e4a48101149f5dffa4df23c89e99bc5824be9a8481f394c73f2eed3b380ca987"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/site-playbooks-usps.md",
+      "bytes": 7192,
+      "sha256": "64a225808c08667d999301b1291ca794d2abb47739382083293e075412a4c9af"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/skill-authoring.md",
+      "bytes": 2552,
+      "sha256": "a8be7e17fc64524c8c823e025d222ea810cb8acda9eb6e5f4ade1fea15268b0a"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/slides-executor.md",
+      "bytes": 24696,
+      "sha256": "d11ebaa61c53f50b54d95741b583196ff23c60e2dacf056d008b28422f3463c0"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/slides.md",
+      "bytes": 15452,
+      "sha256": "d252e49169da5954823e72acb8af5313f97046c1da62071cfc68ec898763ef86"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/source-control.md",
+      "bytes": 15469,
+      "sha256": "b713348167ec32b979627318bd40229f6029dcb290fde02cebc15f4603408a77"
+    },
+    {
+      "path": "evidence/grok/public-prompt-2026-10-24/skills/voice.md",
+      "bytes": 2932,
+      "sha256": "c05219ddf385078bf49e49ce0f54a048e2d1981c26761b345a93651568760634"
+    },
+    {
+      "path": "evidence/grok/shipped-protobuf-descriptors.json",
+      "bytes": 492246,
+      "sha256": "8b646edc35417b111a7d1644703807375927424341f43584c38cecf2f7e2a1f4"
+    },
+    {
+      "path": "evidence/installed-versions.json",
+      "bytes": 875,
+      "sha256": "45dea1bc50ecd978096c97250b5c2a2cb5e9cc42c42566282c0947aed852573b"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt.txt",
+      "bytes": 10209,
+      "sha256": "c13fa64374c80dc7b48243f48c94e831ea228da1d1917cb3698521606180cda1"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_agent-loop.txt",
+      "bytes": 2147,
+      "sha256": "2ee373d3c5f1837e25e750872887c8874d4b1847e56ac0e268d979b0f27675f3"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_environment.txt",
+      "bytes": 763,
+      "sha256": "f7ac95ed342428fb5a8c292cb1c28ab6fe050ea4607fc8d1191968bd54f486c1"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_guidelines.txt",
+      "bytes": 8567,
+      "sha256": "50792c611a23c097e16fcbe1e8be095eceacf990229564dd146728f0a20f5181"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_modules.txt",
+      "bytes": 12224,
+      "sha256": "091c8eb2bc485a49c11e24b409f6947b39ee3c1895383b96317e0ea93960dd3e"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_persona.txt",
+      "bytes": 2192,
+      "sha256": "4515ca940fbee7c26fbc43fc38fd859b55ae1d8b77e8d77e46284c4c7cea04de"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_prompt_prompting-guide.txt",
+      "bytes": 2583,
+      "sha256": "9fc85539f468182a512d127c3e40f6e2129aed5cf7dbf7f57be9dfb7e930a470"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/2025-07-20_tools.json",
+      "bytes": 18501,
+      "sha256": "87b9ead0071ebce94ff86c94e2582f9af8cbc29e2ea31dc8420de3fe318c6945"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/LICENSE-REPOSITORY-GPL3.txt",
+      "bytes": 35071,
+      "sha256": "db1f255d72ea3d052e45a91ef792481e15b2e037a3d09117dcc5015dd4cb35f0"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/PROVENANCE.json",
+      "bytes": 3084,
+      "sha256": "60412b6e35ea3496f9bd6bf7daea9837abd14ffa3fceb36ae39ed3bb20cf307b"
+    },
+    {
+      "path": "evidence/manus-historical-2025-07-20/README.md",
+      "bytes": 1151,
+      "sha256": "3b0ab1aab3edfa83a6a913e5e2e2365d09633c40cfd70724a8328a5561eda83c"
+    },
+    {
+      "path": "evidence/muse/README.md",
+      "bytes": 2114,
+      "sha256": "ebcdcd4cceb1401fe471f9dc5964b198e0cd0ddeae0f9e91ebe66abab36a3b86"
+    },
+    {
+      "path": "evidence/muse/client-route-catalog.json",
+      "bytes": 65762,
+      "sha256": "4b5cde2330624ca0ec66e0b6fd8ba92d7da0314bada4cc87f0b8ef8ec4916d78"
+    },
+    {
+      "path": "evidence/muse/runtime-export/DB-INDEX.md",
+      "bytes": 14388,
+      "sha256": "e6e2a499f22136f35e141a5c36bdd010a7ed64cf69da54f568d9da5d7c6e0739"
+    },
+    {
+      "path": "evidence/muse/runtime-export/EXPORT-AUDIT.json",
+      "bytes": 111920,
+      "sha256": "a782554558d9ded4ba16a778e3dfd3ad13abd85d3b7a9eb64f1f1169c4825aef"
+    },
+    {
+      "path": "evidence/muse/runtime-export/MANIFEST.md",
+      "bytes": 83471,
+      "sha256": "3a501f3c40706b9f76c9a30e448a044aee96c69401c1578803707249f02a84f5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/all-tools.json",
+      "bytes": 117417,
+      "sha256": "5440a0b3c51f588996735c52096938af2cfaaa1432f2b5e0438a07a3c0f1ab5b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/apple_healthkit/CONNECTOR.md",
+      "bytes": 7581,
+      "sha256": "f214e0fbb26fa5b7b110af84588cf76f7757cea35868f3fd1e16f57f5526cb52"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/apple_healthkit/connector.yaml",
+      "bytes": 298,
+      "sha256": "6b6f6eb7ee803ac0e855f79474bebdc90fe529e7fc98ccd5a2a29777713ed84e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/apple_healthkit/manifest.yaml",
+      "bytes": 3336,
+      "sha256": "1751fc300a041d2d2fc974baa8480bc2dd109b8693eec758738c7ba61cc7a8f0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/asana/CONNECTOR.md",
+      "bytes": 3750,
+      "sha256": "9092cf560dabc08c3a20104a3badf8029c1a0b4735c3f7ae86347402ac957c8f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/asana/connector.yaml",
+      "bytes": 238,
+      "sha256": "2191da1209320ca06a5f2a4d2b8ee228c924ede6a50bb0af88e5f519c8f8ec74"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/asana/manifest.yaml",
+      "bytes": 3203,
+      "sha256": "bc3d067cc01cc9a8e68cca522f38d14577a5db16713f150915838dd73fa60236"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/box/CONNECTOR.md",
+      "bytes": 6085,
+      "sha256": "bf3788acb521c6437bd5683189308d0797a85aff5084e4f1d17afe8053633188"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/box/connector.yaml",
+      "bytes": 284,
+      "sha256": "24f0df255309c26b98773fe08492a2325ac13e01a5f2a379b37e15623684b4b7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/box/manifest.yaml",
+      "bytes": 4229,
+      "sha256": "f57584cd7ba3403f911a93a65da85fb067201521a16484003e18c9a4d9386888"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/calendly/CONNECTOR.md",
+      "bytes": 3322,
+      "sha256": "04f3cb511a735b565e5efc44c9a9b8411990fa8bbbe1944c6f902002cb4abfc0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/calendly/connector.yaml",
+      "bytes": 347,
+      "sha256": "1c7dd9f8ab46141bc0092ba9d00731578fb6b4ba2a0e888a8535531416906b51"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/calendly/manifest.yaml",
+      "bytes": 1893,
+      "sha256": "f08f283ec932cb6712b41e8633c3bf757d4d848d9eab7655df3366ddd166656e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/canva/CONNECTOR.md",
+      "bytes": 9787,
+      "sha256": "788f9b9fc997e13948ee415b1bf1c0cbda4898544cadb4ccb90c4a7e7175d417"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/canva/connector.yaml",
+      "bytes": 333,
+      "sha256": "6a3dc8a7104888f20f17ec71aa96102291304423b0ea9f42e88c4a82c9312057"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/canva/manifest.yaml",
+      "bytes": 3511,
+      "sha256": "11efc79bbd27b6d2c4f879b8198f0e13a9a6ab08d729f85e22ee941656bd3b68"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/dropbox/CONNECTOR.md",
+      "bytes": 3731,
+      "sha256": "40bf6b3c86e370393249052c03914e964988e31dc0e2d062826db4826fc48101"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/dropbox/connector.yaml",
+      "bytes": 275,
+      "sha256": "32f2103797d14e79833061026f78f19d57140437218550bf3d2664ec9106c6e2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/dropbox/manifest.yaml",
+      "bytes": 3551,
+      "sha256": "90e7dc3c5a2ba83c554b1c20946787318d24fd8012e204681227fab21cc82107"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/duffel/CONNECTOR.md",
+      "bytes": 12935,
+      "sha256": "60ce309c709dbc6d8904cc7128e0af4f8721273b5e9ec683b43dbbdb432e6e05"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/duffel/connector.yaml",
+      "bytes": 229,
+      "sha256": "789fb99200379a69b8cdd2ef465bab1351782642566c29cc03fc9fa051734685"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/duffel/manifest.yaml",
+      "bytes": 2229,
+      "sha256": "811c16091914cd37cd21d229793356c3c507c85b86cb1f98b41f1e5a4b97d6f6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/evernote/CONNECTOR.md",
+      "bytes": 3569,
+      "sha256": "8e2ea1fa5a836def05c701ac9cb0f03b05870cb9f8d82fdfabe77bf6e7f51fe8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/evernote/connector.yaml",
+      "bytes": 264,
+      "sha256": "726b0689374f46e9d99b4a0b8c3e4ab1b92dafe8364199b10503670ca705fa40"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/evernote/manifest.yaml",
+      "bytes": 2315,
+      "sha256": "bfb057394c4ff788fb93b0621b68014ba4d5c70c78302a8aafd6a61371cd1e89"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/facebook_cli/CONNECTOR.md",
+      "bytes": 15219,
+      "sha256": "9d31afbb530aabc43464c3a141cbbb8de19f6a204d519ee1dca8c2523fda73ed"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/facebook_cli/connector.yaml",
+      "bytes": 588,
+      "sha256": "48c9ec2c6cb25b4ffc3de2eda4c4e4fe9c45fd82c5c46233c1d36a42335a9f95"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/facebook_cli/manifest.yaml",
+      "bytes": 7057,
+      "sha256": "dd888a51870bcc62989dec3bc36158d68f1defcda439bedaaca6ace2e449b0bb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/figma/CONNECTOR.md",
+      "bytes": 3980,
+      "sha256": "1fef4e35c9fbe7932ee6abad5e18d61dd9d6aa3d8193db8effbf790c8bd2ec66"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/figma/connector.yaml",
+      "bytes": 382,
+      "sha256": "43c0cd353b0804f0262ba073022ab1479f4a956441e0d799c48847182110fe21"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/figma/manifest.yaml",
+      "bytes": 3140,
+      "sha256": "0fdbb3227e1b6d58263b1ebdccf41475339498a8beac9c9ff48146a683cc5f94"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/flightaware/CONNECTOR.md",
+      "bytes": 7219,
+      "sha256": "4e0c73ac0631a9dda3bf5cd883ff180f7da0debd786f5ac2e256fcd3cfdaab71"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/flightaware/connector.yaml",
+      "bytes": 236,
+      "sha256": "47ca9e8ccfaeff1f1291f0879dba8535a7d9c9305611807e8507ced538594168"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/flightaware/manifest.yaml",
+      "bytes": 3758,
+      "sha256": "93d3ced5232aa1edc52c59ac001e98b2fd492f90f4fd72766690f7caedc81277"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/function_health/CONNECTOR.md",
+      "bytes": 3229,
+      "sha256": "6d282401ae28e97b374ca697ecc71aefad1057ca43c0d58743b2211a9d588427"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/function_health/connector.yaml",
+      "bytes": 382,
+      "sha256": "11d7305ca9c95fca68f005e52d20a2e57fcaecb7a7ac88ee74a24f8f98b437d9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/function_health/manifest.yaml",
+      "bytes": 2331,
+      "sha256": "d10ec57f30c14c8378b0999ad1ce4d56423ee0a5802e086a2bd5c0f5dad5d219"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ghl/CONNECTOR.md",
+      "bytes": 5195,
+      "sha256": "5ef948a6b1ed0148fcbcd99044e0c4c8cfdae2b80a44ce6e9f6e5131151ff83b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ghl/connector.yaml",
+      "bytes": 352,
+      "sha256": "0703cb7347ecab98f71cf7cce32f4444ecb6bd560b59fb9f3d2b3bfad7a130e5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ghl/manifest.yaml",
+      "bytes": 15078,
+      "sha256": "adcfa079783382d76f3f162f3fecb93b4ae5e5b7cdcf0e59eb827ab9ff5a35c2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/github/CONNECTOR.md",
+      "bytes": 4908,
+      "sha256": "84fab490b60bb24b0a2557789d7e7f9b9275d724675163cc21b82c84fcd62f83"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/github/connector.yaml",
+      "bytes": 269,
+      "sha256": "f586e454faf4347628b3f875c4279268b43b62e75bb7b3ee997052c3706e97e5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/github/manifest.yaml",
+      "bytes": 2686,
+      "sha256": "a695503baa16635bedd9adf900769b35d0adff96edc7d7da24a6281e577b1b0e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/gmail/CONNECTOR.md",
+      "bytes": 17447,
+      "sha256": "997e3611e9fd9a8169f787761289d4100e78370b6b77d86ece892f806a8e232c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/gmail/connector.yaml",
+      "bytes": 508,
+      "sha256": "efa8cedcaa5ee65d6ca86ce6ad022e83481972b3e80ac54936798df200a85048"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/gmail/manifest.yaml",
+      "bytes": 15220,
+      "sha256": "961ce43669f5d95cb6d72ebc29175c972d88de99abc1be92fdc02ab1c95a1627"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_calendar/CONNECTOR.md",
+      "bytes": 10211,
+      "sha256": "6a7b41ec0f191559278208dea83e6305458666f791f22c7ba4934472e812bd90"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_calendar/connector.yaml",
+      "bytes": 695,
+      "sha256": "20383ff03d424401dda97b7e975a036657aec777483a2b05a2a7223dce5f9898"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_calendar/manifest.yaml",
+      "bytes": 6801,
+      "sha256": "7d6259e64dbd6fa0792d866d774e07b6931efe235427450bece86f3c6c4b1c97"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_contacts/CONNECTOR.md",
+      "bytes": 4557,
+      "sha256": "5b3577bc99dc093534fdce74bcf21c8b614738793c51b02dfb300f978b50d290"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_contacts/connector.yaml",
+      "bytes": 349,
+      "sha256": "370a41e5e991bf18dd8ea0154184c228aa52a8aa163edac09ac93e3acb32d360"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_contacts/manifest.yaml",
+      "bytes": 3070,
+      "sha256": "1611f95202a910fa4c3ff74bba3811eaa252af1a9448807612d2823c3cc2c1aa"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_docs/CONNECTOR.md",
+      "bytes": 4127,
+      "sha256": "9f47487c0912403278de511bfc22e04724d372c5acfbf7b6b3d60ad1222faadd"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_docs/connector.yaml",
+      "bytes": 338,
+      "sha256": "6647dd87b4136e1ef756b5c88c0eadb5b1a628d94f28edf210f8243214443e78"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_docs/manifest.yaml",
+      "bytes": 2335,
+      "sha256": "b47bd43ff51babfa031bee4e4571e4d2545594e86dba61c980f9091dd82c84db"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_drive/CONNECTOR.md",
+      "bytes": 8446,
+      "sha256": "d39badabb1324c19a91542799dc3b8b4847fcc2cccd34a71c46b115eaf0414da"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_drive/connector.yaml",
+      "bytes": 388,
+      "sha256": "191d63a40be3ad1cfc20f803c9e80a19516aa9511d816a8532a95b78fc4d441b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_drive/manifest.yaml",
+      "bytes": 5628,
+      "sha256": "0062b3c1c6beb39044be595c1193f44bea5191f6e303e7b557c7f477ba9e0326"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_forms/CONNECTOR.md",
+      "bytes": 3297,
+      "sha256": "2c69ba0afaa59bab8ae975f2638a547a54b06f7437fbfa9842c3b4a7d0566e3a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_forms/connector.yaml",
+      "bytes": 334,
+      "sha256": "90cd52d3311af1fc331be93a7f323cd375b247c9279c352092d0129a42afad4b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_forms/manifest.yaml",
+      "bytes": 2586,
+      "sha256": "55195ef22f5a956b56ef7bc2c3023408af78b2e3d70e709d84b5e9c1907e0265"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_health_connect/CONNECTOR.md",
+      "bytes": 7816,
+      "sha256": "43d852677f147f1c65fe110fcb30733b16e5954681d6ab71f3c089d58fd8a522"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_health_connect/connector.yaml",
+      "bytes": 321,
+      "sha256": "282e935bc5051ecd985247f912e8956ef90c714e7355ef81855add08dd18cc54"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_health_connect/manifest.yaml",
+      "bytes": 3433,
+      "sha256": "e02cea73aa0fb4f495338b6c82feec7a1f0da4cba20658292aad265a6bce6eb6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_sheets/CONNECTOR.md",
+      "bytes": 5131,
+      "sha256": "649fe934391171385d4949880baa1160e4abefafb9d742e4902d5b3373789028"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_sheets/connector.yaml",
+      "bytes": 390,
+      "sha256": "1b1df97371c44569fd95a6b5e13b635f3b3b0b2bf9bc97860c03935a90e2b1af"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_sheets/manifest.yaml",
+      "bytes": 3877,
+      "sha256": "131f7d87ce5713ce478278429bd6bec469309e03fef2df46619a72815706f306"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_slides/CONNECTOR.md",
+      "bytes": 3889,
+      "sha256": "753d136aacbbe4a3e5b037c6428601f8c0534d0167c073c593c841b1318d5e44"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_slides/connector.yaml",
+      "bytes": 336,
+      "sha256": "943519ae612236bd9f8e8bb19a6d46f2369fb5fd027157ca92964aa888f9de2f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_slides/manifest.yaml",
+      "bytes": 2424,
+      "sha256": "51f8be12a8535f43e698e61a1900cd02291aad3ea05863749cf1ce30710ac646"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_tasks/CONNECTOR.md",
+      "bytes": 5595,
+      "sha256": "8a5d75cf2298cd6b5227cc515587330b3b741621d2b0a87b5959bb13c182f632"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_tasks/connector.yaml",
+      "bytes": 346,
+      "sha256": "3562042076ccbeb4095b9960cd8f56f9389676a9cb2948e1184e6caec7aa2679"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/google_tasks/manifest.yaml",
+      "bytes": 2559,
+      "sha256": "f50a99a319f44f8f0d54f442a43315f4f5ccf23f26e741d699e19d780d5e4d52"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/granola/CONNECTOR.md",
+      "bytes": 2553,
+      "sha256": "5a14f67e5139ce0752069a37d4f7868afcad692fe576ec6231b69c640174896f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/granola/connector.yaml",
+      "bytes": 251,
+      "sha256": "7aab6c8a53766ff011e29257c7685ea4584662b89e18fdf348ad12c8e213be0c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/granola/manifest.yaml",
+      "bytes": 2236,
+      "sha256": "d1d7dd62381203fd058338735037179da095903b57b8eec960d5edf5f666ff55"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/healthex/CONNECTOR.md",
+      "bytes": 7398,
+      "sha256": "b91004077404c8d427afaef74146f8dc5baa0b0df6454785b63015b594698564"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/healthex/connector.yaml",
+      "bytes": 405,
+      "sha256": "705ec7cc699c96cf0375bb088470bdb3239e4d76919557999cf10ff3b4c737a7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/healthex/manifest.yaml",
+      "bytes": 1993,
+      "sha256": "a2a3c0b0f260094568c4ae7ea7a5204ee61023e778b1e4dae5f56e5e083b78d1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram/CONNECTOR.md",
+      "bytes": 20702,
+      "sha256": "a5a0afca1186817a2ad0ddbbcce0bd3a90334b6049998c5ed7efef2a303b1579"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram/connector.yaml",
+      "bytes": 519,
+      "sha256": "31b7fd285386a18656ed3123e3abcf016ff89ed721289cbb5b559c94241c44a8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram/manifest.yaml",
+      "bytes": 4220,
+      "sha256": "3f340655d0b7a2592cf7a60ff54142c10200fd8eef7cb90b73fb524ec9aa960f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram_messages/CONNECTOR.md",
+      "bytes": 6588,
+      "sha256": "2dc7321efc6c37a93500f99da100ad7ba8f393ce606ed45aa2f2962ed9107ce0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram_messages/connector.yaml",
+      "bytes": 463,
+      "sha256": "0be624a67c35071121664659a34cd054ee4cd534d275f3189051d9b5b4a379e5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/instagram_messages/manifest.yaml",
+      "bytes": 2318,
+      "sha256": "cfa537214394ed58a90a88ce3ef0408c82821d42ec01bec5178dad166bb36fa4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/klaviyo/CONNECTOR.md",
+      "bytes": 5369,
+      "sha256": "633e7ee37213a64b611e59e553f615e6c91e4f28106344c7e7b6e5e400648ad3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/klaviyo/connector.yaml",
+      "bytes": 288,
+      "sha256": "9df681b00293e9264d5e1d77c6e5ed53f49a710cdeb60dc210d0d4dc11e37eb8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/klaviyo/manifest.yaml",
+      "bytes": 3147,
+      "sha256": "bbe06353a2149d0ec50269154f636daa42e3e7905ddebc076b18c80cef42015d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/linear/CONNECTOR.md",
+      "bytes": 3090,
+      "sha256": "2dd316cafb1fd540f9fe6b19cd1866a11cd4bb590a339e8278ee5274653f25fd"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/linear/connector.yaml",
+      "bytes": 239,
+      "sha256": "72c6b85915b2fc6452dff1e2c8b2d3aabcfb0101983fadf7e60db8a2d3756d8d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/linear/manifest.yaml",
+      "bytes": 3474,
+      "sha256": "620dab63c920fa4548b1336e676b465e676fdc2747b9a0be3fdbf8d046aecf2c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/lovable/CONNECTOR.md",
+      "bytes": 2777,
+      "sha256": "c467446b655ae75b895c6c4b509b6bdc8a886843bee2388943cd06970dc5108d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/lovable/connector.yaml",
+      "bytes": 273,
+      "sha256": "a9c79939207710b8f231aeb2e8c77b07eeb0f51f53ec34c97bc308199271e96e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/lovable/manifest.yaml",
+      "bytes": 5205,
+      "sha256": "c959dcb6038a13a7b47a7d75a77ab819aace5bbe2a584074102eca274abc5ae0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/messenger_read/CONNECTOR.md",
+      "bytes": 16720,
+      "sha256": "dc7bce529690a025a2311fcdafda514d678ecbf1be0a3522e525c91bbb8d13a6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/messenger_read/connector.yaml",
+      "bytes": 549,
+      "sha256": "a502c2d481a58c18237cfc85800d558c004dea9eb067bfccd5e98e21a12e4dc0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/messenger_read/manifest.yaml",
+      "bytes": 3766,
+      "sha256": "bde4cddeb6de200599a7d03010dc23e8060c915a2fcab71c00946c04a831b8bd"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_ads/CONNECTOR.md",
+      "bytes": 19467,
+      "sha256": "6077006674d191956d22635e26cbc0f76acdec985e6fe330c33498eda94e677a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_ads/connector.yaml",
+      "bytes": 579,
+      "sha256": "d0582c031c6cfc4fd7b21f63e7841494849eeee2005d09d0a7c7d40ae9d324d6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_ads/manifest.yaml",
+      "bytes": 7025,
+      "sha256": "bc024dd749e62abfc8829a9f2e04a773ad34bdc3bcd02c00b63277569deaa59d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_catalog_search/CONNECTOR.md",
+      "bytes": 13328,
+      "sha256": "b4b5a3adb86fe2ef473f4afa88dfe7baa2b96d448d0f8da9123e327242655890"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_catalog_search/connector.yaml",
+      "bytes": 284,
+      "sha256": "84ea3722a52a7a5b68b26597cd90f0eceb46a42eaf2cb4a34ecedb136248a45a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/meta_catalog_search/manifest.yaml",
+      "bytes": 1367,
+      "sha256": "2db30f95d8c7a6150ef2ff8ddd143dafa98a9e756693523cd4b829e588d2af40"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/moneyforward_me/CONNECTOR.md",
+      "bytes": 3771,
+      "sha256": "d155d1b4d933f3c7483a330105393bfc8e029900fe2d8b30ca902f8669e481b8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/moneyforward_me/connector.yaml",
+      "bytes": 335,
+      "sha256": "2482e9eec5c0e89780479d82b1bf29b67ded792e71df723a2d23b3874f7a194d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/moneyforward_me/manifest.yaml",
+      "bytes": 3470,
+      "sha256": "3da4247b5738dd706d758af888b6b6dc9e705176ddac3a1b35533253ba16cff3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/notion/CONNECTOR.md",
+      "bytes": 2822,
+      "sha256": "e6260435e0d7852d1012ecfb0625bcd63c62d4cb2ec185f2a202554540910dab"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/notion/connector.yaml",
+      "bytes": 273,
+      "sha256": "d1265a28b3e172c8cff7f4d3456920034773263e35e8d937796174db242505a7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/notion/manifest.yaml",
+      "bytes": 5243,
+      "sha256": "0f12281df4f304dccdf2687ce777fbce3a72d3ef5fdc124ca145c9cbea213946"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/onepassword/CONNECTOR.md",
+      "bytes": 2334,
+      "sha256": "a4eed66553f1b1210abcc562543772afd69f2395ab018f1295d876ff5b56f64a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/onepassword/connector.yaml",
+      "bytes": 246,
+      "sha256": "4420f9b5f7c2348e7b9f4b3dde30b778a602dbd3eede46e6aea56d8473a8f636"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/onepassword/manifest.yaml",
+      "bytes": 1347,
+      "sha256": "5d27c6a46066615cef9b24662122256e0e96cdfb52ef0b62ebb6738ff8e9d9e9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/opentable/CONNECTOR.md",
+      "bytes": 8127,
+      "sha256": "81cefe8e3d5a3719643f6b0a494c2b5187ec6bf6d4e443bef9b15bb2f68ac44e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/opentable/connector.yaml",
+      "bytes": 265,
+      "sha256": "91ee0c039de8f9c32de204be8c2ad4485925d0e9e11e229f4cbfa60a8dabbd14"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/opentable/manifest.yaml",
+      "bytes": 2896,
+      "sha256": "f198654bfec686330496aba0661a487b4b2e2f0eaa68e68c5ecec290361985ce"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_calendar/CONNECTOR.md",
+      "bytes": 6796,
+      "sha256": "3f4030c1e71050e79ce8824e354305e7a92c846fdf46612d966e0e2757c0e6ff"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_calendar/connector.yaml",
+      "bytes": 475,
+      "sha256": "d76b68cb0178455d29838e7b90fa487e16d431bd361af7e99c49a5df75ead617"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_calendar/manifest.yaml",
+      "bytes": 3770,
+      "sha256": "e25d0022917432fd5dea2a5597d20e7c7221c93f07c617b79d2d0d975d71b7f5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_contacts/CONNECTOR.md",
+      "bytes": 4547,
+      "sha256": "f4c04a37bcb01832ab1cbaebccaae84be28cbc3b9261beeb4662d01060d66f0a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_contacts/connector.yaml",
+      "bytes": 321,
+      "sha256": "d1fd460ce4f4dbe15318607869e1050feb760466b345eee732466e60f2217652"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_contacts/manifest.yaml",
+      "bytes": 2465,
+      "sha256": "6a38484b528a41b99c48fe8837606ccb17346a5f4567fc11f1c0776127b078a8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_mail/CONNECTOR.md",
+      "bytes": 8206,
+      "sha256": "097c5ef591b4e5200a414562e167e2c97dfd0af8aa1b7b528664a337c5768503"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_mail/connector.yaml",
+      "bytes": 482,
+      "sha256": "0ae701716681dc4109df1658f63373b7bba34770c629353744a5a5a0df146e3a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/outlook_mail/manifest.yaml",
+      "bytes": 3212,
+      "sha256": "f17b04f213dc25052b263890e68d3d94372fdebcbef2111b438493825627c97d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/peloton/CONNECTOR.md",
+      "bytes": 4817,
+      "sha256": "4eeb74d24273c5dee9411fab208bb4c81f99172d081e78d503ef87c8e5668963"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/peloton/connector.yaml",
+      "bytes": 299,
+      "sha256": "19cf0f0c0030b5b4bcd4361100a65b4b23e5481c6ebce96628a2bf3a6f7910af"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/peloton/manifest.yaml",
+      "bytes": 2139,
+      "sha256": "6bbf7a374c71711374b6d48ac35395082775e996a7c810a829b56a711b7234eb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/philips_hue/CONNECTOR.md",
+      "bytes": 3167,
+      "sha256": "098e563e05ae2f3cb9d69dc3c9d9a6c4ec053f3a1f2b2ea83d7c4f55c37140ae"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/philips_hue/connector.yaml",
+      "bytes": 318,
+      "sha256": "849da8df912215222f1292a49c96ca8560eada2b6671900278fd2d998582db4b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/philips_hue/manifest.yaml",
+      "bytes": 2510,
+      "sha256": "ae981a6383bbeda0c5ccd0b0e939e5f2d262b811e8939723bc3fda09ebb8f7bd"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/places/CONNECTOR.md",
+      "bytes": 4156,
+      "sha256": "54dff8294151417b17facc66822ffc0ef41248472eafe616d299871af8534cbc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/places/connector.yaml",
+      "bytes": 339,
+      "sha256": "2b9d56b65b08aedadbb85174055ae12c06190ab5b63421d8856b5ecfd7521420"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/plaid/CONNECTOR.md",
+      "bytes": 7263,
+      "sha256": "bae9459c1ca2909a5e57bd7baa344cd8321c4eb668b462f06eaae2b2efe7762d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/plaid/connector.yaml",
+      "bytes": 499,
+      "sha256": "c6fc8b389300db83b683b3380b8d364b4b307a0df0e9bd62221fca51a908eac4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/plaid/manifest.yaml",
+      "bytes": 2609,
+      "sha256": "697674ad97d5874607ec6d05d5e39cc529a51ff677656c3229075abf95c7d64a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/printify/CONNECTOR.md",
+      "bytes": 3224,
+      "sha256": "a6c93129029db281d73dc180e55d602bcc2a1b508454514aeb185c4abdddfa1a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/printify/connector.yaml",
+      "bytes": 289,
+      "sha256": "8106e4d4bcf4a87209e7e7547ebea07b6e3362c4de29b4bf509d12e6c7416150"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/printify/manifest.yaml",
+      "bytes": 2914,
+      "sha256": "c59008818b015b1f7d6e9339171167e1394f30f898442acfbe7918784c3acbc4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/quickbooks/CONNECTOR.md",
+      "bytes": 6954,
+      "sha256": "c18b15c93e058fd11b7723eda538b4940e0769a8fa0867b6274b3f1de0919ffc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/quickbooks/connector.yaml",
+      "bytes": 355,
+      "sha256": "10a7fe9ff31cb93e8c3b6243a10b74dd43579a91cb928994ef418bec40461f8b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/quickbooks/manifest.yaml",
+      "bytes": 6771,
+      "sha256": "c5cea901efed9a29f154040f9d9edb114b8bf3e2f86ac84ecd9461092a85ea69"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/replit/CONNECTOR.md",
+      "bytes": 2459,
+      "sha256": "1607507f6e83a54f2bb62c9fab3ebb7338733315f323f8e4a329ce983a8d4ccf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/replit/connector.yaml",
+      "bytes": 235,
+      "sha256": "0c742c67a61136cd4de590a15ec794921e110c323d752eff875d827b59dad908"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/replit/manifest.yaml",
+      "bytes": 2343,
+      "sha256": "073c7a8d05bef72dc2f2bb449fec171e6e3a83d7ff720f7d83f9d507f3e36ac9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shop-pay/CONNECTOR.md",
+      "bytes": 5084,
+      "sha256": "eb9163a377a85ee17bd24c3eb16945cf24a02a506e1d31f9ed97c2509e257205"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shop-pay/connector.yaml",
+      "bytes": 366,
+      "sha256": "580ae1ff3f5a5b5d4651b5a8b23d2cdbf102158fe9923400b118fabf3b484ea7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shop-pay/manifest.yaml",
+      "bytes": 2134,
+      "sha256": "7d714947f67db59bb3d1cfcd56d68c6ad7003ef6ec2f8b0a123deb7be9352874"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify/CONNECTOR.md",
+      "bytes": 7312,
+      "sha256": "710561ad9b059290ec79b2fb1db84b28c49807490d7bbb501f83816dd4d69d63"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify/connector.yaml",
+      "bytes": 283,
+      "sha256": "b238806d18649b828758825fea00db847d426333123a86f5ebe25f90b2066c97"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify/manifest.yaml",
+      "bytes": 3988,
+      "sha256": "3313eb6ca6f53afeae631d8c201c4ad9925bfa6433f31b75beb83bc99e1b5f17"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify-ucp/CONNECTOR.md",
+      "bytes": 2536,
+      "sha256": "90d454cbf59e0982342b61bb413753b939dbc2dfbefb92e7913ff8f4b201c143"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify-ucp/connector.yaml",
+      "bytes": 310,
+      "sha256": "1e327bc16f5e1eb1b075695066e53171cede30266f51406e6fb3688704225850"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/shopify-ucp/manifest.yaml",
+      "bytes": 3242,
+      "sha256": "6cd976d87e77c6597b2f0d845383ac05d7038668877045647bfd343d4c1bb7c3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/slack/CONNECTOR.md",
+      "bytes": 2380,
+      "sha256": "32d1ff8857e8f51964ff12e04eb2a88213dfdb642d4c89b1d4d994af20b13641"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/slack/connector.yaml",
+      "bytes": 257,
+      "sha256": "abc2ce2995bc3dff3b18ffddacd2107ffbaa04b6a5d774f1b9c8b37196cf73dc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/slack/manifest.yaml",
+      "bytes": 3875,
+      "sha256": "2b3930b8bfafe78ed05b33e2143f12c9c796af7378ec252a71ea5321af58f129"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/spotify/CONNECTOR.md",
+      "bytes": 11115,
+      "sha256": "54ad1cd4047456629e10e08a673e5e68b416e91f54421df2dddd289fa0082bf2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/spotify/connector.yaml",
+      "bytes": 319,
+      "sha256": "16b7516e874c7bf0d580a7beb281917d13f11d2a3ab7a831249c0289aa7bebf7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/spotify/manifest.yaml",
+      "bytes": 4274,
+      "sha256": "baf534fa9c13b1400ae07610d1bc0a55f752b981b83e71dc0eeb98a6e66de366"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe/CONNECTOR.md",
+      "bytes": 2519,
+      "sha256": "0f415085031e3c84456ac4993427f19f075d7cbda6050e667005dd7a36d4cb7c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe/connector.yaml",
+      "bytes": 308,
+      "sha256": "4ca7d04f1e615ba49293b4b2efe3728a6607f8589ba2072b82b4b90581759df0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe/manifest.yaml",
+      "bytes": 2812,
+      "sha256": "4a612518c332b3027d493f6b6dab0ad67f46224c9bd68783b060050e893ab8e2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe-link/CONNECTOR.md",
+      "bytes": 8468,
+      "sha256": "6e575130d733a6bb0289ab96772d5e916a16d385046335dfbc7c0d2d10cefb09"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe-link/connector.yaml",
+      "bytes": 356,
+      "sha256": "20f2b0a31d2c31fc0e735c2ef4f90eade3de430554357e31d61bdc16dd7e3920"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/stripe-link/manifest.yaml",
+      "bytes": 2400,
+      "sha256": "c31623fbe5d65fa6d84e80728166c65ee32c9b933fe1a81a7350434d0b3283bc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/tailscale/CONNECTOR.md",
+      "bytes": 4400,
+      "sha256": "5b04038e8dddb1ebc5d2bd336e6e246a8abd246b4e617a51ba25eccbb6bb89c8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/tailscale/connector.yaml",
+      "bytes": 254,
+      "sha256": "d289794e409d8ee9014c8f571c064d397ba697cb2c1e51e19771f24be5b0f297"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/tessie/CONNECTOR.md",
+      "bytes": 3425,
+      "sha256": "b06956a11a4e9d07b0a146b2ca9447a881b573948fbcc6d28fd61dad1a64fc9f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/tessie/connector.yaml",
+      "bytes": 284,
+      "sha256": "e1cb7814b99e69ed7d342fe21b17fa1558b99613ecf05c5d2f0718069754e7ca"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/tessie/manifest.yaml",
+      "bytes": 3761,
+      "sha256": "e4644f578d24e184b175366bf85656bf4609ffdf3e5c1eec955331a76713a218"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads/CONNECTOR.md",
+      "bytes": 10881,
+      "sha256": "dc0d904c578be18237cb316b1dced1c943861ed3b971902aae8d4d3e896a13e8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads/connector.yaml",
+      "bytes": 302,
+      "sha256": "21735f1c8c454ea0a6c7fb40545d9e3d402a338ecc764ffac20c4f0dcfff3a92"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads/manifest.yaml",
+      "bytes": 2420,
+      "sha256": "6d230010126d01dac64605c8a45128b5c6f38dcedfbecf7c160fab685e568be1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads_messages/CONNECTOR.md",
+      "bytes": 8208,
+      "sha256": "ab934470d84bbb22740a417239e92d6a0628d1ce229d02bf071c313fbbe679d3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads_messages/connector.yaml",
+      "bytes": 299,
+      "sha256": "7035ea1e74a32f8c6dd434b84218b198d9b6b80adb54fcb779d3575860882f51"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/threads_messages/manifest.yaml",
+      "bytes": 1805,
+      "sha256": "b900c53f992dec3a13e0f854507fb7c2c9a353625f0f526daa122117c136fcd8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ticketmaster/CONNECTOR.md",
+      "bytes": 5418,
+      "sha256": "76c2b01cecf9d30aa9c15c31538dec7f67ef7da066859933f649c920781b25fa"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ticketmaster/connector.yaml",
+      "bytes": 247,
+      "sha256": "1336cccfe371f80940876a5be63266aea5c4d4e871a94a594b2ba15f6dd885b6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/ticketmaster/manifest.yaml",
+      "bytes": 1796,
+      "sha256": "5bda5daf48f7d0f0c01e8409b62daa1963973797c0f50d632da9bc12f504dc3d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/todoist/CONNECTOR.md",
+      "bytes": 3533,
+      "sha256": "ee4ea20203e58b1ab02cf183f9d840e18c6887fd190910d7fcb818d2221025c6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/todoist/connector.yaml",
+      "bytes": 241,
+      "sha256": "541e74f8f824234a0f0bfda998ee4a2ebabf2e13ed6b20a6a5e101fd7dedb151"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/todoist/manifest.yaml",
+      "bytes": 4310,
+      "sha256": "806196291310dba602031410120796d28f7e9a09275d657f3fe8cfb0ec79b278"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/vercel/CONNECTOR.md",
+      "bytes": 2849,
+      "sha256": "dcbf45fd181890dc51caa29b66b1803d99d80eb54ec74f78b1b5bcadde7d73a8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/vercel/connector.yaml",
+      "bytes": 326,
+      "sha256": "a231c6cc073fd8401670e9b36250fd3410e4408f7b8127b4f62c8f9d80143231"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/vercel/manifest.yaml",
+      "bytes": 9944,
+      "sha256": "268a4ae00f4a8e5578b60369360bdd6e2968dd1c2791c8eb6ad1c9fe2d8832ad"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/withings/CONNECTOR.md",
+      "bytes": 5003,
+      "sha256": "1f9a27996fc2d87178f53acf6ef986714cf8549e1a8f25c96272528437efeb87"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/withings/connector.yaml",
+      "bytes": 321,
+      "sha256": "592cc57490710fa311af8020dc182fed7d6975c704621ae41988ca0fdb6fa109"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/withings/manifest.yaml",
+      "bytes": 2821,
+      "sha256": "190aa8a67cd492a0949b0470eca937c1f79183e767d9b4f785d854100d256d6a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zapier/CONNECTOR.md",
+      "bytes": 2915,
+      "sha256": "190b2c9375cceabee1f7b0862efc3d0fa1c830a1b83c46e2d559d064fb8df63b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zapier/connector.yaml",
+      "bytes": 313,
+      "sha256": "c06aea04bbee152f8b10b30d0621e5d18b414b5b3939584f0016aaa0a2db6eeb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zapier/manifest.yaml",
+      "bytes": 2824,
+      "sha256": "aea56a9940b4181e66ae5a34154a6c928ca3bbfce25e26b1d53fb9b597575523"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zoom/CONNECTOR.md",
+      "bytes": 3714,
+      "sha256": "125f0a809b715d7b19ebfa1fb97ebb561fae0dd668eb2f6c6aaa45096f733350"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zoom/connector.yaml",
+      "bytes": 335,
+      "sha256": "676dce31ebabcd5f3a19eda764e6635d7cf9fe7af6ebcd7e3cd88f44068325d6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/connectors/zoom/manifest.yaml",
+      "bytes": 2274,
+      "sha256": "f3bd9f476c18b7cc9ffdbc8e453e5c0626fd49d6d12e436d382531dd643c4280"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/artifacts.md",
+      "bytes": 2649,
+      "sha256": "4243dd4e55acc8e22aad66a10c260300ea98eeba907b3690424eb511280df979"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/browser.md",
+      "bytes": 5296,
+      "sha256": "f8a7b97a541a1d40cb0eddb06df00b4337bb075c597244e061c90fe54920b913"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/calls-texts-notifications.md",
+      "bytes": 9286,
+      "sha256": "44813f1d71a95610c9a1fb5e318169e9ed1499fdebabfe3fcb04125beccab9c1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/chat/scheduling-and-watching.md",
+      "bytes": 7334,
+      "sha256": "c00d4c4e147e72ed7ba74868b673f83f283d1984c9f6367af71ee0971b932e74"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/chat-connections/whatsapp.md",
+      "bytes": 3647,
+      "sha256": "827333a356122fda3b2338c3c92615623eb6edfbef2e7bbc904897eadf40ddf5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/chat-connections.md",
+      "bytes": 1986,
+      "sha256": "66a379453cf0d3648f2b478c10335298908f69fb7ea3505ffa788af576c6e3b0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/client-surfaces.md",
+      "bytes": 29067,
+      "sha256": "b993915ba64fde1b09d012de2885946bfe4fcfe55a7a87db22c1fe6ee7503e3e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/connectors.md",
+      "bytes": 10605,
+      "sha256": "06b58b010b8b809700f61f116cde627708f1b9f030ef4fbc42b3aeedcb2d877e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/data-handling.md",
+      "bytes": 7335,
+      "sha256": "fd15f933405407333fda8199aa731af5fc3f8f9295bb25ed8a4425504119c3e6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/feed.md",
+      "bytes": 6528,
+      "sha256": "85c6962fdf27243d87f87ec48426d2712631877a16ca6dfe7b388f98c5933568"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/files-and-library.md",
+      "bytes": 6689,
+      "sha256": "7d2f8401cd0fa55c07a33173e626ac8a24e38ff8e22df0ca08db10a13b33287c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/goals.md",
+      "bytes": 2133,
+      "sha256": "7754700194935890313ac9e63797e15e74ceea834e6b04fce28dccd3f57afc5e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/ideas.md",
+      "bytes": 1220,
+      "sha256": "668d9dae6ef64c649b9a601bd7257eaa16172d43d1ee2abd4fad5f7aa30146b3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/memory.md",
+      "bytes": 1771,
+      "sha256": "3aa1197e55b80a60af927595417226232187f290279d8f2e0e24a5b8b946656e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/muse.md",
+      "bytes": 11803,
+      "sha256": "6406c2f204fa46d1197c0bcd56103e82ec419756b2974ba7557c20670c6f9793"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/privacy-and-credentials.md",
+      "bytes": 10596,
+      "sha256": "92fc0e41fbc1ec206ae584cd445c548966d1f4ebbc991b01a1e44190cca87f53"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/scheduling-and-watching.md",
+      "bytes": 4232,
+      "sha256": "7940ef38be47495a3e275052853a1f87932c5a2830492a5ee0112d3be0f43811"
+    },
+    {
+      "path": "evidence/muse/runtime-export/docs/self_improvement.md",
+      "bytes": 3292,
+      "sha256": "595a36bb46050a0e390ec4aaa4da95b16ff2a0710302468fbad23e9012f7ce44"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/identifiers.md",
+      "bytes": 36884,
+      "sha256": "5be4b0f4e73184428e56eea4b8b95481f96c867805fb242799aba762dcbd1e65"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/querying.md",
+      "bytes": 3578,
+      "sha256": "6f6bc7289778871ceb5aa821ca385a1efd5125bc23f425c80c6e06fd9702db9c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/schema.md",
+      "bytes": 32458,
+      "sha256": "ee48a5575b786176a5c6e46ead221726e45e46f2c7ec1a9eeaee209a2b3f1f9f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_agent_threads.md",
+      "bytes": 746,
+      "sha256": "fad7c69cae432209d42069cab64953854f6b9760d9e90b41f610cdbe22f6d440"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_carrier_user_messages.md",
+      "bytes": 1099,
+      "sha256": "e3806ded4f8eb2555091424240e45b54b4c0b7b73affce56d23edf98a459396f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_message_threads.md",
+      "bytes": 750,
+      "sha256": "d5153361981910b1414a976b9df6d17d4ac6fd70f34f5a7741debfc4ce90c16d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_runtime_work_threads.md",
+      "bytes": 907,
+      "sha256": "36fa8c3d31f652dc9c92395021b3468c1cbf945c1b1a10e1e815877b414ae776"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_thread_actions.md",
+      "bytes": 1652,
+      "sha256": "d91f4f18db9f42159ef1e3aa3e1a46eda35c57db5e30b3dd038f08086c020184"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_thread_sections.md",
+      "bytes": 1222,
+      "sha256": "c95880eca107044a28f267e64bb56b8fbc8ab8840f5bcb8185c92c0842ac0b3b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.activity_monitor_threads.md",
+      "bytes": 1151,
+      "sha256": "7bb043c98821d463183213bc8892887c877cccc4a86736571728d0f8e6c7e8d1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/activity.feed_entries.md",
+      "bytes": 1236,
+      "sha256": "4506f13e88a86c4a70ab265bca85b733875633c5fe7e9111bc53aecb77bd2356"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.agent_ancestors.md",
+      "bytes": 582,
+      "sha256": "0084dcd5753e14eaaec083fb94dab75304ffbd4e1d6dd2df523b43b7ff10adab"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.agent_compactions.md",
+      "bytes": 1386,
+      "sha256": "cb28e6a6ea3b12bc24c015d37912b5afd99755c73d730e65486b0a3b6c18269a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.agent_message_token_usage.md",
+      "bytes": 662,
+      "sha256": "44889215ea67507cc7cb4b3c5d9b9988263da5b9359a0f302c6b76d04728c29d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.agents.md",
+      "bytes": 2284,
+      "sha256": "bb39c09978c96441f507b26dd4b5ceafe174c6c49635bf434085520893cd7886"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.chat_preferences.md",
+      "bytes": 685,
+      "sha256": "b01dad7049a699743e39ca14e94c5e4003eac813836bcb2f1128e81730f3ebf8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.compactions.md",
+      "bytes": 1185,
+      "sha256": "dbb66d9058edf4844d1a448bd37ccae2ce5c946045e7a8470cc439b97562fc0d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.context_item_derived_write_backlog.md",
+      "bytes": 1054,
+      "sha256": "a4c070596efde25e44c117bb183f85880ffa8202eb02c21b849c6812a8f8a966"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.context_item_fields.md",
+      "bytes": 1432,
+      "sha256": "6bf19a0d46af842e5f2d7f5b9be1c74868a9e41b053f18695edbf8b1a35bf5b2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.context_item_resume_projection.md",
+      "bytes": 2044,
+      "sha256": "e747e8178bd077d93d2d0b542223f0b5ff209760bc37755d5c7e38699a914935"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.context_items.md",
+      "bytes": 3192,
+      "sha256": "322d146e36518e5843068a78743edbe544b2aad094882252d8f49e9187a06a03"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.context_text_segments.md",
+      "bytes": 1068,
+      "sha256": "05fe3faea7b9f93b1729853efcb467781e0158a9ee44d36e3c718784b4217e4f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.message_mailbox.md",
+      "bytes": 1794,
+      "sha256": "2e7ef4822cdeac3529d54dd017ed198f3d6436ae35cb4349722ac142ce6b1212"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.recovery_owner_terminal_events.md",
+      "bytes": 1110,
+      "sha256": "e306f816215c928114c73fdd9e0163f0e49b4cc1aa971b9fb81d919a835324f3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.recovery_owners.md",
+      "bytes": 1041,
+      "sha256": "d723fb7a12b1daf4c55ce80c7598cc1a6403c935074ed10be66b24d45c11fdb8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.runtime_restart_checkpoints.md",
+      "bytes": 832,
+      "sha256": "a70db4ad4ee4f885c87d2ef3ac91f9da12390ab1e11580c9c091864c1cd3bddf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.runtime_state.md",
+      "bytes": 834,
+      "sha256": "ca2901239f0483957b24e8b85a4533fd319f319b148fd48eda23213be0e95950"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.session_memory_capture_deadlines.md",
+      "bytes": 946,
+      "sha256": "d7c4225334cf6aa44ba000c7780b458f2dafa7a275ffe807bdbc71df5c4da5ef"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.sessions.md",
+      "bytes": 914,
+      "sha256": "9f98a730b032d294b78efc8563ac107bdfa0ed09957a49167fe2ff778542c452"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.subagent_monitor_decisions.md",
+      "bytes": 1865,
+      "sha256": "828e7619502b52c1201fb76861ff3485e6d379ebef5748996086718cb3e24005"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.subagent_progress.md",
+      "bytes": 1030,
+      "sha256": "9776999ee0418e1fceb7ae4c8e98f4beaa6764786866ea58225fa6f833f326a5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.subagent_progress_message_events.md",
+      "bytes": 983,
+      "sha256": "32cfb7e8d4454981f2bc3a4c864cc8b67ab70669705a0b99a7b449bce73d13dc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.subagent_progress_tool_events.md",
+      "bytes": 1243,
+      "sha256": "e7a83475e790ed6296eb1802159fc68e81d0a3e3a1defe332a8e0d65aacf85c9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.subagent_spawns.md",
+      "bytes": 2417,
+      "sha256": "3ac99ea5b160716b65d756bb8932bcc7e4a4053462d8482ce2e85eb081762308"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.token_usage.md",
+      "bytes": 1206,
+      "sha256": "0bfcc59c63fe0fc69f43dfc0daa3e171c175aadae24267dfce07665a0b96ac79"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/agent.volatile_context_pins.md",
+      "bytes": 804,
+      "sha256": "e4cee6ca2be23faf964eed26f0c42d085234d561823bcf8131857d0518d703ab"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/chat.chats.md",
+      "bytes": 1047,
+      "sha256": "41c4c35b9901cf0ab05badeb771c09aa378fd93c8d25fd7fb3790d3277681270"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/chat.event_transports.md",
+      "bytes": 666,
+      "sha256": "fd3d68fa5c429bbfd048049b58805d79d47804383deebe75ddc1e29aa5023ec6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/chat.message_bindings.md",
+      "bytes": 1550,
+      "sha256": "35294637fdac39b9e0c13e803b30d26bb4266e7fe119b6dad865bdfd8cc99e97"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.calendar_events.md",
+      "bytes": 1513,
+      "sha256": "ede0e61e908b6049e32139ea2c412fe1d2f6f907908ba93be9fd3047938a04b6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.call_log.md",
+      "bytes": 1191,
+      "sha256": "b7a744da8613892ef394aa41f8be9445062e3296d27d9c0f1233a652468830d9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.client_contexts.md",
+      "bytes": 1281,
+      "sha256": "800c858634c9e5a3308e4efb737cf8b9f68479f0781b578c70435e72b6b268e4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.contact_addresses.md",
+      "bytes": 1043,
+      "sha256": "ce514a9a4da0942dcb9690d1f8c7c5b5cf772bb68c83835f229b55eb2ba19bf2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.contact_emails.md",
+      "bytes": 856,
+      "sha256": "2fe81892d5af11b46d018af792657b2bfee23cfadfa591023ad0b21e982947c3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.contact_phones.md",
+      "bytes": 903,
+      "sha256": "437f1400c81ee3cce6193081fb55bf11fefabc55b1dec91d7bbba0ac1fcefae1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.contacts.md",
+      "bytes": 1533,
+      "sha256": "6cd28c656d06b2c4b245a30339db825a13df758c000988a8025a53f1ecddd602"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.data_sync_state.md",
+      "bytes": 1736,
+      "sha256": "753783eddb053bfd033657ded67ccfc1f0c6822b400bbede0ed6c003eb273777"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.media_upload_batches.md",
+      "bytes": 850,
+      "sha256": "e8abc14833afdd1ba0b667624cc014e082bb448ff2cd55707df0d40ffdf27bf4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.media_upload_events.md",
+      "bytes": 1961,
+      "sha256": "8485f2693df849572ca5fe8d5202acf2fba60ffe11847afdd67695d74f22d14b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.nodes.md",
+      "bytes": 2388,
+      "sha256": "bc72cdb990e7d3f7f0bee4745213352f8c7cac0678d13eeb556d6b992720b0d4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.upload_chunks.md",
+      "bytes": 989,
+      "sha256": "ba152a9d974582e050af37311bbb1402da18be4bf421f623729fb6223b09ceff"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/device.upload_sessions.md",
+      "bytes": 1196,
+      "sha256": "82c389fcc0b9fd9d49f444e998b8b7d7db9f31342fb294515f376b7c08195cf8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.fleet_engagement_contributions.md",
+      "bytes": 753,
+      "sha256": "9fb74807e4e9dcffa2a8d4f36f8f2d9ab64c7d83e37b44ded105c0c48de54713"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.fleet_engagement_outbox.md",
+      "bytes": 1026,
+      "sha256": "8f91c4b5f981dc3438d6c058664f4d41484720b65ee454accbd6416e4e03e695"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.fleet_fetch_receipts.md",
+      "bytes": 586,
+      "sha256": "831a4961fd412394ce742b98e0abfe90a0e3e360c5aa7ae8ef5275b6e5da8e0c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.fleet_publish_state.md",
+      "bytes": 491,
+      "sha256": "99c05910042f2c0a51af7fa72d9a9629d9492ea3aa50878ccaaaa32dc1ca9efb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.fleet_reaction_outbox.md",
+      "bytes": 846,
+      "sha256": "7e700375610230eeafa839d9c3a3d08ab2a4b2c5c9b32b7d75f7d4adc4446030"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.interactions.md",
+      "bytes": 732,
+      "sha256": "2bf638b1890809442d02dc4320e9f8081985126aa3ad3947ea719fc3a48bdb79"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.null_state_seed.md",
+      "bytes": 468,
+      "sha256": "652abd4112046728c11e2292c94a1934bf4b7f783959a6e0d5763b3877fbb3bf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.preferences_projection.md",
+      "bytes": 666,
+      "sha256": "5d2f389f86131541c6a72d02306f2cf373a6e92aa9f5ef5168fc3b35792ac9d7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.prompt_scope_verdict.md",
+      "bytes": 706,
+      "sha256": "757c78e3a2052285f4499e526949f776709665afe16c2c495ead874e46123882"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.prompt_seed.md",
+      "bytes": 466,
+      "sha256": "6f27ad3781afba23d51b770a8f59ed98894197b2303538971d034c3a561ace6d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.promptless_unit_orders.md",
+      "bytes": 783,
+      "sha256": "3956d47b0c857ecee04a44c2f74b7f724cd51aab017a918bddf13c5b0b15f274"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.prompts.md",
+      "bytes": 1078,
+      "sha256": "a78ba0c4a38766a418dfd5d0927a3b7bda797852baa632399771a8a8aa8f18c2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.run_steps.md",
+      "bytes": 1200,
+      "sha256": "46ef0278a8cba4938cd377f199606d4f129b446785feb3957b5e9618858ccfad"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.runs.md",
+      "bytes": 1384,
+      "sha256": "c7e168818732cff27de54640158803df294a76ccd98cf0cca6d38ee3adeb39a2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.surface_state.md",
+      "bytes": 471,
+      "sha256": "8742585f55328947b7dd5d6ca891083441e6325c4ec184eedfd8b26026f0442b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/feed.units.md",
+      "bytes": 3670,
+      "sha256": "8138c145a090b6a95e5e8539c3907d2403c0984603f1e2b6889334b5a8cbe41f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.actions.md",
+      "bytes": 907,
+      "sha256": "c6a6d5673d422bff043f9dcef2b6a64df90a50b2af24b4822550a94e388a8a23"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.associations.md",
+      "bytes": 1318,
+      "sha256": "1845aab865667bdfcf5363f86c53beda30e13732d9d439b7d4de58eb12a36e53"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.briefings.md",
+      "bytes": 1129,
+      "sha256": "698c31ed6f3ea276a6a0a4fd810705f0422fbd50f8f52c80f1270b88d7af3897"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.engagement_events.md",
+      "bytes": 1324,
+      "sha256": "aa70f1df8ef505df018ae5b8987d3e72664a6a133b604c352fca9405a7f0a4a2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.goals.md",
+      "bytes": 2934,
+      "sha256": "495234fbddfecbc62661d3a6f63b2a9097a5ae7b80b08a7c26fcbf6d4be9458d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.learning_state.md",
+      "bytes": 1398,
+      "sha256": "5c4f167554066cb56a6e494f9600c8b85746bb7e54e77c3512804cf6e2db4f06"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.momentum_history.md",
+      "bytes": 1241,
+      "sha256": "4c1bc2ae8c66a086721240273d51233bff049dda550cfb1dea26c249c47e4dd7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.sessions.md",
+      "bytes": 760,
+      "sha256": "afa1b3184dfce4ad2c24791ec029e737fea2fbb356aeb2fdc9933c0f230dfbe8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.suggestions.md",
+      "bytes": 1083,
+      "sha256": "452b39a289766e3ff825f39aff3a4d942a6e85bedfba1c2c0780f03392cbee15"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.thread_actions.md",
+      "bytes": 1106,
+      "sha256": "b8d84d7dd4d55908f12472db9f6cc206b459a06ac12e59257fb2b3747a9f6f38"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.threads.md",
+      "bytes": 1044,
+      "sha256": "b1e96a3126be862a9bf8c322f5f220b2c66b91393da63f6a9712991ec7bbda5b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/goals.updates.md",
+      "bytes": 1098,
+      "sha256": "adcd5288e0654cef86bc5e11ac27c3bb0a1890c7f88bcd6a814303292c460162"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.aggregates.md",
+      "bytes": 1114,
+      "sha256": "051461d4717db5867bc9b81bf2f7847dffe73b14af04169d92bdde0ac10b6015"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.events.md",
+      "bytes": 1075,
+      "sha256": "7cdcd781af7186efb78fe2f3f59bab9687888bfa22465e82a525764ffa204e2f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.record_values.md",
+      "bytes": 1095,
+      "sha256": "703105f25a986cecb8f533e6c9e26c3480a329299f4fb9332d9781b746e8c679"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.sample_values.md",
+      "bytes": 1038,
+      "sha256": "582f86e31f623a8222f312156d1674044de3780eb34fe4cc9bc8de2c42452807"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.samples.md",
+      "bytes": 1293,
+      "sha256": "3b95b686314c02aaf695e1e420d0a98b679528521aad8f5f58369e6deb20df47"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.sleep_sessions.md",
+      "bytes": 1566,
+      "sha256": "eff9bf620ad45835a542c500ab25cf1d6c6d2207c0f4d600893b9e45ca7b0f81"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.synced_ranges.md",
+      "bytes": 826,
+      "sha256": "09c67e6b4b55d40f14dea82564e9233bf1667843925b48a8dfd8c38444482c9e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/health.workouts.md",
+      "bytes": 1407,
+      "sha256": "be475da5c603c5ac0d0d30ce3659edeb6823a102a331493b1addaa7d22b7f761"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.bandit_arm_state.md",
+      "bytes": 1235,
+      "sha256": "be5b30b3e0744591df20089d264c17b7f674f243bad2af3d1e8ae7d98def56fa"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.bandit_fold_state.md",
+      "bytes": 873,
+      "sha256": "a813e576f75c6d343314106e4ff139c4d5f359598238628428473860cfb4f456"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.bandit_folded_events.md",
+      "bytes": 985,
+      "sha256": "0da9b760101ae9fb24b5acaf0790ee61cc27cef767a5a820fb205789f483f1ad"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.discovery_pool_history.md",
+      "bytes": 592,
+      "sha256": "e9079f6a205272e9def6e638b9c3c7e604eece7fa6b90a2eec0279a4d1c3e71c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.discovery_pool_meta.md",
+      "bytes": 567,
+      "sha256": "793d5cc1b3a80f7d6113dc364d95224ff37ec3cc201e1abe95bfe1bd64a1e4fa"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.explore_policy.md",
+      "bytes": 628,
+      "sha256": "947676c8aa382d4b9cbfdc5a12327c07f8aa42ec51abee0eaa0a316a66f0a61c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.feed_snapshot_cards.md",
+      "bytes": 1325,
+      "sha256": "1a6243f61d27f14725e7341873b745207eae56500fe1fbc08283036f0f33e449"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.feed_snapshot_sections.md",
+      "bytes": 1002,
+      "sha256": "16de38bcd076e3ed8af93e0381e9ef9f3de68ef55d9cb384ce3bf13f913c3929"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.feed_snapshots.md",
+      "bytes": 567,
+      "sha256": "7ff99fe438f5e3e88317d3072faf244e2ba39dfeafc3b2d2f061b7b3e2a25129"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.icon_embeddings.md",
+      "bytes": 764,
+      "sha256": "0305826ac0518053715bb7362daeb61005f09a26de2b104e4ea899e6e780487f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_anchors.md",
+      "bytes": 1316,
+      "sha256": "ee6e3603367721dc6f5071ffb8830e9eec536c6bd67138bf02b77b8f31569328"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_build_status.md",
+      "bytes": 973,
+      "sha256": "a52a4c5a0aa5ea582e7f304f429959ff2057b07e5e3d636a1f1a9569db97f7bf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_card_feeds.md",
+      "bytes": 658,
+      "sha256": "ca8a9c3952a0e06a8b7f0de14208e71be4c2e0cbf2aa8693c1ddc9a2a0f170a8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_dedup.md",
+      "bytes": 1115,
+      "sha256": "dd60afe6c4f67b287c077fd5d853d50c1e6085c4bc861256dc91f894ffa44cd3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_events.md",
+      "bytes": 1480,
+      "sha256": "1763df55e98e70789676dd601b4cbe4dce18cb82ccd6536762c383786745fe64"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_feedback_state.md",
+      "bytes": 1040,
+      "sha256": "d989cac36dcbd9e4b85488dff5dd3ace80fb00b50e8f794b534134039d0de1b2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_install_assets.md",
+      "bytes": 920,
+      "sha256": "10ae880777ff67418e0e4d18199696c5ef55f6fe81c716657f3fa22db3bd9bf5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_items.md",
+      "bytes": 1223,
+      "sha256": "db54ff489737199ec4794dd614d4b35888a588348b2a4ab4e5a693c13b716109"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_quality.md",
+      "bytes": 1193,
+      "sha256": "81521d7424b374480073a47276e26a4e2ca63cb719e31898b90bbc482a30d50b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_sources.md",
+      "bytes": 970,
+      "sha256": "8716b9284d3214f9b9c45a1f7c97a8f5941818443b94e703d0dede1d8aaf34ec"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.idea_tags.md",
+      "bytes": 658,
+      "sha256": "24a28b7a4bd7edaf743fe01ca6eb707c897c0a088637f2c5f915d5a7c804caa3"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ideas.ideas.md",
+      "bytes": 1649,
+      "sha256": "651238ff502efa82b205a400fbb355255b504e2da777c7076e384d6202aad4c2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/ingest.data_source_events.md",
+      "bytes": 1974,
+      "sha256": "c7fbffb1f633efc4bdc85d3c049f01ca7f0a5a80f7975df5558e1e7b659b0cca"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/media.descriptions.md",
+      "bytes": 985,
+      "sha256": "9ba7772d7fee81cda6ffd4329034708710f3fcf5044eb9d4b0754133cfe31202"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/media.exif_values.md",
+      "bytes": 866,
+      "sha256": "49f7f4ce6a31f551d2423ee5326e7041a55661e0df9d9bb92df596d77faf844a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/media.items.md",
+      "bytes": 1409,
+      "sha256": "a4e1b9a8f0e3897d6b54c06645781b3d5b193243ceab85e9266168783e30e0c0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/media.locations.md",
+      "bytes": 803,
+      "sha256": "bc69ba2c581f45853f57b66b218a098e2ecb6721451bf224a06197764be80333"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.claims.md",
+      "bytes": 1563,
+      "sha256": "eb39f930ba59ecb2dee80444e4c54550dbc1a483deac69dd388dad80e825972c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.embedding_models.md",
+      "bytes": 868,
+      "sha256": "107cc5ff523b282ee658cf4c01f31dcd28b055b6895a389ff9c83aeb9574ddb2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.embeddings.md",
+      "bytes": 1358,
+      "sha256": "b4d2ab9d0d1d47b0cd194e5e88713dd20ea82362935a6ea52d60c199560333e1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.entries.md",
+      "bytes": 1386,
+      "sha256": "7b95fc16557c6765ff483a32d777958d2ca68c483e654f2bb6f55c5c1c2d9c5d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.entry_attributes.md",
+      "bytes": 1022,
+      "sha256": "d320b2ffc52d06e4a2c733e3bc69f66b7c9cb85b36c90b9309458245b8f2e31c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/memory.metadata.md",
+      "bytes": 497,
+      "sha256": "be473b52b7655494e8d2661cf21d8226db4699e59331af5b71028bd7ab44688b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/podcasts.episodes.md",
+      "bytes": 1053,
+      "sha256": "87aca670ac3fc777b04a3ffbf2b9a8de0d29d310e7a8c097f2b0e48d09324b6f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/podcasts.feed.md",
+      "bytes": 1027,
+      "sha256": "ab57317bab7a4e03b208001ad1bc651a84a35d41eee8ae8395877bced845600c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/podcasts.feeds.md",
+      "bytes": 872,
+      "sha256": "a6a6b6f05846e3be5f9c25016e6a3afc520024e61eaa7861da740bf9f55e9b38"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.agent_todo_snapshots.md",
+      "bytes": 1000,
+      "sha256": "36f41e0130e6ddc151d025efee8bbe57b91d658fe4fc249d594b158170a66632"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.avatar_state.md",
+      "bytes": 2000,
+      "sha256": "1a1e9bfa5fbfad9ce4545385786a1257a373113c99ed05c1070d4f397be6395b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.browser_tasks.md",
+      "bytes": 6947,
+      "sha256": "9a63b9f0505e5c7166a165620d1e57d66eb8f4c016ce709e855aee192738357c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.chat_event_derived_write_backlog.md",
+      "bytes": 1067,
+      "sha256": "cd379aa442e3f6d7442ca1c83e8a07f82d9b7149c0dd5e2d249386847e2af1f8"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.checkout_spend_checkpoints.md",
+      "bytes": 1158,
+      "sha256": "0c595ecafe7f7f7353f36dafeec06729287bd1bb6de68f103ce5b770e54ddf52"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.checkout_spend_operations.md",
+      "bytes": 1755,
+      "sha256": "160d170a46788c1d38677b4d3a83fc72f8234eff217aeee10e3f03e6a7949eb5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.client_rendering_capabilities.md",
+      "bytes": 892,
+      "sha256": "77c764c301b19dec6bb5c353999ea2d7f75ae1fb2b2abb5cdba5a4f83d033804"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.context_snapshots.md",
+      "bytes": 1135,
+      "sha256": "7f57f579cf52676ca231b77e4302e00e4b3c8ed98693a8822d1ef585955a8e26"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.dev_notice_watermark.md",
+      "bytes": 576,
+      "sha256": "d89a9e15318e66bae9e04d949849288de053edd642b6eab7d3a57f795dfd8d46"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.event_hook_space_owners.md",
+      "bytes": 638,
+      "sha256": "c488b15ad0ecd32193ea48caac3b13e6aa4d5a5b8c5573d7243a0423916d6cac"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.event_payload_fields.md",
+      "bytes": 1074,
+      "sha256": "7148c846b1301535e9c90f1493aa7222381306a401744c9fcf549ba5f980c8c6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.events.md",
+      "bytes": 2996,
+      "sha256": "90f5549515892bdfd4220e14e3ea9812f8e72c8e7900e7e97689fde9189afdf9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.execute_resolve_runs.md",
+      "bytes": 1761,
+      "sha256": "2b2492749d0289539b0450d21f43ee9dc4fc2482def18891c90b11c77394ab37"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.idea_execution_pending.md",
+      "bytes": 959,
+      "sha256": "80ca3d03411f38e0f650fc3b141372566e2b22c3af93b09aecd8915f1062a4ca"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.invite_badge_seen_state.md",
+      "bytes": 518,
+      "sha256": "e879408af369b687efe9a579466845fa1613b86fd0d7adfd1b8f74c2d7b24f2b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.maintenance_markers.md",
+      "bytes": 584,
+      "sha256": "ca6ecbe195e24d04e9722236ac52dc42ecfd77eefb5c42b656bc68ee90a4db47"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.message_attachments.md",
+      "bytes": 1243,
+      "sha256": "46e170a4695e88745e8362477b644e1dad7a11c1f62cb2393e32442334751e5d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.message_reactions.md",
+      "bytes": 722,
+      "sha256": "29f1c4851bf7aade59e736f957b195d5582a79c38e47d0831c3c33636946e4e0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.messages.md",
+      "bytes": 1162,
+      "sha256": "2ba487342ce9ab3ed98c49421b032f120dcbade9d318c0fc4261b1d558ec596c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.product_improvements_preference.md",
+      "bytes": 590,
+      "sha256": "6a89a8666bc67c649fc361ab3b4a77742f9a0535a6440d413fba66669934a2b2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.raw_signal_collections.md",
+      "bytes": 1044,
+      "sha256": "bd9d7afcb9b10bc4099e40d71e0a370ee3335293aca8aceabe733d4f57fde239"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.raw_signal_entries.md",
+      "bytes": 1511,
+      "sha256": "b50bf6eb4621e0f6410274aee754bb9755fdf401cac5ae3043d2dcb8ad83d787"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.requests.md",
+      "bytes": 1238,
+      "sha256": "3a4fb87b93292bea05ace89532dea9957bcb01c3f738e8432dcf0ade4958c766"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.resources.md",
+      "bytes": 1238,
+      "sha256": "4ec27dfcd1281a638f015825b2461511442c3a2feb6975f7464c6b6994d9523a"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.search_documents.md",
+      "bytes": 960,
+      "sha256": "ca6557ba90132210d4bdbeb873bbcef0148642436d3d3f722401b993dd371272"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.skill_invalidation_state.md",
+      "bytes": 689,
+      "sha256": "cece563b29ec7b606187fe36768fd7aae8b26d892a8db79916a8a43abc4294d2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.stripe_link_spend_requests.md",
+      "bytes": 2918,
+      "sha256": "ab545836ddd4509e29c7763dd92a61605b51215854d01c0eddb6c754984823e6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.summaries.md",
+      "bytes": 636,
+      "sha256": "07b770fdba2e86fc9737463bcf498ee1d13e4642ec888ffefaf180341ad5cbb7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.tool_calls.md",
+      "bytes": 1262,
+      "sha256": "d2626036b40133725d93c1c8899836f8ef1e14150a6dd619d62865f9fe20b6ff"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.tool_outputs.md",
+      "bytes": 1164,
+      "sha256": "e62e1702fef6221185d47d919f9f3cc6a1259fe2d5200e299ca4dded36c289a2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.widgets.md",
+      "bytes": 820,
+      "sha256": "7d70cbd5a2c2c7caa9a075a384afcea7c4f4e31fa45cea72e84950ede140b5ac"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.work_items.md",
+      "bytes": 2903,
+      "sha256": "7806869345c6f3ff364ec4947b6c70beaa117aed6aac1122eb679bd7a4ac56c2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.workflow_agent_calls.md",
+      "bytes": 2502,
+      "sha256": "c29e0903f0c259512c6a229ad6d3cd15e6443ed07f60d0148ebbd05d6183227d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.workflow_launch_occurrence_aliases.md",
+      "bytes": 1185,
+      "sha256": "078a367cb299c24ac100567cc336cdbbe171a19fb95d08ee86449d4e55f17a48"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.workflow_legacy_launch_occurrence_blocks.md",
+      "bytes": 1219,
+      "sha256": "8b01a5c0b720bb9e0324fa25531550a5e6cfefc45e749698e21ded2243c48e07"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.workflow_phase_runs.md",
+      "bytes": 1442,
+      "sha256": "b23a86a1a61b58fd78213a90ead9bde903f863f5f3142ea80b1990ab61836f4b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.workflow_runs.md",
+      "bytes": 4771,
+      "sha256": "a14e15d650591678a0c0fdae4bbd4113f62e4cababa880999662f560acb1693f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/runtime.writer_epoch.md",
+      "bytes": 560,
+      "sha256": "7d5d4030fd439f8c763e8d7b4ba9d3cb17f1263ef158391924811e4099db59e7"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/saved.item_links.md",
+      "bytes": 863,
+      "sha256": "448061a7bed8e1c8bd22b007997ece2116630049c31a8f319d03e68607cd143e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/saved.items.md",
+      "bytes": 1812,
+      "sha256": "21bd898d3a5792b6b9d22369caf5e50ce98f65b96fa8e8083bd73421a984e439"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/saved.lists.md",
+      "bytes": 1036,
+      "sha256": "d7f7b6d2ecbb497b33dc86fa919df687ac252148491f97f503ee611aa0917f1b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.cron_mutations.md",
+      "bytes": 1326,
+      "sha256": "202e3c9f69b03a7e75cd5943e217fc423063eb909058977349ca26ae31e2977e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.delivery_outbox.md",
+      "bytes": 1196,
+      "sha256": "aa5b585ae2fdbd4e9fca2b4582204a1ada9c1b719115e29baea4c13e6c53f59c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.doctor_run_plans.md",
+      "bytes": 710,
+      "sha256": "050b9673f482228b3d0bbf9fe9525c130e5c1fcf4caed82cdf691fabe5bcf9b1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.doctor_task_state.md",
+      "bytes": 726,
+      "sha256": "6f531833071594a4547582f1d9c4a63dc8f5351255811ca95503ea9f4915433d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.events.md",
+      "bytes": 946,
+      "sha256": "b3b97d2147cc59df573cb96390031042c83b121fc6202a6f26eaea9c61b6f1b9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.job_definitions.md",
+      "bytes": 1190,
+      "sha256": "c77015ef526b56de89ab38b8c3072b38f44915b796106a7aba0278953d3bb65b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.job_idea_scope.md",
+      "bytes": 784,
+      "sha256": "45d69085e884c3541c886e22db8b4e9d3d7a84c7e834a9aa54ac3702216bfb0e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.job_runs.md",
+      "bytes": 3126,
+      "sha256": "43a1def2e28feb925335aa1321b22df4c631e9e0ff57dbf7466fc0f76033ea63"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.jobs.md",
+      "bytes": 1966,
+      "sha256": "476a45b14ea53a204e7b3dcf7cc16d17a774dee3d215989fb59799bfce22aac1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.scheduled_resume_registrations.md",
+      "bytes": 1187,
+      "sha256": "dffbd24e2fa21d68f368c2b7ef2d1395287d92ca10d6cf524aee0df711e4c7fc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.scheduled_resume_state.md",
+      "bytes": 939,
+      "sha256": "edb0d70ba8390eae42a1c22edbcf72c7f33e9b2721abfebf77accb6d5bf8185d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/scheduler.terminal_signals.md",
+      "bytes": 1042,
+      "sha256": "c1158a825dfeef057d24e4cc0774009e433307e7a90650464c34b9960c3c5fa4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.backfill_day_runs.md",
+      "bytes": 1477,
+      "sha256": "a93ef896a377dbb692433b6a15044e94af97b87d8f49ea86f2b7d0bbaf32b85e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.calculation_records.md",
+      "bytes": 1275,
+      "sha256": "a2751cc7cd9e89ec0883a3e91cea8df0be0ea7be6cdeae2f6a6f9979ec2b5e39"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.calibration_records.md",
+      "bytes": 1342,
+      "sha256": "ce923303337e2a5bc14bd70cb6b68008244a689682a559b8ca3997aca80d6692"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.connector_read_audit.md",
+      "bytes": 1232,
+      "sha256": "b127e8df003eee8e70ae110fe80db644ab7926abf66155532e265194a1054bdd"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.conversation_follow_up_attempts.md",
+      "bytes": 1536,
+      "sha256": "cc2e84f14a58ebdc0b3c66d9b8d25b4ada9b16c0c2bc9f31db5f284e7dc0db04"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.handoff_dedupe.md",
+      "bytes": 754,
+      "sha256": "6b0811594c105afc9f325e73df9b7c41e57fe39aa1ee1c70d1f76775d4fd14ed"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.learning_adoption_events.md",
+      "bytes": 1099,
+      "sha256": "9bfaae8cb6b183925097201a5568faa621dd3b8a2325e344941c8041d087349d"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.leases.md",
+      "bytes": 1266,
+      "sha256": "73c86a261ac3a86e517cf0feb8323a5b06158a51ba817fa0e93acc178f2134a1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.objective_markers.md",
+      "bytes": 596,
+      "sha256": "538932f10e129d96612345cbc60cc6e8983b87b160bfbf5d541978f209f17e31"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.objective_state.md",
+      "bytes": 796,
+      "sha256": "8adb098882e3ecd198bb2b3b17880cf20e40fc0bb2e5233431b48c5d645649c1"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.proactivity_changes.md",
+      "bytes": 1610,
+      "sha256": "065d042a67ae30bb16b2a71952983b8c35955422558e3171b07987db05811789"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.relationship_briefs.md",
+      "bytes": 896,
+      "sha256": "90aa9a46cc0ccb5b7d4bc7feca4c771db22d9393d451262c6a3f2e8f4a3d5795"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/self_improvement.runs.md",
+      "bytes": 1805,
+      "sha256": "8d38a556c010c7fc987aae66c6af537a65193b47dc5bc476fb4ec37431263ba2"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/shell.user_state.md",
+      "bytes": 996,
+      "sha256": "729ef007ee39024a618f5c6212319ecced86626e7f30c45b75597dc7e5753ef4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.action_arguments.md",
+      "bytes": 1071,
+      "sha256": "bdbf13d5ff9dd19fa18c9b7d14880212a0985758a8703e18114ef952ae197f93"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.action_invocations.md",
+      "bytes": 1941,
+      "sha256": "ab4a3e577251a9d1ea25d15a4f5b01a88b9e055b064f14c589a82d96042b5a82"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.action_results.md",
+      "bytes": 728,
+      "sha256": "e23683d124728954ad94195a8f039ff61cb0b208f9726a9fa47c7ddb744448d4"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.backfill_markers.md",
+      "bytes": 477,
+      "sha256": "d973d521d973f2ca630d309fcf9044eaaaab57e590c9b9ea7246808b7fff6444"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.file_artifact_identities.md",
+      "bytes": 646,
+      "sha256": "d8effde740ebf8c0d6024f41a47eefdffc3578f99700a3c5ac92f54f8a36c661"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.proposals.md",
+      "bytes": 895,
+      "sha256": "3c5018ec4460977ce118d69eee78b5c2a2ad3c35683b660fe062773da9feaa0b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.shares.md",
+      "bytes": 1502,
+      "sha256": "7d754ad8056d5ecf0eec71e8e7ba2156c3972e360f86f8ca1d0f1d9b016df8b6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.spaces.md",
+      "bytes": 4115,
+      "sha256": "08b76c74655b50b19c3d204e4c73f7f2d0b769f0611b75aded8209db47850c25"
+    },
+    {
+      "path": "evidence/muse/runtime-export/muse-db/tables/spaces.user_state.md",
+      "bytes": 2297,
+      "sha256": "b3d4f0589eb0834ace402697c5c23820e886c7b10db14900ef68537fdd5089b0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/notes/architecture-notes.md",
+      "bytes": 22805,
+      "sha256": "3eb7119f25f29ab02b523d46fa660a2acd1b641b7318cc75d444bcc29b2b5b7f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/notes/tool-schemas.md",
+      "bytes": 43302,
+      "sha256": "3890aacc1974119a524ff9bed4ff820264fb1f3d5c837265ff9cfc05f09f6b14"
+    },
+    {
+      "path": "evidence/muse/runtime-export/prompt/system_prompt.md",
+      "bytes": 72867,
+      "sha256": "d383ea401c01a4115be03844b0f37ff29e4281e25fdbb38986e9df2172922308"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/ads.json",
+      "bytes": 937,
+      "sha256": "665254a38318d0e6704b86426d400e6ee2449779802945331cfa333883bb8e09"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/artifact.json",
+      "bytes": 6992,
+      "sha256": "706c4c63464ca84b174b8ac2b650369bab5ea8de6a569461b518ce106a22df2c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/avatar.json",
+      "bytes": 1745,
+      "sha256": "f9a79bbb5638b4c4d03afe34d83f3845ee139a375601a05c6f2ecf0116c9161c"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/browser.json",
+      "bytes": 4647,
+      "sha256": "7b2f5ad514a97c98b88f53614191d3c66c6f970dfbbbe3ef8a3714ef8b392e44"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/chat.json",
+      "bytes": 3415,
+      "sha256": "21dc64eb946cdad1a0d9fcc3ce5dedff36ed11d0173e8a961f121a79777d8c7e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/credentials.json",
+      "bytes": 2000,
+      "sha256": "9d4c09427eae1b30001b9d8915ebddb49012875e5fa421841f2feef09a636ff9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/cron.json",
+      "bytes": 5585,
+      "sha256": "27240dac0f127a2a94a64a9f194851e691e012e934dd65e9982255cc8e952038"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/device.json",
+      "bytes": 1207,
+      "sha256": "8280e807b1f88c748ff1581e24ec1bd587b61d5fd03b8c6e4c55e0692b4d64f9"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/feed.json",
+      "bytes": 3007,
+      "sha256": "995479d87a8eaa107f7f3eb849c158845c74650bf0849fad5dcb6a835ea84bcf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/forget.json",
+      "bytes": 941,
+      "sha256": "062d31ec0b4e6748925c11e1020bcb4f1ee7a0a933be0151b7acfed80062638b"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/hooks.json",
+      "bytes": 3079,
+      "sha256": "e3ae64c9fab7a8d02024f5679d662aa295cd577b2eba1047aa79d852c43144e6"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/idea.json",
+      "bytes": 1666,
+      "sha256": "a87d6734cfe41f04d5ae315ffbbcc64fafc7228f3300915b38015288ffe52c43"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/map.json",
+      "bytes": 1393,
+      "sha256": "b36b71df1b3569088091c12a48bd8f43b1cc357c3b5215cead5fc309541b2c5e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/media.json",
+      "bytes": 1739,
+      "sha256": "f4f28b6042ea6fab3a4e0d54fa84cd7b5fd778834e71e7a0f792fe40b4f84b2e"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/muse.json",
+      "bytes": 5386,
+      "sha256": "3c30878ae92634aedcd62cb0d5cca24a543644474708c0e42d639f86cffe00bc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/onboarding.json",
+      "bytes": 695,
+      "sha256": "f00ebe85c32f1010315ec7ee7ee527a47c7d2a753182447015e60f8a28f426e5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/permissions.json",
+      "bytes": 889,
+      "sha256": "2ae43a3324dab8e25ab489d63990b1bdb077e18008d6576b3b624e7f0f1bb247"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/proactivity.json",
+      "bytes": 1367,
+      "sha256": "4f4b53726cbd0e119e6096dc6a5a77fbc92553520e8db4051e2ddff26afa8fd5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/process.json",
+      "bytes": 2028,
+      "sha256": "bdd19c944d18edee37b985ff07608402eff22cf1207c50400f0aedc1b7bd97fb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/shopping.json",
+      "bytes": 2162,
+      "sha256": "836a21cd588e8dbbbbde3f362b1a637f0e64895ac860a9d2f4b0cd8caeb61faf"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/social.json",
+      "bytes": 1919,
+      "sha256": "544786e7d1abb81f2ca156e6730b1efa50b4f6d559e59721489e5b0159a49a31"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/subagent.json",
+      "bytes": 2333,
+      "sha256": "c99ea16f162caf0cb067adbb20fded4b3a6c0f1b463bd414ade20b76e30e9837"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/todo.json",
+      "bytes": 746,
+      "sha256": "d21e4effe27f335c317bcc79971855ed109f488c2df11f673e114653d9e50590"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/tool_search.json",
+      "bytes": 487,
+      "sha256": "ba29b3e27d0566c1883faf7147c7b57b7e3795630141c9018778af392698056f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/tracking.json",
+      "bytes": 3616,
+      "sha256": "4f06684617e429b2d246ac54a9ccd9b43007e58bfb61d0747de47b61dd0661cc"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/trash.json",
+      "bytes": 822,
+      "sha256": "7bd7d617ec56b28397ea62a25dc1ebc329b24368a494c2f381df9c4033a389e0"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/travel.json",
+      "bytes": 532,
+      "sha256": "0f2c65f44d88ffd953e879691db9d1f30dacb88e4b45c72f67481541fddcaace"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/ui.json",
+      "bytes": 1687,
+      "sha256": "719b4f2358cb46085750bc4ea5f941a18bca0ec6e439e05b11fac03ac26b4b50"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/user_goal.json",
+      "bytes": 4048,
+      "sha256": "bcfb585e2215641e376b16290f900095d1d5d47568efe168364328c7fd7134f5"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/wallet.json",
+      "bytes": 1730,
+      "sha256": "2e7309bb80bd15211ccd9f4abac59001d8e72728b98fc268a1289a0864659edb"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/widget.json",
+      "bytes": 4641,
+      "sha256": "fab55f5f144161b15fc53647bbe35a74e24270d466266ed47514a7d7a56f896f"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/worker.json",
+      "bytes": 652,
+      "sha256": "fa7ee5f15cd4ceec972fbbf8716efc4c7a6013533b5580b6e30ac70586ad33db"
+    },
+    {
+      "path": "evidence/muse/runtime-export/schemas/workflow.json",
+      "bytes": 3749,
+      "sha256": "54a9575b8cb4b5d5feb865f2747087b00572284b770358d9239a7e54daf87a85"
+    },
+    {
+      "path": "evidence/muse/system_prompt.md",
+      "bytes": 72867,
+      "sha256": "d383ea401c01a4115be03844b0f37ff29e4281e25fdbb38986e9df2172922308"
+    },
+    {
+      "path": "evidence/muse/tool-schemas.md",
+      "bytes": 43302,
+      "sha256": "3890aacc1974119a524ff9bed4ff820264fb1f3d5c837265ff9cfc05f09f6b14"
+    },
+    {
+      "path": "prompts/README.md",
+      "bytes": 1955,
+      "sha256": "f6417fee7857c5477afa21bd6f387f7391d2ddb1e8689dab1609b220db76522e"
+    },
+    {
+      "path": "prompts/background-wake.md",
+      "bytes": 1218,
+      "sha256": "fa24492153a1b49ab7cfa90538e02cc90819f5ec086de64ad5801f9e46acce24"
+    },
+    {
+      "path": "prompts/coordinator.md",
+      "bytes": 3754,
+      "sha256": "74b1ef23edb9d0ea15c1513e9d97ac41abc0e366bc69503f707d39dfe0cba6af"
+    },
+    {
+      "path": "prompts/grok-historical-prompt-map.md",
+      "bytes": 1895,
+      "sha256": "8dced4e7b615d7c79c4bfa0d5d368ae6ea523c26afc3037d59147f5646e5ecdc"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/README.md",
+      "bytes": 1228,
+      "sha256": "7c9022aa4f594ecc4e93c921c2e96f51c256e97ff8e5abbdec37d823b917127e"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/system.md",
+      "bytes": 99884,
+      "sha256": "f2af0e8a5992fdf78248a2304ba6abf25bf4176fb55ebfff9c56dfa0dcb2a189"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/01-computeruse.md",
+      "bytes": 8899,
+      "sha256": "d5c2e83948ac16b58180cee51320702d8313a129cf909c65ca4b695fd7a24e76"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/02-browseruse.md",
+      "bytes": 4494,
+      "sha256": "889c0732032eab53dc27408d1b3aabd37b04b5c2678b0fee1e558669ec64bc22"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/03-debug.md",
+      "bytes": 2127,
+      "sha256": "d39b285c4fe6b4991d32fff78fcb76cc7ecb1da5e5125e40f4a971a4f9aa4835"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/04-videoreview.md",
+      "bytes": 2984,
+      "sha256": "96d2e00fd7864cf1ea0283944f40d5a6db75323762bb9933eccb6d9bcfbd0cd4"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/05-vmsetuphelper.md",
+      "bytes": 1164,
+      "sha256": "de446f4c321e8a7d1b63f7c7dcc295727bbbd9256cd1eaac0468b4d5da7adc53"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/06-watchvideo.md",
+      "bytes": 5646,
+      "sha256": "ea9112015b021e4d52d6618808dd5914584992799b268c4cf62ca15b6bcb5c4b"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/07-cursor-guide.md",
+      "bytes": 1188,
+      "sha256": "e6ef889231f82716db70d1c7056918fd553f40eac3c8f64e362c2fca18a1c1e8"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/08-explore.md",
+      "bytes": 995,
+      "sha256": "9a4c9ffac4df018cffc68fe88dd9677122e9535db0ad8b9cc7370f7ccc708921"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/09-shell.md",
+      "bytes": 499,
+      "sha256": "5d18ae185fc5fb2326c43ecc30eefd944bc40e8a5c5020b3f1fc0adfaf8a7a86"
+    },
+    {
+      "path": "prompts/grok-public-2026-08-21/variants/10-generalpurpose.md",
+      "bytes": 2533,
+      "sha256": "04d90e3f18cf3d5b906dee942dc02aeea751aba1571da6e2d2ae36e3a51ed01c"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/README.md",
+      "bytes": 1554,
+      "sha256": "90e84f68eed61d9f73ff0a9324956e764cfc0c522cf71d4d771fbf815b63c3d9"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/01-first-run.md",
+      "bytes": 1905,
+      "sha256": "2a0125422fd74e81696ddb70be99a87bc3be027b34ae553d2ef198adfbd73604"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/02-event.md",
+      "bytes": 426,
+      "sha256": "a37e865d418a7a52116151bcb55340cd07c06867b8d2f65995542e7317c5253c"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/03-routine-run-on-demand.md",
+      "bytes": 1477,
+      "sha256": "93c5642ae4f7828e0e2ba57b94ccca2c4bad01860c62df49c995bda83ab8916a"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/04-routine-due.md",
+      "bytes": 1444,
+      "sha256": "2a3c7542a55489515e99a21ea3963de669d724f71948b7c03845b81d57d1fce2"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/05-mcp-server-authorized.md",
+      "bytes": 499,
+      "sha256": "165aaff57d85cd000d74c19202b4e2738b0285d20aa66958a872720a4b89fed2"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/runtime/06-routine-due-subagent.md",
+      "bytes": 2700,
+      "sha256": "d8c34b9e74f65c79b42b90dddb52927aa6dc6f5650c7acd2d7548d0a3fa1cc32"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/system.md",
+      "bytes": 35796,
+      "sha256": "92cecd51419a14c580e11772d9cb38676cfda072571d9d868c1b35fd6f6e5488"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/01-executor.md",
+      "bytes": 3705,
+      "sha256": "37ed598c7257b0d1c06ae2b4beb97289f3054114f03e7b7948c5048c65c7c8ab"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/02-executor-readonly.md",
+      "bytes": 3757,
+      "sha256": "e2e75d9f103db420c0e44e6c60ac4f044b4e2158274b3c8577b2b09ce12c3ec3"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/03-computeruse.md",
+      "bytes": 6575,
+      "sha256": "e1dfcc751e37430de4838961c6e8a9f90ae59468e80d1133668f310fb7cf7001"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/04-usercomputeruse.md",
+      "bytes": 9438,
+      "sha256": "b19b81a3955b086be54f59e2fdfd21f769744781f7f56bbdce576ceccc3bf9a7"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/05-automation-run.md",
+      "bytes": 22206,
+      "sha256": "f232384331a09cc5167439a1e32c15d4c5a5100167e98e92b14f33b5ae724930"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/06-meeting-request-agent.md",
+      "bytes": 9819,
+      "sha256": "6e0a48cbcd5401bc903c2709ac358111cf83dec500dc6b44cda10ac0d13cad7f"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/07-team-bot.md",
+      "bytes": 5862,
+      "sha256": "74c6e94c11e853629cc9e776fda8f08ac5194100cca5408d865c5a8d15f9a3d9"
+    },
+    {
+      "path": "prompts/grok-public-2026-10-24/variants/08-group-chat-turns.md",
+      "bytes": 2619,
+      "sha256": "a2cd8b23c8a0fcf2d57e2373d995c2a3fb78fab612594fca2a9d6e3ae3b0747f"
+    },
+    {
+      "path": "prompts/worker.md",
+      "bytes": 1373,
+      "sha256": "cc706c9a91170f349dea54921304908b5ca9963a27517346981cd21000a534fb"
+    },
+    {
+      "path": "reference/README.md",
+      "bytes": 3138,
+      "sha256": "2b4b8db42a80ba965b9d0038a1863d504f33aa80976b618036e39bf32cce5274"
+    },
+    {
+      "path": "reference/demo.py",
+      "bytes": 1263,
+      "sha256": "32e439ee962a1ca6d4e2c0796b7bddb5c4346b974bc1223a81e1041b60cf9e21"
+    },
+    {
+      "path": "reference/engine.py",
+      "bytes": 12270,
+      "sha256": "f6b3339c80718d5243eeb3db7a600f12c44125f428cd1a3c2bbff23328f42cfb"
+    },
+    {
+      "path": "reference/test_engine.py",
+      "bytes": 4725,
+      "sha256": "662aabeed3b8424f57f9016ceb8a2f21ada8fa3260bc6435c868e198430c2f40"
+    },
+    {
+      "path": "requests/README.md",
+      "bytes": 1400,
+      "sha256": "0168a03ef85340a67c847d07a3a7d8f319bb2d32b29404b6dcdb1d289c4e293f"
+    },
+    {
+      "path": "requests/community-model-request.template.json",
+      "bytes": 1246,
+      "sha256": "fff5efe9b6526b7262fda54a8a2e793a52093b5aa1f8c0d5137ea97480961723"
+    },
+    {
+      "path": "requests/cue-client-observed.json",
+      "bytes": 8689,
+      "sha256": "d917fd56a9786d1f1b137e15997d109f71cc2d181930fb367c3907e37a0ad9d4"
+    },
+    {
+      "path": "requests/grok-client-observed.json",
+      "bytes": 5001,
+      "sha256": "b6fb9028553df5cfd31f1298c474e871874df7e9a9e74139ec9cff76df52be41"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 7496,
+      "sha256": "acf2afa468516d7fff1cc38f89cb2d04e99ea7396ae271bd54d9a9facd0a7e78"
+    },
+    {
+      "path": "tools/README.md",
+      "bytes": 1012,
+      "sha256": "112abee81a493907140f52e54b9fe367461e57f2a72d8baa267b6b0912fa2786"
+    },
+    {
+      "path": "tools/validate.py",
+      "bytes": 9219,
+      "sha256": "4e231907a4fa9059ed02414d686b10af4238a005c39511256373ce8d62f5bb42"
+    }
+  ]
+}

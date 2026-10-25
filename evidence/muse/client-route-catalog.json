@@ -1,0 +1,2456 @@
+{
+  "evidence_class": "installed-client-static",
+  "availability_warning": "Presence in a shipped bundle is not evidence of a currently exposed tool or enabled feature.",
+  "entries": [
+    {
+      "method": "shopping.product_details",
+      "http_method": "GET",
+      "path": "/api/shopping",
+      "extra_source": "",
+      "offset": 1166370
+    },
+    {
+      "method": "shopping.cart",
+      "http_method": "GET",
+      "path": "/api/shopping/cart",
+      "extra_source": "",
+      "offset": 1166444
+    },
+    {
+      "method": "shopping.events",
+      "http_method": "POST",
+      "path": "/api/shopping/events",
+      "extra_source": "",
+      "offset": 1166512
+    },
+    {
+      "method": "hotels.results",
+      "http_method": "GET",
+      "path": "/api/hotels/results",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,channel:`main`,maxResponseBytes:2*1024*1024",
+      "offset": 1166585
+    },
+    {
+      "method": "hotels.details",
+      "http_method": "GET",
+      "path": "/api/hotels/details",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,channel:`main`,maxResponseBytes:2*1024*1024",
+      "offset": 1166729
+    },
+    {
+      "method": "hotels.events",
+      "http_method": "POST",
+      "path": "/api/hotels/events",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,channel:`main`,maxResponseBytes:16*1024",
+      "offset": 1166873
+    },
+    {
+      "method": "email.mailbox.get",
+      "http_method": "GET",
+      "path": "/api/email/mailbox",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167106
+    },
+    {
+      "method": "email.mailbox.setup",
+      "http_method": "GET",
+      "path": "/api/email/mailbox/setup",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167208
+    },
+    {
+      "method": "email.mailbox.create",
+      "http_method": "POST",
+      "path": "/api/email/mailbox",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167318
+    },
+    {
+      "method": "email.mailbox.delete",
+      "http_method": "DELETE",
+      "path": "/api/email/mailbox",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,requestBody:`empty`",
+      "offset": 1167424
+    },
+    {
+      "method": "email.messages.get",
+      "http_method": "GET",
+      "path": "/api/email/messages/{message_id}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167552
+    },
+    {
+      "method": "email.messages.delete",
+      "http_method": "DELETE",
+      "path": "/api/email/messages/{message_id}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,requestBody:`empty`",
+      "offset": 1167669
+    },
+    {
+      "method": "email.attachment.get",
+      "http_method": "GET",
+      "path": "/api/email/messages/{message_id}/attachments/{index}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167812
+    },
+    {
+      "method": "email.threads.list",
+      "http_method": "GET",
+      "path": "/api/email/threads",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1167951
+    },
+    {
+      "method": "email.threads.get",
+      "http_method": "GET",
+      "path": "/api/email/threads/{thread_id}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1168054
+    },
+    {
+      "method": "email.owner_challenges.create",
+      "http_method": "POST",
+      "path": "/api/email/owners/challenges",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1168168
+    },
+    {
+      "method": "email.owner_challenges.verify",
+      "http_method": "POST",
+      "path": "/api/email/owners/challenges/{challenge_id}/verify",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1168293
+    },
+    {
+      "method": "email.owner_candidates.list",
+      "http_method": "GET",
+      "path": "/api/email/owner-candidates",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1168440
+    },
+    {
+      "method": "voice.user_speech_started",
+      "http_method": "POST",
+      "path": "/api/voice/user-speech-started",
+      "extra_source": "",
+      "offset": 1168655
+    },
+    {
+      "method": "voice.calls.user_speech",
+      "http_method": "POST",
+      "path": "/api/voice/calls/user-speech",
+      "extra_source": "",
+      "offset": 1168748
+    },
+    {
+      "method": "voice.active_voice",
+      "http_method": "GET",
+      "path": "/api/voice/active-voice",
+      "extra_source": "",
+      "offset": 1168837
+    },
+    {
+      "method": "voice.active_voice.save",
+      "http_method": "POST",
+      "path": "/api/voice/active-voice",
+      "extra_source": "",
+      "offset": 1168915
+    },
+    {
+      "method": "voice.calls.media_endpoint",
+      "http_method": "GET",
+      "path": "/api/voice/calls/media-endpoint",
+      "extra_source": "",
+      "offset": 1168999
+    },
+    {
+      "method": "voice.available_voices",
+      "http_method": "GET",
+      "path": "/api/voice/available-voices",
+      "extra_source": "",
+      "offset": 1169093
+    },
+    {
+      "method": "voice.catalog",
+      "http_method": "GET",
+      "path": "/api/voice/catalog",
+      "extra_source": "",
+      "offset": 1169179
+    },
+    {
+      "method": "voice.catalog_filters",
+      "http_method": "GET",
+      "path": "/api/voice/catalog/filters",
+      "extra_source": "",
+      "offset": 1169247
+    },
+    {
+      "method": "voice.custom_voices.list",
+      "http_method": "GET",
+      "path": "/api/voice/custom-voices",
+      "extra_source": "",
+      "offset": 1169331
+    },
+    {
+      "method": "voice.custom_voices.rename",
+      "http_method": "PATCH",
+      "path": "/api/voice/custom-voices/{saved_voice_id}",
+      "extra_source": "",
+      "offset": 1169416
+    },
+    {
+      "method": "voice.custom_voices.delete",
+      "http_method": "DELETE",
+      "path": "/api/voice/custom-voices/{saved_voice_id}",
+      "extra_source": ",requestBody:`empty`",
+      "offset": 1169522
+    },
+    {
+      "method": "voice.pipeline_profiles",
+      "http_method": "GET",
+      "path": "/api/voice/pipeline-profiles",
+      "extra_source": "",
+      "offset": 1169649
+    },
+    {
+      "method": "voice.select_pipeline_profile",
+      "http_method": "POST",
+      "path": "/api/voice/pipeline-profile",
+      "extra_source": "",
+      "offset": 1169737
+    },
+    {
+      "method": "voice.avatar_video.prepare",
+      "http_method": "POST",
+      "path": "/api/voice/avatar-video/prepare",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:8e3",
+      "offset": 1169831
+    },
+    {
+      "method": "client.runtime_state",
+      "http_method": "POST",
+      "path": "/api/client/runtime-state",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1169960
+    },
+    {
+      "method": "voice.start_call",
+      "http_method": "POST",
+      "path": "/api/voice/start-call",
+      "extra_source": "",
+      "offset": 1170056
+    },
+    {
+      "method": "voice.end_call",
+      "http_method": "POST",
+      "path": "/api/voice/end-call",
+      "extra_source": "",
+      "offset": 1170131
+    },
+    {
+      "method": "voice.onboarding.reset",
+      "http_method": "POST",
+      "path": "/api/voice/onboarding/reset",
+      "extra_source": "",
+      "offset": 1170202
+    },
+    {
+      "method": "oauth.callback",
+      "http_method": "POST",
+      "path": "/oauth/callback",
+      "extra_source": ",service:`authd`",
+      "offset": 1170421
+    },
+    {
+      "method": "ac_oauth.callback",
+      "http_method": "POST",
+      "path": "/ac_oauth/callback",
+      "extra_source": "",
+      "offset": 1170504
+    },
+    {
+      "method": "github.installation.callback",
+      "http_method": "POST",
+      "path": "/api/github/installation/callback",
+      "extra_source": "",
+      "offset": 1170577
+    },
+    {
+      "method": "sharing.eligibility",
+      "http_method": "GET",
+      "path": "/api/sharing/eligibility",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,requestTimeoutMs:15e3",
+      "offset": 1170776
+    },
+    {
+      "method": "sharing.attempt",
+      "http_method": "POST",
+      "path": "/api/sharing/attempt",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,requestTimeoutMs:35e3",
+      "offset": 1170908
+    },
+    {
+      "method": "browser_task.clipboard.readiness",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/clipboard/readiness",
+      "extra_source": ",noiseOnly:!0,maxResponseBytes:2*1024",
+      "offset": 1171582
+    },
+    {
+      "method": "browser_task.clipboard.copy",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/clipboard/copy",
+      "extra_source": ",noiseOnly:!0,maxResponseBytes:COPY_MAX_RESPONSE_BYTES",
+      "offset": 1171736
+    },
+    {
+      "method": "browser_task.clipboard.paste",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/clipboard/paste",
+      "extra_source": ",noiseOnly:!0,maxResponseBytes:2*1024",
+      "offset": 1171897
+    },
+    {
+      "method": "credentials.list",
+      "http_method": "GET",
+      "path": "/v1/credentials/list",
+      "extra_source": ",service:`authd`",
+      "offset": 1172222
+    },
+    {
+      "method": "credentials.catalog",
+      "http_method": "GET",
+      "path": "/v1/credentials/catalog",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172311
+    },
+    {
+      "method": "credentials.catalog.details",
+      "http_method": "GET",
+      "path": "/v1/credentials/catalog/details",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172419
+    },
+    {
+      "method": "credentials.catalog.update",
+      "http_method": "POST",
+      "path": "/v1/credentials/catalog/update",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172543
+    },
+    {
+      "method": "credentials.catalog.delete",
+      "http_method": "POST",
+      "path": "/v1/credentials/catalog/delete",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172666
+    },
+    {
+      "method": "credentials.register",
+      "http_method": "POST",
+      "path": "/v1/credentials/register",
+      "extra_source": ",service:`authd`",
+      "offset": 1172789
+    },
+    {
+      "method": "credentials.capture",
+      "http_method": "POST",
+      "path": "/v1/credentials/capture",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172887
+    },
+    {
+      "method": "credentials.capture.external_provider.request",
+      "http_method": "POST",
+      "path": "/v1/credentials/capture/external-provider/request",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1172996
+    },
+    {
+      "method": "credentials.capture.external_provider.fulfill",
+      "http_method": "POST",
+      "path": "/v1/credentials/capture/external-provider/fulfill",
+      "extra_source": ",service:`authd`,noiseOnly:!0",
+      "offset": 1173157
+    },
+    {
+      "method": "credentials.delete",
+      "http_method": "POST",
+      "path": "/v1/credentials/delete",
+      "extra_source": ",service:`authd`",
+      "offset": 1173318
+    },
+    {
+      "method": "ssh.operator.enable",
+      "http_method": "POST",
+      "path": "/v1/ssh/operator/enable",
+      "extra_source": ",service:`ssh_access`,requestBody:`empty`,noiseOnly:!0",
+      "offset": 1173537
+    },
+    {
+      "method": "ssh.operator.disable",
+      "http_method": "POST",
+      "path": "/v1/ssh/operator/disable",
+      "extra_source": ",service:`ssh_access`,requestBody:`empty`,noiseOnly:!0",
+      "offset": 1173671
+    },
+    {
+      "method": "browser_task.refresh_environment",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/refresh-environment",
+      "extra_source": ",requestTimeoutMs:BROWSER_ENVIRONMENT_REFRESH_REQUEST_TIMEOUT_MS",
+      "offset": 1174144
+    },
+    {
+      "method": "browser_task.end_and_release",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/end-and-release",
+      "extra_source": ",requestTimeoutMs:BROWSER_END_AND_RELEASE_REQUEST_TIMEOUT_MS",
+      "offset": 1174325
+    },
+    {
+      "method": "browser_task.lease_info",
+      "http_method": "GET",
+      "path": "/api/browser-task/{task_id}/lease",
+      "extra_source": "",
+      "offset": 1174494
+    },
+    {
+      "method": "browser.debug_access.get",
+      "http_method": "GET",
+      "path": "/api/browser/debug-access",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1174587
+    },
+    {
+      "method": "browser.lease_overrides.get",
+      "http_method": "GET",
+      "path": "/api/browser/lease-overrides",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1174686
+    },
+    {
+      "method": "browser.lease_overrides.set",
+      "http_method": "PATCH",
+      "path": "/api/browser/lease-overrides",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1174791
+    },
+    {
+      "method": "browser.lease_overrides.release",
+      "http_method": "POST",
+      "path": "/api/browser/lease-overrides/release",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:BROWSER_END_AND_RELEASE_REQUEST_TIMEOUT_MS",
+      "offset": 1174898
+    },
+    {
+      "method": "search.debug_overrides.get",
+      "http_method": "GET",
+      "path": "/api/search/debug-overrides",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1175076
+    },
+    {
+      "method": "search.debug_overrides.set",
+      "http_method": "PATCH",
+      "path": "/api/search/debug-overrides",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1175179
+    },
+    {
+      "method": "tasks.list",
+      "http_method": "GET",
+      "path": "/tasks",
+      "extra_source": "",
+      "offset": 1175375
+    },
+    {
+      "method": "tasks.runs",
+      "http_method": "GET",
+      "path": "/tasks/runs",
+      "extra_source": "",
+      "offset": 1175428
+    },
+    {
+      "method": "tasks.run",
+      "http_method": "POST",
+      "path": "/tasks/{job_id}/run",
+      "extra_source": "",
+      "offset": 1175486
+    },
+    {
+      "method": "tasks.delete",
+      "http_method": "DELETE",
+      "path": "/api/tasks/{job_id}",
+      "extra_source": ",requestBody:`empty`",
+      "offset": 1175552
+    },
+    {
+      "method": "egress.approvals",
+      "http_method": "GET",
+      "path": "/approvals",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1175746
+    },
+    {
+      "method": "egress.approval",
+      "http_method": "GET",
+      "path": "/approvals/{approval_id}",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1175828
+    },
+    {
+      "method": "egress.approval.editable_message",
+      "http_method": "GET",
+      "path": "/approvals/{approval_id}/editable-message",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1175923
+    },
+    {
+      "method": "egress.approval.decide",
+      "http_method": "POST",
+      "path": "/approvals/{approval_id}/decide",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1176052
+    },
+    {
+      "method": "egress.approval.edit_message",
+      "http_method": "POST",
+      "path": "/approvals/{approval_id}/edit-message",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1176162
+    },
+    {
+      "method": "egress.approval.history",
+      "http_method": "GET",
+      "path": "/approvals/history",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1176284
+    },
+    {
+      "method": "peers.status",
+      "http_method": "GET",
+      "path": "/peers/status",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1176601
+    },
+    {
+      "method": "peers.list",
+      "http_method": "GET",
+      "path": "/peers",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1176693
+    },
+    {
+      "method": "peers.invites.list",
+      "http_method": "GET",
+      "path": "/peers/invites",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1176776
+    },
+    {
+      "method": "peers.disconnect",
+      "http_method": "DELETE",
+      "path": "/peers/{muse_id}?relationship_generation_id={relationship_generation_id}&relationship_revision={relationship_revision}&relationship_started_at_ms={relationship_started_at_ms}&request_expires_at_ms={request_expires_at_ms}",
+      "extra_source": ",requestBody:`empty`,service:`daemon`,noiseOnly:!0",
+      "offset": 1176875
+    },
+    {
+      "method": "peers.update",
+      "http_method": "PATCH",
+      "path": "/peers/{muse_id}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177201
+    },
+    {
+      "method": "peers.requests.list",
+      "http_method": "GET",
+      "path": "/peers/requests",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177298
+    },
+    {
+      "method": "peers.invites.create",
+      "http_method": "POST",
+      "path": "/peers/invites",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177399
+    },
+    {
+      "method": "peers.invites.accept",
+      "http_method": "POST",
+      "path": "/peers/invites/accept",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177501
+    },
+    {
+      "method": "peers.invites.open",
+      "http_method": "POST",
+      "path": "/peers/invites/open",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177610
+    },
+    {
+      "method": "peers.inbox.deliver",
+      "http_method": "POST",
+      "path": "/peers/inbox/deliver",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177715
+    },
+    {
+      "method": "peers.inbox.list",
+      "http_method": "GET",
+      "path": "/peers/inbox",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177822
+    },
+    {
+      "method": "peers.inbox.decline",
+      "http_method": "POST",
+      "path": "/peers/inbox/decline",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1177917
+    },
+    {
+      "method": "peers.invites.revoke",
+      "http_method": "DELETE",
+      "path": "/peers/invites/{invite_id}",
+      "extra_source": ",requestBody:`empty`,service:`daemon`,noiseOnly:!0",
+      "offset": 1178024
+    },
+    {
+      "method": "peers.requests.sas",
+      "http_method": "GET",
+      "path": "/peers/requests/{relationship_generation_id}/sas",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1178160
+    },
+    {
+      "method": "peers.requests.sas.confirm",
+      "http_method": "POST",
+      "path": "/peers/requests/{relationship_generation_id}/sas/confirm",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,requestTimeoutMs:75e3",
+      "offset": 1178293
+    },
+    {
+      "method": "peers.discretion.write",
+      "http_method": "POST",
+      "path": "/fs/write",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:6*6e4",
+      "offset": 1178465
+    },
+    {
+      "method": "peers.photo",
+      "http_method": "GET",
+      "path": "/peers/{muse_id}/photo/{sha256}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,responseType:`binary`,maxResponseBytes:PEER_PROFILE_PHOTO_MAX_BYTES,channel:`media`",
+      "offset": 1178570
+    },
+    {
+      "method": "peers.avatar",
+      "http_method": "GET",
+      "path": "/peers/{muse_id}/avatar/{sha256}",
+      "extra_source": ",service:`daemon`,noiseOnly:!0,responseType:`binary`,maxResponseBytes:PEER_MUSE_AVATAR_MAX_BYTES,channel:`media`",
+      "offset": 1178763
+    },
+    {
+      "method": "chat.history",
+      "http_method": "GET",
+      "path": "/chat/history",
+      "extra_source": ",maxResponseBytes:CHAT_HISTORY_MAX_RESPONSE_BYTES,shrinksLimitOnByteLimit:!0",
+      "offset": 1181236
+    },
+    {
+      "method": "professional_consent.resume",
+      "http_method": "POST",
+      "path": "/api/professional-consent/resume",
+      "extra_source": "",
+      "offset": 1181374
+    },
+    {
+      "method": "chat.mark_seen",
+      "http_method": "POST",
+      "path": "/api/chat/{thread_id}/seen",
+      "extra_source": "",
+      "offset": 1181471
+    },
+    {
+      "method": "chat.sxs.select",
+      "http_method": "POST",
+      "path": "/api/chat/sxs/select",
+      "extra_source": "",
+      "offset": 1181549
+    },
+    {
+      "method": "activity.list",
+      "http_method": "GET",
+      "path": "/activity",
+      "extra_source": "",
+      "offset": 1181650
+    },
+    {
+      "method": "activity.get",
+      "http_method": "GET",
+      "path": "/activity/{id}",
+      "extra_source": "",
+      "offset": 1181709
+    },
+    {
+      "method": "sessions.list",
+      "http_method": "GET",
+      "path": "/api/session/list",
+      "extra_source": "",
+      "offset": 1181797
+    },
+    {
+      "method": "sessions.get",
+      "http_method": "GET",
+      "path": "/api/session/list/{id}",
+      "extra_source": "",
+      "offset": 1181864
+    },
+    {
+      "method": "skills.list",
+      "http_method": "GET",
+      "path": "/skills",
+      "extra_source": "",
+      "offset": 1181935
+    },
+    {
+      "method": "skills.disconnect",
+      "http_method": "POST",
+      "path": "/skills/disconnect",
+      "extra_source": "",
+      "offset": 1181990
+    },
+    {
+      "method": "skills.set_disabled",
+      "http_method": "POST",
+      "path": "/skills/set-disabled",
+      "extra_source": "",
+      "offset": 1182063
+    },
+    {
+      "method": "subagents.list",
+      "http_method": "GET",
+      "path": "/subagents",
+      "extra_source": "",
+      "offset": 1182140
+    },
+    {
+      "method": "subagents.status",
+      "http_method": "GET",
+      "path": "/subagents/status",
+      "extra_source": "",
+      "offset": 1182201
+    },
+    {
+      "method": "config.get",
+      "http_method": "GET",
+      "path": "/config",
+      "extra_source": "",
+      "offset": 1182271
+    },
+    {
+      "method": "config.update",
+      "http_method": "PATCH",
+      "path": "/config",
+      "extra_source": "",
+      "offset": 1182325
+    },
+    {
+      "method": "vm.health",
+      "http_method": "GET",
+      "path": "/health",
+      "extra_source": "",
+      "offset": 1182384
+    },
+    {
+      "method": "bug_report_logs.create",
+      "http_method": "POST",
+      "path": "/api/debug/bug-report-logs",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:15*6e4",
+      "offset": 1182437
+    },
+    {
+      "method": "bug_report_logs.download",
+      "http_method": "GET",
+      "path": "/api/debug/bug-report-logs/{file_id}",
+      "extra_source": ",noiseOnly:!0,responseType:`binary`,maxResponseBytes:BUG_REPORT_LOG_DOWNLOAD_MAX_BYTES,requestTimeoutMs:12e4,channel:`media`",
+      "offset": 1182560
+    },
+    {
+      "method": "home_link_bug_reports.collect",
+      "http_method": "POST",
+      "path": "/api/debug/home-link-bug-reports",
+      "extra_source": ",requestBody:`empty`,noiseOnly:!0,requestTimeoutMs:35e3",
+      "offset": 1182781
+    },
+    {
+      "method": "dyi.export",
+      "http_method": "POST",
+      "path": "/api/dyi/export",
+      "extra_source": ",service:`daemon`,requestBody:`empty`,noiseOnly:!0,responseType:`binary`,maxResponseBytes:1/0,requestTimeoutMs:65*6e4,responseIdleTimeoutMs:65*6e4,channel:`media`",
+      "offset": 1182935
+    },
+    {
+      "method": "product_improvements.get",
+      "http_method": "GET",
+      "path": "/api/product-improvements",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1183160
+    },
+    {
+      "method": "product_improvements.set",
+      "http_method": "POST",
+      "path": "/api/product-improvements",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1183276
+    },
+    {
+      "method": "invite.badge.get",
+      "http_method": "GET",
+      "path": "/api/invite/badge",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1183419
+    },
+    {
+      "method": "invite.badge.seen",
+      "http_method": "POST",
+      "path": "/api/invite/badge/seen",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1183519
+    },
+    {
+      "method": "grants.list",
+      "http_method": "GET",
+      "path": "/grants",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1183651
+    },
+    {
+      "method": "vm.enrollment_health",
+      "http_method": "GET",
+      "path": "/health/enrollment",
+      "extra_source": "",
+      "offset": 1183736
+    },
+    {
+      "method": "vault.luks_status",
+      "http_method": "GET",
+      "path": "/luks/status",
+      "extra_source": ",service:`vault`,noiseOnly:!0",
+      "offset": 1183811
+    },
+    {
+      "method": "messenger.fb-check",
+      "http_method": "GET",
+      "path": "/api/messenger/fb-check",
+      "extra_source": "",
+      "offset": 1183932
+    },
+    {
+      "method": "messenger.pin_status",
+      "http_method": "GET",
+      "path": "/api/messenger_companion/pin-status",
+      "extra_source": "",
+      "offset": 1184010
+    },
+    {
+      "method": "messenger_companion.unlock",
+      "http_method": "POST",
+      "path": "/api/messenger_companion/unlock",
+      "extra_source": "",
+      "offset": 1184102
+    },
+    {
+      "method": "messenger-read.unlock",
+      "http_method": "POST",
+      "path": "/api/messenger-read/unlock",
+      "extra_source": "",
+      "offset": 1184197
+    },
+    {
+      "method": "foa.accounts",
+      "http_method": "GET",
+      "path": "/api/foa/accounts",
+      "extra_source": "",
+      "offset": 1184282
+    },
+    {
+      "method": "connectors.accounts",
+      "http_method": "GET",
+      "path": "/connectors/{id}/accounts",
+      "extra_source": "",
+      "offset": 1184348
+    },
+    {
+      "method": "connectors.accounts_unlink",
+      "http_method": "POST",
+      "path": "/connectors/{id}/accounts/{account_id}/unlink",
+      "extra_source": "",
+      "offset": 1184429
+    },
+    {
+      "method": "connectors.accounts_link",
+      "http_method": "POST",
+      "path": "/connectors/{id}/accounts/link",
+      "extra_source": "",
+      "offset": 1184538
+    },
+    {
+      "method": "foa_auth.callback",
+      "http_method": "POST",
+      "path": "/api/foa_auth/callback",
+      "extra_source": ",service:`authd`",
+      "offset": 1184630
+    },
+    {
+      "method": "channels.status",
+      "http_method": "GET",
+      "path": "/channels/status",
+      "extra_source": "",
+      "offset": 1184723
+    },
+    {
+      "method": "channels.link",
+      "http_method": "POST",
+      "path": "/channels/link",
+      "extra_source": "",
+      "offset": 1184791
+    },
+    {
+      "method": "channels.unlink",
+      "http_method": "POST",
+      "path": "/channels/unlink",
+      "extra_source": "",
+      "offset": 1184856
+    },
+    {
+      "method": "shared_agents.list",
+      "http_method": "GET",
+      "path": "/shared-agents",
+      "extra_source": "",
+      "offset": 1184925
+    },
+    {
+      "method": "shared_agents.capabilities",
+      "http_method": "GET",
+      "path": "/shared-agents/capabilities",
+      "extra_source": "",
+      "offset": 1184994
+    },
+    {
+      "method": "shared_agents.detail",
+      "http_method": "GET",
+      "path": "/shared-agents/{shared_agent_id}",
+      "extra_source": "",
+      "offset": 1185084
+    },
+    {
+      "method": "shared_agents.delete",
+      "http_method": "DELETE",
+      "path": "/shared-agents/{shared_agent_id}",
+      "extra_source": "",
+      "offset": 1185173
+    },
+    {
+      "method": "shared_agents.state.update",
+      "http_method": "PATCH",
+      "path": "/shared-agents/{shared_agent_id}/state",
+      "extra_source": "",
+      "offset": 1185265
+    },
+    {
+      "method": "shared_agents.identity.update",
+      "http_method": "PATCH",
+      "path": "/shared-agents/{shared_agent_id}/identity",
+      "extra_source": "",
+      "offset": 1185368
+    },
+    {
+      "method": "shared_agents.definition",
+      "http_method": "GET",
+      "path": "/shared-agents/{shared_agent_id}/definition",
+      "extra_source": "",
+      "offset": 1185477
+    },
+    {
+      "method": "shared_agents.create",
+      "http_method": "POST",
+      "path": "/shared-agents/create-idempotent",
+      "extra_source": "",
+      "offset": 1185581
+    },
+    {
+      "method": "shared_agents.definition.update",
+      "http_method": "PATCH",
+      "path": "/shared-agents/{shared_agent_id}/definition",
+      "extra_source": "",
+      "offset": 1185671
+    },
+    {
+      "method": "shared_agents.shares.list",
+      "http_method": "GET",
+      "path": "/shared-agents/{shared_agent_id}/shares",
+      "extra_source": "",
+      "offset": 1185784
+    },
+    {
+      "method": "shared_agents.shares.create",
+      "http_method": "POST",
+      "path": "/shared-agents/{shared_agent_id}/shares",
+      "extra_source": "",
+      "offset": 1185885
+    },
+    {
+      "method": "shared_agents.shares.conversation",
+      "http_method": "GET",
+      "path": "/shared-agents/{shared_agent_id}/shares/{share_id}/conversation",
+      "extra_source": "",
+      "offset": 1185989
+    },
+    {
+      "method": "shared_agents.shares.revoke",
+      "http_method": "POST",
+      "path": "/shared-agents/{shared_agent_id}/shares/{share_id}/revoke",
+      "extra_source": "",
+      "offset": 1186122
+    },
+    {
+      "method": "shared_agents.remote.open",
+      "http_method": "POST",
+      "path": "/api/shared-agents/remote/open",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`,connectionClass:`shared_agent`",
+      "offset": 1186244
+    },
+    {
+      "method": "shared_agents.remote.send",
+      "http_method": "POST",
+      "path": "/api/shared-agents/remote/send",
+      "extra_source": ",noiseOnly:!0,connectionClass:`shared_agent`",
+      "offset": 1186407
+    },
+    {
+      "method": "memory.search",
+      "http_method": "POST",
+      "path": "/memory/search",
+      "extra_source": "",
+      "offset": 1186544
+    },
+    {
+      "method": "memory.get",
+      "http_method": "POST",
+      "path": "/memory/get",
+      "extra_source": "",
+      "offset": 1186609
+    },
+    {
+      "method": "memory.consolidate",
+      "http_method": "POST",
+      "path": "/memory/consolidate",
+      "extra_source": "",
+      "offset": 1186668
+    },
+    {
+      "method": "memory.reindex",
+      "http_method": "POST",
+      "path": "/memory/reindex",
+      "extra_source": "",
+      "offset": 1186743
+    },
+    {
+      "method": "bootstrap.reset",
+      "http_method": "POST",
+      "path": "/bootstrap/reset",
+      "extra_source": "",
+      "offset": 1186810
+    },
+    {
+      "method": "subscription.callback",
+      "http_method": "POST",
+      "path": "/subscription/callback",
+      "extra_source": "",
+      "offset": 1186879
+    },
+    {
+      "method": "subscription.redeem_complimentary",
+      "http_method": "POST",
+      "path": "/subscription/redeem-complimentary",
+      "extra_source": ",requestTimeoutMs:9e4",
+      "offset": 1186960
+    },
+    {
+      "method": "reactions.toggle",
+      "http_method": "POST",
+      "path": "/reactions/toggle",
+      "extra_source": "",
+      "offset": 1187086
+    },
+    {
+      "method": "api_key_auth.callback",
+      "http_method": "POST",
+      "path": "/api_key_auth/callback",
+      "extra_source": ",service:`authd`",
+      "offset": 1187275
+    },
+    {
+      "method": "custom_connectors.register",
+      "http_method": "POST",
+      "path": "/v1/custom-connectors/register",
+      "extra_source": ",service:`authd`,aliases:[`custom_oauth_connector.register`]",
+      "offset": 1187372
+    },
+    {
+      "method": "custom_connectors.list",
+      "http_method": "POST",
+      "path": "/v1/custom-connectors/list",
+      "extra_source": ",service:`authd`",
+      "offset": 1187526
+    },
+    {
+      "method": "custom_connectors.delete",
+      "http_method": "POST",
+      "path": "/v1/custom-connectors/delete",
+      "extra_source": ",service:`authd`",
+      "offset": 1187628
+    },
+    {
+      "method": "connectors.list",
+      "http_method": "GET",
+      "path": "/connectors",
+      "extra_source": "",
+      "offset": 1187734
+    },
+    {
+      "method": "connectors.homepage",
+      "http_method": "GET",
+      "path": "/connectors/homepage",
+      "extra_source": "",
+      "offset": 1187797
+    },
+    {
+      "method": "connectors.get",
+      "http_method": "GET",
+      "path": "/connectors/{id}",
+      "extra_source": "",
+      "offset": 1187873
+    },
+    {
+      "method": "connectors.connect_info",
+      "http_method": "GET",
+      "path": "/connectors/{id}/connect/info",
+      "extra_source": "",
+      "offset": 1187940
+    },
+    {
+      "method": "connectors.connect",
+      "http_method": "POST",
+      "path": "/connectors/{id}/connect",
+      "extra_source": "",
+      "offset": 1188029
+    },
+    {
+      "method": "connectors.permissions",
+      "http_method": "GET",
+      "path": "/connectors/{id}/permissions",
+      "extra_source": "",
+      "offset": 1188109
+    },
+    {
+      "method": "connectors.scope_link",
+      "http_method": "POST",
+      "path": "/connectors/{id}/scopes/{method}/link",
+      "extra_source": "",
+      "offset": 1188196
+    },
+    {
+      "method": "connectors.disconnect",
+      "http_method": "POST",
+      "path": "/connectors/{id}/disconnect",
+      "extra_source": "",
+      "offset": 1188292
+    },
+    {
+      "method": "consent_auth.callback",
+      "http_method": "POST",
+      "path": "/consent_auth/callback",
+      "extra_source": "",
+      "offset": 1188378
+    },
+    {
+      "method": "username_password_auth.callback",
+      "http_method": "POST",
+      "path": "/username_password_auth/callback",
+      "extra_source": ",service:`authd`",
+      "offset": 1188459
+    },
+    {
+      "method": "whatsapp.login",
+      "http_method": "POST",
+      "path": "/whatsapp/login",
+      "extra_source": "",
+      "offset": 1188576
+    },
+    {
+      "method": "whatsapp.install",
+      "http_method": "POST",
+      "path": "/whatsapp/install",
+      "extra_source": "",
+      "offset": 1188643
+    },
+    {
+      "method": "whatsapp_companion.link",
+      "http_method": "POST",
+      "path": "/whatsapp_companion/link",
+      "extra_source": "",
+      "offset": 1188714
+    },
+    {
+      "method": "whatsapp_companion.status",
+      "http_method": "GET",
+      "path": "/whatsapp_companion/status",
+      "extra_source": "",
+      "offset": 1188799
+    },
+    {
+      "method": "browser_stream.attach",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/websockify?mode=attach",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1188887
+    },
+    {
+      "method": "browser_activity.snapshot",
+      "http_method": "GET",
+      "path": "/api/browser-activity/actions/{action_id}/snapshot",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1189009
+    },
+    {
+      "method": "voice.dictation",
+      "http_method": "POST",
+      "path": "/api/voice/dictation?sample_rate_hz={sample_rate_hz}",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1189159
+    },
+    {
+      "method": "browser_task.get",
+      "http_method": "GET",
+      "path": "/api/browser-task/{task_id}",
+      "extra_source": "",
+      "offset": 1189277
+    },
+    {
+      "method": "browser_task.takeover",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/takeover",
+      "extra_source": "",
+      "offset": 1189367
+    },
+    {
+      "method": "browser_task.present",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/present",
+      "extra_source": "",
+      "offset": 1189462
+    },
+    {
+      "method": "browser_task.viewer",
+      "http_method": "PATCH",
+      "path": "/api/browser-task/{task_id}/viewer",
+      "extra_source": ",service:`daemon`,noiseOnly:!0",
+      "offset": 1189555
+    },
+    {
+      "method": "browser_task.heartbeat",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/heartbeat",
+      "extra_source": "",
+      "offset": 1189677
+    },
+    {
+      "method": "browser_task.close",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/close",
+      "extra_source": "",
+      "offset": 1189774
+    },
+    {
+      "method": "browser_task.release",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/release",
+      "extra_source": "",
+      "offset": 1189863
+    },
+    {
+      "method": "browser_task.stop",
+      "http_method": "POST",
+      "path": "/api/browser-task/{task_id}/stop",
+      "extra_source": "",
+      "offset": 1189956
+    },
+    {
+      "method": "browser.lease",
+      "http_method": "POST",
+      "path": "/api/browser/lease",
+      "extra_source": ",requestTimeoutMs:BROWSER_LEASE_REQUEST_TIMEOUT_MS",
+      "offset": 1190075
+    },
+    {
+      "method": "computer.context",
+      "http_method": "GET",
+      "path": "/api/computer/context",
+      "extra_source": "",
+      "offset": 1190194
+    },
+    {
+      "method": "computer.preview",
+      "http_method": "GET",
+      "path": "/api/computer/previews/{task_id}/{sha256}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1190268
+    },
+    {
+      "method": "browser.local_testing.get",
+      "http_method": "GET",
+      "path": "/api/browser/local-testing",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:9e4",
+      "offset": 1190400
+    },
+    {
+      "method": "browser.local_testing.set",
+      "http_method": "PATCH",
+      "path": "/api/browser/local-testing",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:9e4",
+      "offset": 1190522
+    },
+    {
+      "method": "identity",
+      "http_method": "GET",
+      "path": "/identity",
+      "extra_source": "",
+      "offset": 1190646
+    },
+    {
+      "method": "chat.themes",
+      "http_method": "GET",
+      "path": "/api/chat/themes",
+      "extra_source": "",
+      "offset": 1190700
+    },
+    {
+      "method": "chat.themes.set",
+      "http_method": "POST",
+      "path": "/api/chat/themes/set",
+      "extra_source": "",
+      "offset": 1190764
+    },
+    {
+      "method": "iframe.call",
+      "http_method": "POST",
+      "path": "/call",
+      "extra_source": "",
+      "offset": 1190837
+    },
+    {
+      "method": "voice.calls.join",
+      "http_method": "POST",
+      "path": "/voice/calls/join",
+      "extra_source": "",
+      "offset": 1190891
+    },
+    {
+      "method": "artifacts.share",
+      "http_method": "POST",
+      "path": "/artifacts/share",
+      "extra_source": "",
+      "offset": 1190962
+    },
+    {
+      "method": "artifacts.remove",
+      "http_method": "POST",
+      "path": "/artifacts/remove",
+      "extra_source": "",
+      "offset": 1191031
+    },
+    {
+      "method": "artifacts.fetch_url",
+      "http_method": "GET",
+      "path": "/artifacts/fetch_url",
+      "extra_source": "",
+      "offset": 1191102
+    },
+    {
+      "method": "artifacts.list",
+      "http_method": "GET",
+      "path": "/api/artifacts",
+      "extra_source": "",
+      "offset": 1191178
+    },
+    {
+      "method": "artifacts.pin",
+      "http_method": "POST",
+      "path": "/api/artifacts/pin",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1191243
+    },
+    {
+      "method": "artifacts.slides.rebuild",
+      "http_method": "POST",
+      "path": "/api/artifacts/slides/rebuild",
+      "extra_source": ",noiseOnly:!0,requestTimeoutMs:18e4",
+      "offset": 1191325
+    },
+    {
+      "method": "onboarding.variants",
+      "http_method": "GET",
+      "path": "/api/onboarding/variants",
+      "extra_source": "",
+      "offset": 1191451
+    },
+    {
+      "method": "onboarding.pages.start",
+      "http_method": "POST",
+      "path": "/onboarding/pages",
+      "extra_source": "",
+      "offset": 1191531
+    },
+    {
+      "method": "onboarding.complete",
+      "http_method": "POST",
+      "path": "/onboarding/complete",
+      "extra_source": "",
+      "offset": 1191608
+    },
+    {
+      "method": "onboarding.reset",
+      "http_method": "POST",
+      "path": "/onboarding/reset",
+      "extra_source": "",
+      "offset": 1191685
+    },
+    {
+      "method": "onboarding.tasks",
+      "http_method": "GET",
+      "path": "/onboarding/tasks",
+      "extra_source": "",
+      "offset": 1191756
+    },
+    {
+      "method": "onboarding.identity",
+      "http_method": "GET",
+      "path": "/onboarding/identity",
+      "extra_source": "",
+      "offset": 1191826
+    },
+    {
+      "method": "onboarding.identity.set",
+      "http_method": "POST",
+      "path": "/onboarding/identity",
+      "extra_source": "",
+      "offset": 1191902
+    },
+    {
+      "method": "goal_prompt",
+      "http_method": "POST",
+      "path": "/goal_prompt",
+      "extra_source": "",
+      "offset": 1191983
+    },
+    {
+      "method": "goals.list",
+      "http_method": "GET",
+      "path": "/goals",
+      "extra_source": "",
+      "offset": 1192044
+    },
+    {
+      "method": "goals.get",
+      "http_method": "GET",
+      "path": "/goals/{id}",
+      "extra_source": "",
+      "offset": 1192097
+    },
+    {
+      "method": "goals.update",
+      "http_method": "PATCH",
+      "path": "/goals/{id}",
+      "extra_source": "",
+      "offset": 1192154
+    },
+    {
+      "method": "goals.reorder",
+      "http_method": "PATCH",
+      "path": "/goals/{id}/order",
+      "extra_source": "",
+      "offset": 1192216
+    },
+    {
+      "method": "goals.delete",
+      "http_method": "DELETE",
+      "path": "/goals/{id}",
+      "extra_source": "",
+      "offset": 1192285
+    },
+    {
+      "method": "podcasts.episodes.list",
+      "http_method": "GET",
+      "path": "/api/podcasts/episodes",
+      "extra_source": "",
+      "offset": 1192348
+    },
+    {
+      "method": "podcasts.feed.get",
+      "http_method": "GET",
+      "path": "/api/podcasts/feed",
+      "extra_source": "",
+      "offset": 1192429
+    },
+    {
+      "method": "podcasts.feeds.list",
+      "http_method": "GET",
+      "path": "/api/podcasts/feeds",
+      "extra_source": "",
+      "offset": 1192501
+    },
+    {
+      "method": "podcasts.episode.delete",
+      "http_method": "DELETE",
+      "path": "/api/podcasts/episodes/{slug}",
+      "extra_source": "",
+      "offset": 1192576
+    },
+    {
+      "method": "goals.suggestions.decide",
+      "http_method": "POST",
+      "path": "/goals/{goal_id}/suggestions/{suggestion_id}/decision",
+      "extra_source": "",
+      "offset": 1192668
+    },
+    {
+      "method": "api.idea-cards.list",
+      "http_method": "GET",
+      "path": "/api/idea-cards",
+      "extra_source": "",
+      "offset": 1192783
+    },
+    {
+      "method": "api.ideas.reset",
+      "http_method": "POST",
+      "path": "/api/ideas/reset",
+      "extra_source": "",
+      "offset": 1192854
+    },
+    {
+      "method": "api.ideas.engagement",
+      "http_method": "POST",
+      "path": "/api/ideas/{id}/engagement",
+      "extra_source": "",
+      "offset": 1192923
+    },
+    {
+      "method": "api.ideas.feedback",
+      "http_method": "POST",
+      "path": "/api/ideas/{id}/feedback",
+      "extra_source": "",
+      "offset": 1193007
+    },
+    {
+      "method": "api.idea-cards.detail",
+      "http_method": "GET",
+      "path": "/api/idea-cards/{ideaCardId}",
+      "extra_source": "",
+      "offset": 1193087
+    },
+    {
+      "method": "api.idea-cards.execute",
+      "http_method": "POST",
+      "path": "/api/idea-cards/{ideaCardId}/execute",
+      "extra_source": "",
+      "offset": 1193173
+    },
+    {
+      "method": "api.idea-cards.share",
+      "http_method": "POST",
+      "path": "/api/idea-cards/{ideaCardId}/share",
+      "extra_source": "",
+      "offset": 1193269
+    },
+    {
+      "method": "api.idea-cards.debug",
+      "http_method": "GET",
+      "path": "/api/idea-cards/{ideaCardId}/debug",
+      "extra_source": "",
+      "offset": 1193361
+    },
+    {
+      "method": "ads.details",
+      "http_method": "GET",
+      "path": "/api/ads/details",
+      "extra_source": "",
+      "offset": 1193481
+    },
+    {
+      "method": "feed.list",
+      "http_method": "GET",
+      "path": "/api/feed",
+      "extra_source": "",
+      "offset": 1193545
+    },
+    {
+      "method": "feed.infinite",
+      "http_method": "GET",
+      "path": "/api/feed/infinite",
+      "extra_source": ",noiseOnly:!0,streamMode:`records`",
+      "offset": 1193600
+    },
+    {
+      "method": "feed.status",
+      "http_method": "GET",
+      "path": "/api/feed/status",
+      "extra_source": "",
+      "offset": 1193702
+    },
+    {
+      "method": "feed.search",
+      "http_method": "GET",
+      "path": "/api/feed/search",
+      "extra_source": "",
+      "offset": 1193766
+    },
+    {
+      "method": "feed.unit",
+      "http_method": "GET",
+      "path": "/api/feed/units/{unit_id}",
+      "extra_source": "",
+      "offset": 1193830
+    },
+    {
+      "method": "feed.unit.delete",
+      "http_method": "DELETE",
+      "path": "/api/feed/units/{unit_id}",
+      "extra_source": "",
+      "offset": 1193901
+    },
+    {
+      "method": "feed.unit.reaction",
+      "http_method": "POST",
+      "path": "/api/feed/units/{unit_id}/reaction",
+      "extra_source": "",
+      "offset": 1193982
+    },
+    {
+      "method": "feed.unit.tap",
+      "http_method": "POST",
+      "path": "/api/feed/units/{unit_id}/tap",
+      "extra_source": "",
+      "offset": 1194072
+    },
+    {
+      "method": "feed.units.seen",
+      "http_method": "POST",
+      "path": "/api/feed/units/seen",
+      "extra_source": "",
+      "offset": 1194152
+    },
+    {
+      "method": "feed.reorder",
+      "http_method": "POST",
+      "path": "/api/feed/reorder",
+      "extra_source": "",
+      "offset": 1194225
+    },
+    {
+      "method": "feed.regenerate",
+      "http_method": "POST",
+      "path": "/api/feed/regenerate",
+      "extra_source": "",
+      "offset": 1194292
+    },
+    {
+      "method": "feed.prompt.get",
+      "http_method": "GET",
+      "path": "/api/feed/prompt",
+      "extra_source": "",
+      "offset": 1194365
+    },
+    {
+      "method": "feed.prompt.update",
+      "http_method": "PATCH",
+      "path": "/api/feed/prompt",
+      "extra_source": "",
+      "offset": 1194433
+    },
+    {
+      "method": "feed.prompts.delete",
+      "http_method": "DELETE",
+      "path": "/api/feed/prompts/{prompt_id}",
+      "extra_source": "",
+      "offset": 1194506
+    },
+    {
+      "method": "feed.social_source_icon",
+      "http_method": "GET",
+      "path": "/api/feed/social-source-icon/{source}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1194594
+    },
+    {
+      "method": "feed.unit.media",
+      "http_method": "GET",
+      "path": "/api/feed/units/{unit_id}/media/{handle}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1194729
+    },
+    {
+      "method": "redteam.mocks.apply",
+      "http_method": "POST",
+      "path": "/redteam/mocks",
+      "extra_source": "",
+      "offset": 1194859
+    },
+    {
+      "method": "redteam.mocks.clear",
+      "http_method": "DELETE",
+      "path": "/redteam/mocks",
+      "extra_source": "",
+      "offset": 1194930
+    },
+    {
+      "method": "redteam.mocks.get",
+      "http_method": "GET",
+      "path": "/redteam/mocks",
+      "extra_source": "",
+      "offset": 1195003
+    },
+    {
+      "method": "redteam.sidecar.tail",
+      "http_method": "GET",
+      "path": "/redteam/mocks/sidecar",
+      "extra_source": "",
+      "offset": 1195071
+    },
+    {
+      "method": "check",
+      "http_method": "GET",
+      "path": "/check",
+      "extra_source": "",
+      "offset": 1195150
+    },
+    {
+      "method": "session.start",
+      "http_method": "POST",
+      "path": "/session/start",
+      "extra_source": "",
+      "offset": 1195198
+    },
+    {
+      "method": "session.archive",
+      "http_method": "POST",
+      "path": "/session/archive",
+      "extra_source": "",
+      "offset": 1195263
+    },
+    {
+      "method": "session.unarchive",
+      "http_method": "POST",
+      "path": "/session/unarchive",
+      "extra_source": "",
+      "offset": 1195332
+    },
+    {
+      "method": "session.pin",
+      "http_method": "POST",
+      "path": "/session/pin",
+      "extra_source": "",
+      "offset": 1195405
+    },
+    {
+      "method": "session.unpin",
+      "http_method": "POST",
+      "path": "/session/unpin",
+      "extra_source": "",
+      "offset": 1195466
+    },
+    {
+      "method": "session.rename",
+      "http_method": "POST",
+      "path": "/session/rename",
+      "extra_source": "",
+      "offset": 1195531
+    },
+    {
+      "method": "session.delete",
+      "http_method": "POST",
+      "path": "/session/delete",
+      "extra_source": "",
+      "offset": 1195598
+    },
+    {
+      "method": "chat.unread_count",
+      "http_method": "GET",
+      "path": "/chat/unread-count",
+      "extra_source": "",
+      "offset": 1195665
+    },
+    {
+      "method": "chat.poke",
+      "http_method": "POST",
+      "path": "/chat/poke",
+      "extra_source": "",
+      "offset": 1195737
+    },
+    {
+      "method": "onboarding.state",
+      "http_method": "GET",
+      "path": "/onboarding",
+      "extra_source": "",
+      "offset": 1195794
+    },
+    {
+      "method": "onboarding.questions",
+      "http_method": "GET",
+      "path": "/onboarding/questions",
+      "extra_source": "",
+      "offset": 1195858
+    },
+    {
+      "method": "spaces.list",
+      "http_method": "GET",
+      "path": "/spaces/v2",
+      "extra_source": "",
+      "offset": 1195936
+    },
+    {
+      "method": "spaces.delete",
+      "http_method": "DELETE",
+      "path": "/spaces/v2/{slug}",
+      "extra_source": "",
+      "offset": 1195994
+    },
+    {
+      "method": "spaces.saved.delete",
+      "http_method": "DELETE",
+      "path": "/spaces/v2/{slug}?source=saved_space",
+      "extra_source": "",
+      "offset": 1196064
+    },
+    {
+      "method": "spaces.save",
+      "http_method": "POST",
+      "path": "/spaces/v2/{slug}/save",
+      "extra_source": "",
+      "offset": 1196159
+    },
+    {
+      "method": "spaces.share.review",
+      "http_method": "GET",
+      "path": "/spaces/share/{slug}/review",
+      "extra_source": "",
+      "offset": 1196230
+    },
+    {
+      "method": "spaces.share",
+      "http_method": "POST",
+      "path": "/spaces/share/{slug}",
+      "extra_source": ",requestTimeoutMs:10*6e4",
+      "offset": 1196313
+    },
+    {
+      "method": "spaces.share.status",
+      "http_method": "GET",
+      "path": "/spaces/share/{slug}",
+      "extra_source": "",
+      "offset": 1196407
+    },
+    {
+      "method": "spaces.share.settings",
+      "http_method": "GET",
+      "path": "/spaces/share/{slug}/settings",
+      "extra_source": "",
+      "offset": 1196483
+    },
+    {
+      "method": "spaces.unshare",
+      "http_method": "DELETE",
+      "path": "/spaces/share/{slug}",
+      "extra_source": "",
+      "offset": 1196570
+    },
+    {
+      "method": "spaces.share.fix",
+      "http_method": "POST",
+      "path": "/spaces/share/{slug}/fix",
+      "extra_source": "",
+      "offset": 1196644
+    },
+    {
+      "method": "spaces.debug.summary",
+      "http_method": "GET",
+      "path": "/spaces/{slug}/debug/summary",
+      "extra_source": "",
+      "offset": 1196722
+    },
+    {
+      "method": "spaces.debug.invocations",
+      "http_method": "GET",
+      "path": "/spaces/{slug}/debug/invocations",
+      "extra_source": "",
+      "offset": 1196807
+    },
+    {
+      "method": "spaces.debug.invocation",
+      "http_method": "GET",
+      "path": "/spaces/{slug}/debug/invocations/{invocation_id}",
+      "extra_source": "",
+      "offset": 1196900
+    },
+    {
+      "method": "spaces.debug.log",
+      "http_method": "GET",
+      "path": "/spaces/{slug}/debug/log",
+      "extra_source": "",
+      "offset": 1197008
+    },
+    {
+      "method": "spaces.export_html",
+      "http_method": "GET",
+      "path": "/spaces/{slug}/export.html",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1197085
+    },
+    {
+      "method": "spaces.cvm.render",
+      "http_method": "GET",
+      "path": "/spaces/cvm/{slug}/",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1197204
+    },
+    {
+      "method": "spaces.cvm.get",
+      "http_method": "GET",
+      "path": "/spaces/cvm/{slug}/{*subpath}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1197315
+    },
+    {
+      "method": "spaces.cvm.post",
+      "http_method": "POST",
+      "path": "/spaces/cvm/{slug}/{*subpath}",
+      "extra_source": ",responseType:`binary`",
+      "offset": 1197433
+    },
+    {
+      "method": "fs.stats",
+      "http_method": "POST",
+      "path": "/fs/stats",
+      "extra_source": "",
+      "offset": 1197537
+    },
+    {
+      "method": "fs.list",
+      "http_method": "POST",
+      "path": "/fs/list",
+      "extra_source": "",
+      "offset": 1197592
+    },
+    {
+      "method": "fs.stat",
+      "http_method": "POST",
+      "path": "/fs/stat",
+      "extra_source": "",
+      "offset": 1197645
+    },
+    {
+      "method": "fs.read",
+      "http_method": "POST",
+      "path": "/fs/read",
+      "extra_source": "",
+      "offset": 1197698
+    },
+    {
+      "method": "fs.reads",
+      "http_method": "POST",
+      "path": "/fs/reads",
+      "extra_source": "",
+      "offset": 1197751
+    },
+    {
+      "method": "fs.write",
+      "http_method": "POST",
+      "path": "/fs/write",
+      "extra_source": "",
+      "offset": 1197806
+    },
+    {
+      "method": "fs.delete",
+      "http_method": "POST",
+      "path": "/fs/delete",
+      "extra_source": "",
+      "offset": 1197861
+    },
+    {
+      "method": "fs.rename",
+      "http_method": "POST",
+      "path": "/fs/rename",
+      "extra_source": "",
+      "offset": 1197918
+    },
+    {
+      "method": "fs.mkdir",
+      "http_method": "POST",
+      "path": "/fs/mkdir",
+      "extra_source": "",
+      "offset": 1197975
+    },
+    {
+      "method": "fs.library",
+      "http_method": "POST",
+      "path": "/fs/library",
+      "extra_source": "",
+      "offset": 1198030
+    },
+    {
+      "method": "fs.export",
+      "http_method": "POST",
+      "path": "/fs/export",
+      "extra_source": ",responseType:`binary`",
+      "offset": 1198089
+    },
+    {
+      "method": "fs.raw",
+      "http_method": "GET",
+      "path": "/fs/raw/{*path}",
+      "extra_source": ",responseType:`binary`,maxResponseBytes:1/0,channel:`media`",
+      "offset": 1198168
+    },
+    {
+      "method": "fs.thumbnail",
+      "http_method": "GET",
+      "path": "/fs/thumbnail/{*path}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1198285
+    },
+    {
+      "method": "idea-cards.media",
+      "http_method": "GET",
+      "path": "/api/idea-cards/media/{handle}",
+      "extra_source": ",responseType:`binary`,channel:`media`",
+      "offset": 1198393
+    },
+    {
+      "method": "fs.search",
+      "http_method": "POST",
+      "path": "/fs/search",
+      "extra_source": "",
+      "offset": 1198514
+    },
+    {
+      "method": "git.log",
+      "http_method": "POST",
+      "path": "/git/log",
+      "extra_source": "",
+      "offset": 1198571
+    },
+    {
+      "method": "git.show_file",
+      "http_method": "POST",
+      "path": "/git/show_file",
+      "extra_source": "",
+      "offset": 1198624
+    },
+    {
+      "method": "nodes.invoke_result",
+      "http_method": "POST",
+      "path": "/nodes/invoke-result",
+      "extra_source": "",
+      "offset": 1198689
+    },
+    {
+      "method": "nodes.invoke_ack",
+      "http_method": "POST",
+      "path": "/nodes/invoke-ack",
+      "extra_source": "",
+      "offset": 1198766
+    },
+    {
+      "method": "nodes.sync",
+      "http_method": "POST",
+      "path": "/nodes/sync",
+      "extra_source": "",
+      "offset": 1198837
+    },
+    {
+      "method": "node.list",
+      "http_method": "POST",
+      "path": "/api/nodes/list",
+      "extra_source": ",aliases:[`/nodes/list`]",
+      "offset": 1198896
+    },
+    {
+      "method": "node.register",
+      "http_method": "POST",
+      "path": "/api/nodes/register",
+      "extra_source": ",aliases:[`/nodes/register`]",
+      "offset": 1198982
+    },
+    {
+      "method": "node.heartbeat",
+      "http_method": "POST",
+      "path": "/api/nodes/heartbeat",
+      "extra_source": ",aliases:[`/nodes/heartbeat`]",
+      "offset": 1199080
+    },
+    {
+      "method": "node.unpair",
+      "http_method": "POST",
+      "path": "/api/nodes/unpair",
+      "extra_source": ",aliases:[`/nodes/unpair`]",
+      "offset": 1199181
+    },
+    {
+      "method": "node.disconnect",
+      "http_method": "POST",
+      "path": "/api/nodes/disconnect",
+      "extra_source": ",aliases:[`/nodes/disconnect`]",
+      "offset": 1199273
+    },
+    {
+      "method": "pin.update",
+      "http_method": "POST",
+      "path": "/api/pin-reminder/update",
+      "extra_source": "",
+      "offset": 1199377
+    },
+    {
+      "method": "pin.reminder_confirm",
+      "http_method": "POST",
+      "path": "/api/pin-reminder/confirm",
+      "extra_source": "",
+      "offset": 1199449
+    },
+    {
+      "method": "wallet.get",
+      "http_method": "GET",
+      "path": "/wallet",
+      "extra_source": "",
+      "offset": 1199532
+    },
+    {
+      "method": "wallet.set",
+      "http_method": "POST",
+      "path": "/wallet",
+      "extra_source": "",
+      "offset": 1199586
+    },
+    {
+      "method": "egress.permissions",
+      "http_method": "GET",
+      "path": "/permissions",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1199670
+    },
+    {
+      "method": "permissions.settings",
+      "http_method": "GET",
+      "path": "/permissions/settings",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1199756
+    },
+    {
+      "method": "permissions.inventory",
+      "http_method": "GET",
+      "path": "/permissions/inventory",
+      "extra_source": ",service:`daemon`",
+      "offset": 1199853
+    },
+    {
+      "method": "permissions.settings.update",
+      "http_method": "PATCH",
+      "path": "/permissions/settings",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1199950
+    },
+    {
+      "method": "egress.permissions.hitl",
+      "http_method": "PATCH",
+      "path": "/permissions/hitl",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200056
+    },
+    {
+      "method": "egress.permissions.hitl.snooze.delete",
+      "http_method": "DELETE",
+      "path": "/permissions/hitl/snooze",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200154
+    },
+    {
+      "method": "egress.permissions.tproxy",
+      "http_method": "PATCH",
+      "path": "/permissions/tproxy",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200274
+    },
+    {
+      "method": "egress.permissions.mitm",
+      "http_method": "PATCH",
+      "path": "/permissions/mitm",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200376
+    },
+    {
+      "method": "egress.permissions.sni_rejection",
+      "http_method": "PATCH",
+      "path": "/permissions/sni-rejection",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200474
+    },
+    {
+      "method": "egress.permissions.active",
+      "http_method": "GET",
+      "path": "/permissions/active",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200590
+    },
+    {
+      "method": "egress.permissions.active.update",
+      "http_method": "PATCH",
+      "path": "/permissions/active",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200690
+    },
+    {
+      "method": "egress.permissions.scoped",
+      "http_method": "GET",
+      "path": "/permissions/scopes/{scope_type}/{scope_id}",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200799
+    },
+    {
+      "method": "egress.permissions.scoped.update",
+      "http_method": "PATCH",
+      "path": "/permissions/scopes/{scope_type}/{scope_id}",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1200923
+    },
+    {
+      "method": "egress.permissions.revoke",
+      "http_method": "POST",
+      "path": "/permissions/revoke",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1201056
+    },
+    {
+      "method": "egress.permissions.reset",
+      "http_method": "POST",
+      "path": "/permissions/reset",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1201157
+    },
+    {
+      "method": "egress.permissions.network_rules",
+      "http_method": "PATCH",
+      "path": "/permissions/network-rules",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1201256
+    },
+    {
+      "method": "egress.permissions.connector",
+      "http_method": "PATCH",
+      "path": "/permissions/connectors/{connector}",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1201372
+    },
+    {
+      "method": "egress.permissions.connector.reset",
+      "http_method": "DELETE",
+      "path": "/permissions/connectors/{connector}",
+      "extra_source": ",service:`sentinel`",
+      "offset": 1201493
+    },
+    {
+      "method": "chat.history_window",
+      "http_method": "GET",
+      "path": "/chat/history-window",
+      "extra_source": ",noiseOnly:!0,maxResponseBytes:CHAT_HISTORY_MAX_RESPONSE_BYTES",
+      "offset": 1201648
+    },
+    {
+      "method": "chat.cancel",
+      "http_method": "POST",
+      "path": "/chat/cancel",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1201786
+    },
+    {
+      "method": "chat.delete_turn",
+      "http_method": "POST",
+      "path": "/api/chat/delete-turn",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1201860
+    },
+    {
+      "method": "chat.message_get",
+      "http_method": "GET",
+      "path": "/chat/message",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1201948
+    },
+    {
+      "method": "chat.search",
+      "http_method": "GET",
+      "path": "/chat/search",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202027
+    },
+    {
+      "method": "client.register_capabilities",
+      "http_method": "POST",
+      "path": "/client/register-capabilities",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202100
+    },
+    {
+      "method": "client.invoke.result",
+      "http_method": "POST",
+      "path": "/client/invoke-result",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202208
+    },
+    {
+      "method": "connection.ping",
+      "http_method": "POST",
+      "path": "/api/ping",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202300
+    },
+    {
+      "method": "model.get",
+      "http_method": "GET",
+      "path": "/model",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202375
+    },
+    {
+      "method": "model.set",
+      "http_method": "POST",
+      "path": "/model",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202440
+    },
+    {
+      "method": "widgets.state.set",
+      "http_method": "POST",
+      "path": "/widgets/state",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202506
+    },
+    {
+      "method": "widgets.state.patch",
+      "http_method": "POST",
+      "path": "/widgets/state/patch",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202588
+    },
+    {
+      "method": "navigation.subscribe",
+      "http_method": "POST",
+      "path": "/navigation/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1202678
+    },
+    {
+      "method": "navigation.recents.touch",
+      "http_method": "POST",
+      "path": "/navigation/recents/touch",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202796
+    },
+    {
+      "method": "navigation.pinned.set",
+      "http_method": "POST",
+      "path": "/navigation/pinned/set",
+      "extra_source": ",noiseOnly:!0",
+      "offset": 1202896
+    },
+    {
+      "method": "chat.stream",
+      "http_method": "POST",
+      "path": "/chat/stream",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1202990
+    },
+    {
+      "method": "chat.stream_events",
+      "http_method": "POST",
+      "path": "/chat/stream-events",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`,maxSubscriptionRecordBytes:CHAT_SUBSCRIPTION_MAX_RECORD_BYTES",
+      "offset": 1203090
+    },
+    {
+      "method": "chat.subscribe",
+      "http_method": "POST",
+      "path": "/chat/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`,maxSubscriptionRecordBytes:CHAT_SUBSCRIPTION_MAX_RECORD_BYTES,requestTimeoutMs:3e4",
+      "offset": 1203266
+    },
+    {
+      "method": "activity.subscribe",
+      "http_method": "POST",
+      "path": "/activity/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`,maxSubscriptionRecordBytes:ACTIVITY_SUBSCRIPTION_MAX_RECORD_BYTES",
+      "offset": 1203455
+    },
+    {
+      "method": "fs.subscribe",
+      "http_method": "POST",
+      "path": "/api/fs/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1203635
+    },
+    {
+      "method": "identity.subscribe",
+      "http_method": "POST",
+      "path": "/identity/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1203741
+    },
+    {
+      "method": "spaces.subscribe",
+      "http_method": "POST",
+      "path": "/spaces/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1203855
+    },
+    {
+      "method": "artifacts.subscribe",
+      "http_method": "POST",
+      "path": "/api/artifacts/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1203965
+    },
+    {
+      "method": "tasks.subscribe",
+      "http_method": "POST",
+      "path": "/tasks/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1204085
+    },
+    {
+      "method": "theme.subscribe",
+      "http_method": "POST",
+      "path": "/themes/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1204193
+    },
+    {
+      "method": "computer.subscribe",
+      "http_method": "POST",
+      "path": "/api/computer/subscribe",
+      "extra_source": ",noiseOnly:!0,streamMode:`subscription`",
+      "offset": 1204302
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "evidence_class": "synthetic-community-contract",
+  "not_a_vendor_request": true,
+  "model": "<YOUR_MODEL_ADAPTER>",
+  "system_files": [
+    "prompts/coordinator.md"
+  ],
+  "run_context": {
+    "agent_id": "chief",
+    "chat_id": "side-chat",
+    "run_id": "run-example",
+    "wake": {
+      "kind": "child.completed",
+      "source_event_id": "completion-example",
+      "visibility": "private",
+      "payload": {
+        "worker_id": "worker-example",
+        "result": {
+          "status": "completed",
+          "summary": "The sample release is 2.0.",
+          "evidence": [
+            "sample/release.json"
+          ],
+          "uncertainties": []
+        }
+      }
+    },
+    "user_authorization_ref": "permission-example",
+    "remaining_child_budget": 2
+  },
+  "tools_manifest": "config/community-tools.json (filter by role and host grants)",
+  "model_response_example": {
+    "tool_call": {
+      "name": "turn.finish",
+      "arguments": {
+        "message": "The sample release is now version 2.0."
+      }
+    }
+  },
+  "serialization_note": "This is a provider-neutral adapter contract. Translate system/context/tools/tool-call objects to the chosen provider API; do not send file paths as if their content were loaded."
+}

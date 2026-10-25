@@ -1,0 +1,259 @@
+{
+  "evidence_class": "observed-client-serialization",
+  "date_local": "2026-10-24 America/Los_Angeles",
+  "method": "Non-replaying observers at client serialization and received event boundaries via app-scoped debugger with temporary in-memory wrappers. No TLS interception and no inference-request capture.",
+  "redactions": "Identifiers, nonces, trace IDs and replica keys consistently pseudonymized. Payload text is synthetic. Duplicate observer records removed.",
+  "records": [
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.send",
+      "body": [
+        "message",
+        {
+          "id": "REF_11",
+          "timestamp": 1792905177101,
+          "messageStatus": "pending",
+          "type": "user_message",
+          "sessionId": "REF_12",
+          "content": "",
+          "contents": [
+            {
+              "type": "text",
+              "value": "RESEARCH_PROBE_20261024_THIRD: Reply only \"RESEARCH_PROBE_20261024_CUE_ACK\". No tools or other actions."
+            }
+          ],
+          "messageType": "text",
+          "taskMode": "agent",
+          "agentVersion": "agent",
+          "attachments": [],
+          "extData": {
+            "capabilities": {},
+            "mode": "lite"
+          },
+          "countryIsoCode": "US",
+          "bubbles": [
+            "RESEARCH_PROBE_20261024_THIRD: Reply only \"RESEARCH_PROBE_20261024_CUE_ACK\". No tools or other actions."
+          ],
+          "deliveryMode": "interrupt"
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "message",
+        {
+          "id": "REF_11",
+          "type": "event",
+          "sessionId": "REF_12",
+          "timestamp": 1792905177254,
+          "event": {
+            "type": "chat",
+            "timestamp": 1792905177254,
+            "id": "REF_11",
+            "sender": "user",
+            "sessionDeviceAccessV1": true,
+            "qualityMode": "user",
+            "senderId": "REF_13",
+            "messageType": "text",
+            "content": "RESEARCH_PROBE_20261024_THIRD: Reply only \"RESEARCH_PROBE_20261024_CUE_ACK\". No tools or other actions.",
+            "contents": [
+              {
+                "type": "text",
+                "value": "RESEARCH_PROBE_20261024_THIRD: Reply only \"RESEARCH_PROBE_20261024_CUE_ACK\". No tools or other actions."
+              }
+            ],
+            "bubbles": [
+              "RESEARCH_PROBE_20261024_THIRD: Reply only \"RESEARCH_PROBE_20261024_CUE_ACK\". No tools or other actions."
+            ],
+            "attachments": [],
+            "extData": {
+              "capabilities": {},
+              "mode": "lite"
+            },
+            "taskMode": "agent",
+            "messageEventId": "REF_11",
+            "messageReactionsEnabled": true,
+            "messageReactionsMode": "multiple",
+            "messageReactionsTarget": "own_user"
+          },
+          "webdevAddonEnabled": false
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "message",
+        {
+          "id": "REF_14",
+          "type": "event",
+          "sessionId": "REF_12",
+          "timestamp": 1792905179617,
+          "event": {
+            "id": "REF_14",
+            "type": "chatDelta",
+            "timestamp": 1792905179617,
+            "delta": {
+              "content": "RESEARCH_PROBE_20261024_CUE_ACK",
+              "thought": ""
+            },
+            "finished": false,
+            "sender": "assistant",
+            "rollback": false,
+            "messageTarget": "owner",
+            "qualityMode": "max",
+            "targetEventId": "REF_15",
+            "noPersistent": true
+          },
+          "webdevAddonEnabled": false
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "message",
+        {
+          "id": "REF_15",
+          "type": "event",
+          "sessionId": "REF_12",
+          "timestamp": 1792905179618,
+          "event": {
+            "id": "REF_15",
+            "type": "chat",
+            "timestamp": 1792905179618,
+            "sender": "assistant",
+            "messageType": "text",
+            "attachments": [],
+            "qualityMode": "max",
+            "content": "RESEARCH_PROBE_20261024_CUE_ACK",
+            "taskMode": "agent"
+          },
+          "messageStatus": "pending",
+          "webdevAddonEnabled": false
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "notification",
+        {
+          "data": {
+            "lastDisplayMessage": "RESEARCH_PROBE_20261024_CUE_ACK",
+            "lastMessageTime": "2026-10-25T05:12:59.689Z",
+            "newMessageCount": 1,
+            "scheduledTask": false,
+            "sessionUid": "REF_12"
+          },
+          "name": "session_new_message"
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "message",
+        {
+          "id": "REF_15",
+          "type": "event",
+          "sessionId": "REF_12",
+          "timestamp": 1792905179653,
+          "event": {
+            "id": "REF_15",
+            "type": "chat",
+            "timestamp": 1792905179653,
+            "sender": "assistant",
+            "messageType": "text",
+            "attachments": [],
+            "qualityMode": "max",
+            "content": "RESEARCH_PROBE_20261024_CUE_ACK",
+            "taskMode": "agent",
+            "attachmentRefs": {},
+            "linkMetaMap": {},
+            "usedAgents": [],
+            "messageEventId": "REF_16",
+            "messageReactionsEnabled": true,
+            "messageReactionsMode": "multiple"
+          },
+          "webdevAddonEnabled": false
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    },
+    {
+      "app": "Cue",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "WebSocket.message",
+      "body": [
+        "notification",
+        {
+          "data": {
+            "backgroundActivityType": "BACKGROUND_ACTIVITY_TYPE_NONE",
+            "hasRunningBackgroundJobs": false,
+            "lastDisplayMessage": "RESEARCH_PROBE_20261024_CUE_ACK",
+            "lastMessageTime": "2026-10-25T05:12:59.810Z",
+            "scheduledTask": false,
+            "sessionUid": "REF_12",
+            "status": "SESSION_STATUS_STOPPED",
+            "unreadMessageCount": 1
+          },
+          "name": "session_new_message"
+        }
+      ],
+      "transport": {
+        "protocol": "Socket.IO event packet over WebSocket",
+        "packet_prefix": "42",
+        "endpoint": "wss://api.manus.im/socket.io/"
+      }
+    }
+  ]
+}

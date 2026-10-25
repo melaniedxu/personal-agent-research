@@ -1,0 +1,29 @@
+[
+  {
+    "app": "Grok Bot",
+    "version": "0.75.8",
+    "build": "0.75.8",
+    "bundle_id": "com.anysphere.sand",
+    "artifact": "/Applications/Grok Bot.app/Contents/Resources/app.asar",
+    "bytes": 50648451,
+    "sha256": "7d6fe1a476e2c575c11429772959728333eb9d3d442f71f89bbd9c6f180dd779"
+  },
+  {
+    "app": "Cue",
+    "version": "1.1.4",
+    "build": "1.1.4",
+    "bundle_id": "ai.manus.agents",
+    "artifact": "/Applications/Cue.app/Contents/Resources/app.asar",
+    "bytes": 99886494,
+    "sha256": "0aa2798509ab416b8613508bbfb9b6cfb3b6e57dc03e89cd0bfb29881941ab01"
+  },
+  {
+    "app": "Muse",
+    "version": "9.0",
+    "build": "1098887160",
+    "bundle_id": "com.meta.endo",
+    "artifact": "/Applications/Muse.app/Contents/Resources/hatch/index.html",
+    "bytes": 46965859,
+    "sha256": "f82ec5efe8ca160461db23312e00cbc164fab288291a5a537e6fbb51663c30ad"
+  }
+]

@@ -1,0 +1,5887 @@
+{
+  "evidence_class": "agent-transcribed-tool-definitions",
+  "normalization": "Original namespace files use parameters as a property-name map plus a sibling required list. This file wraps those fields in a conventional inputSchema object. No undeclared root additionalProperties constraint was added. Cross-field semantic restrictions may remain prose-only.",
+  "not_a_wire_capture": true,
+  "namespace_count": 33,
+  "function_count": 193,
+  "known_missing": [
+    "idea.share",
+    "widget.create_image_picker_widget"
+  ],
+  "tools": [
+    {
+      "name": "ads.resolve_entities",
+      "namespace": "ads",
+      "description": "Resolve Ads entities to chips before a final response names them. Include only entities read from actual tool output; campaigns, ad sets, and ads also require their owning ad account ID. Never invent names or IDs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "account_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "display_name": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "entity_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "ad_account",
+                    "campaign",
+                    "ad_set",
+                    "ad"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "entity_id",
+                "display_name"
+              ],
+              "type": "object"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "entities"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/ads.json"
+    },
+    {
+      "name": "artifact.cancel",
+      "namespace": "artifact",
+      "description": "Stop an artifact's running build.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.create_file",
+      "namespace": "artifact",
+      "description": "Build a file artifact when the user asks for a deliverable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "document",
+              "pdf",
+              "presentation",
+              "spreadsheet",
+              "markdown",
+              "other"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "output_formats": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "slide_count_target": {
+            "type": "unspecified"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          },
+          "verbatim_request": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "name",
+          "slug",
+          "verbatim_request"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.create_web_fullstack",
+      "namespace": "artifact",
+      "description": "Build a hosted web app with a storage/server layer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "capabilities": {
+            "properties": {
+              "connectors": {
+                "items": {
+                  "properties": {
+                    "connector": {
+                      "maxLength": 64,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "methods": {
+                      "items": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 32,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "purpose": {
+                      "maxLength": 240,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "connector",
+                    "methods",
+                    "purpose"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 16,
+                "type": "array"
+              },
+              "public_web_read": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "public_web_read",
+              "connectors"
+            ],
+            "type": "object"
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "icon_subject": {
+            "maxLength": 900,
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "refresh_triggers": {
+            "items": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "cron"
+                  ],
+                  "type": "string"
+                },
+                "schedule": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "schedule"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "research_dir": {
+            "type": "string"
+          },
+          "template": {
+            "enum": [
+              "muse"
+            ],
+            "type": "string"
+          },
+          "verbatim_request": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "icon_subject",
+          "verbatim_request",
+          "capabilities"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.create_web_static",
+      "namespace": "artifact",
+      "description": "Build a hosted web page or app (static; resets on reload; shareable as a public link).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "capabilities": {
+            "properties": {
+              "connectors": {
+                "items": {
+                  "properties": {
+                    "connector": {
+                      "maxLength": 64,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "methods": {
+                      "items": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 32,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "purpose": {
+                      "maxLength": 240,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "connector",
+                    "methods",
+                    "purpose"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 16,
+                "type": "array"
+              },
+              "public_web_read": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "public_web_read",
+              "connectors"
+            ],
+            "type": "object"
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "icon_subject": {
+            "maxLength": 900,
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "research_dir": {
+            "type": "string"
+          },
+          "template": {
+            "enum": [
+              "muse"
+            ],
+            "type": "string"
+          },
+          "verbatim_request": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "icon_subject",
+          "verbatim_request",
+          "capabilities"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.delete",
+      "namespace": "artifact",
+      "description": "Permanently delete an artifact and its data at the user's request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "web_fullstack",
+              "web_static",
+              "document",
+              "pdf",
+              "presentation",
+              "spreadsheet",
+              "markdown",
+              "other"
+            ],
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "kind"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.edit",
+      "namespace": "artifact",
+      "description": "Change an existing artifact (feature, content, styling, layout, data-model, fix, debugging).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "capabilities": {
+            "properties": {
+              "connectors": {
+                "items": {
+                  "properties": {
+                    "connector": {
+                      "maxLength": 64,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "methods": {
+                      "items": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 32,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "purpose": {
+                      "maxLength": 240,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "connector",
+                    "methods",
+                    "purpose"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 16,
+                "type": "array"
+              },
+              "public_web_read": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "public_web_read",
+              "connectors"
+            ],
+            "type": "object"
+          },
+          "icon_subject": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "inspection_id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "web_fullstack",
+              "web_static",
+              "document",
+              "pdf",
+              "presentation",
+              "spreadsheet",
+              "markdown",
+              "other"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "output_formats": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "research_dir": {
+            "type": "string"
+          },
+          "slide_count_target": {
+            "type": "unspecified"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          },
+          "verbatim_request": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.export",
+      "namespace": "artifact",
+      "description": "Save an existing web_static web artifact as one self-contained .html file, only when the user explicitly asks for the file itself.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.inspect",
+      "namespace": "artifact",
+      "description": "Start delegated diagnosis of an existing web artifact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repair_authorized": {
+            "type": "boolean"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          },
+          "verbatim_request": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "verbatim_request",
+          "repair_authorized"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.invoke_action",
+      "namespace": "artifact",
+      "description": "Run an action a web artifact publishes, with JSON args.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "args": {
+            "type": "object"
+          },
+          "invocation_id": {
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "action_name"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.list",
+      "namespace": "artifact",
+      "description": "Browse or search the catalog of hosted web artifacts (up to 50 entries per page).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "query": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.list_actions",
+      "namespace": "artifact",
+      "description": "List the actions a web artifact publishes, or fetch one action's request schema.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.send_input",
+      "namespace": "artifact",
+      "description": "Send follow-up direction into an artifact's running build.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "input": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "input"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.share",
+      "namespace": "artifact",
+      "description": "Publish a web artifact at a public link, only when the user asks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.status",
+      "namespace": "artifact",
+      "description": "Report artifact build activity and share state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "artifact.unshare",
+      "namespace": "artifact",
+      "description": "Revoke a web artifact's public share link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/artifact.json"
+    },
+    {
+      "name": "avatar.clear",
+      "namespace": "avatar",
+      "description": "Remove the current custom avatar and restore the shipped default avatar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.create",
+      "namespace": "avatar",
+      "description": "Create fresh candidate options for the assistant's avatar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "num_options": {
+            "enum": [
+              1,
+              2,
+              4
+            ],
+            "type": "integer"
+          },
+          "preset": {
+            "enum": [
+              "halloween_costume"
+            ],
+            "type": "string"
+          },
+          "reference_image": {
+            "type": "string"
+          },
+          "user_request": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_request"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.create_avatar_share_widget",
+      "namespace": "avatar",
+      "description": "Create a native sharing card for the assistant avatar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "button_text": {
+            "type": "string"
+          },
+          "fallback_text": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "button_text",
+          "title",
+          "subtitle",
+          "fallback_text"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.edit",
+      "namespace": "avatar",
+      "description": "Restyle the currently active avatar with a contextual change while preserving identity and style.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_request": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_request"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.get",
+      "namespace": "avatar",
+      "description": "Report the current state of the assistant's avatar (read-only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "type": "boolean"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.set",
+      "namespace": "avatar",
+      "description": "Activate an avatar candidate as the live avatar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "avatar.wear",
+      "namespace": "avatar",
+      "description": "Instantly wear the assistant's own avatar (look 'base') or a default costume, with nothing regenerated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "look": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "look"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/avatar.json"
+    },
+    {
+      "name": "browser.browse",
+      "namespace": "browser",
+      "description": "Give website work to a browser agent, or continue a browser task (task_id new, or an existing window's task_id). The browser cannot read the conversation; write a self-contained assignment. Acceptance is not completion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "account_hint": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "answer_to": {
+            "pattern": "^question_[0-9a-f]{16}$",
+            "type": "string"
+          },
+          "files": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "file": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "purpose": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "file",
+                "purpose"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "profile": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tab": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "task": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "minLength": 1,
+            "pattern": "^https?://",
+            "type": "string"
+          },
+          "verification_code": {
+            "additionalProperties": false,
+            "properties": {
+              "credential_id": {
+                "format": "uuid",
+                "type": "string"
+              },
+              "origin": {
+                "pattern": "^https://",
+                "type": "string"
+              }
+            },
+            "required": [
+              "credential_id",
+              "origin"
+            ],
+            "type": "object"
+          },
+          "wallet": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "keep"
+                ],
+                "type": "string"
+              },
+              "payment_method_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "provider": {
+                "enum": [
+                  "stripe-link",
+                  "shop-pay"
+                ],
+                "type": "string"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "task_id",
+          "task"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.deep_research",
+      "namespace": "browser",
+      "description": "Send an isolated, signed-out research agent to the live web; findings return as a handoff. Only when the user asks for web research. One call per ask.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mission": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mission"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.find",
+      "namespace": "browser",
+      "description": "Find exact matches of pattern in a page already opened with browser.open.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "line_start": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "url_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "pattern",
+          "url_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.lookup_citation_url",
+      "namespace": "browser",
+      "description": "Resolve search result URLs from a prior browser.search call without fetching the page (pass outlink_indices, or omit for all; max 30).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "outlink_indices": {
+            "default": [],
+            "items": {
+              "format": "uint",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "url_id": {
+            "format": "uint64",
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "url_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.open",
+      "namespace": "browser",
+      "description": "Fetch page text (does not open the page in the user's browser; cannot click, sign in, fill forms, or purchase). Prefer returned page references; literal URLs must be copied verbatim from a tool result or the user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "line_start": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "outlink_idx": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "url_id": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          }
+        },
+        "required": [
+          "url_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.profiles",
+      "namespace": "browser",
+      "description": "Create or delete a named browser profile (a separate cookie jar for a second account on the same site). The default profile cannot be deleted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "create",
+              "delete"
+            ],
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "profile": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.search",
+      "namespace": "browser",
+      "description": "Search the web by text query (not a URL). Set the matching vertical (news, sports, weather, finance, datetime) when one applies, at most one. General results may be stale; verify live state via a skill/connector or the live browser.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "primary_query": {
+            "additionalProperties": false,
+            "properties": {
+              "language_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "query": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "verticals": {
+            "items": {
+              "enum": [
+                "news",
+                "sports",
+                "weather",
+                "finance",
+                "datetime"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "primary_query"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "browser.windows",
+      "namespace": "browser",
+      "description": "List, open, and close browser windows/tabs and see browser profiles. A window's ID is the task_id for browser.browse. Idle windows close after about two hours.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "list",
+              "open",
+              "close"
+            ],
+            "type": "string"
+          },
+          "cursor": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9:_-]*$",
+            "type": "string"
+          },
+          "profile": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tab": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "task_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "minLength": 1,
+            "pattern": "^https?://",
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/browser.json",
+      "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+    },
+    {
+      "name": "chat.archive",
+      "namespace": "chat",
+      "description": "Archive a side chat (history kept; scheduled jobs delivering into it redirect to the main chat). The main chat cannot be archived.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.configure_connection",
+      "namespace": "chat",
+      "description": "Read or update a connected provider's preferences (omit settings to read; partial settings object to update). Requires the user's own Muse chat.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "whatsapp"
+            ],
+            "type": "string"
+          },
+          "settings": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.connection_status",
+      "namespace": "chat",
+      "description": "Check a connection that supplies side chats (providers: whatsapp). Call before chat.disconnect.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "whatsapp"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.create",
+      "namespace": "chat",
+      "description": "Create a new side chat (private 1:1 with the user). context_mode fork (from main chat only) or fresh; optional name (max 120 chars) and message (context for the title, not delivered as a message).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "context_mode": {
+            "enum": [
+              "fork",
+              "fresh"
+            ],
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_mode"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.delete",
+      "namespace": "chat",
+      "description": "Permanently delete a side chat including its history (irreversible; only when the user explicitly asks). The main chat cannot be deleted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.disconnect",
+      "namespace": "chat",
+      "description": "Disconnect a side-chat provider (providers: whatsapp). Call chat.connection_status first. Chat history remains available.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "whatsapp"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.list",
+      "namespace": "chat",
+      "description": "List the user's Muse chats (chat_id UUID, name, Main flag, archived/pinned flags, status; external chats include provider; group chats include room name and people).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_archived": {
+            "type": "boolean"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.read_messages",
+      "namespace": "chat",
+      "description": "Read an existing main or side chat (by message_id with before/after context, or by chat_id newest-first with cursor pagination).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "after": {
+            "default": 2,
+            "maximum": 20,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "before": {
+            "default": 2,
+            "maximum": 20,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "chat_id": {
+            "type": "string"
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "limit": {
+            "default": 5,
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "message_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.rename",
+      "namespace": "chat",
+      "description": "Rename an existing chat (max 120 chars; extra whitespace collapsed).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id",
+          "name"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.send_message",
+      "namespace": "chat",
+      "description": "Send an instruction to another chat by chat_id (native chat's agent, or a group chat's worker as a private task). Returns a submission receipt only, not delivery/completion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id",
+          "message"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "chat.unarchive",
+      "namespace": "chat",
+      "description": "Restore an archived side chat to the active chat list (exact chat_id from chat.list with include_archived=true).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/chat.json"
+    },
+    {
+      "name": "credentials.list",
+      "namespace": "credentials",
+      "description": "List the website logins the Secure Vault holds (metadata only: site, label, saved field names, availability).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/credentials.json"
+    },
+    {
+      "name": "credentials.request_api_access",
+      "namespace": "credentials",
+      "description": "Set up access to a third-party provider's API (API key or OAuth 2.0 authorization-code flow only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api_hosts": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array"
+          },
+          "auth_scheme": {
+            "enum": [
+              "api_key",
+              "oauth2_code",
+              "password",
+              "session_cookie",
+              "signed_request",
+              "multi_secret"
+            ],
+            "type": "string"
+          },
+          "authorization_url": {
+            "type": "string"
+          },
+          "issuer_domain": {
+            "type": "string"
+          },
+          "placement": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "reconnect": {
+            "type": "boolean"
+          },
+          "registration_url": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "revoke_url": {
+            "type": "string"
+          },
+          "scopes": {
+            "type": "string"
+          },
+          "token_endpoint_auth_method": {
+            "enum": [
+              "client_secret_basic",
+              "client_secret_post",
+              "none"
+            ],
+            "type": "string"
+          },
+          "token_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/credentials.json"
+    },
+    {
+      "name": "credentials.request_login",
+      "namespace": "credentials",
+      "description": "Show a secure entry card asking for username and password for the website at page_url.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page_url": {
+            "type": "string"
+          },
+          "username_hint": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_url"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/credentials.json"
+    },
+    {
+      "name": "credentials.request_new_password",
+      "namespace": "credentials",
+      "description": "Show a secure entry card asking the user to set a new password for the website at page_url.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page_url": {
+            "type": "string"
+          },
+          "username_hint": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page_url"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/credentials.json"
+    },
+    {
+      "name": "cron.add",
+      "namespace": "cron",
+      "description": "Add a new scheduled cron job. Before adding, list existing jobs and reuse/update instead of creating overlapping schedules.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "delivery": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "chat_id": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chat_id"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "execution": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "args": {
+                "type": "object"
+              },
+              "kind": {
+                "enum": [
+                  "agent",
+                  "space_action"
+                ],
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "task"
+            ],
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "predicted_connector_permissions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "connector": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9_.-]+$",
+                  "type": "string"
+                },
+                "method": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9_.-]+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "connector",
+                "method"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "retry": {
+            "additionalProperties": false,
+            "properties": {
+              "max_retries": {
+                "type": "integer"
+              },
+              "on_failure": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "schedule": {
+            "additionalProperties": false,
+            "properties": {
+              "at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?$",
+                "type": "string"
+              },
+              "dom": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "dow": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "every": {
+                "pattern": "^\\d+\\s*[smh]$",
+                "type": "string"
+              },
+              "flexible_time": {
+                "type": "boolean"
+              },
+              "kind": {
+                "enum": [
+                  "runonce",
+                  "interval",
+                  "daily",
+                  "weekly",
+                  "monthly",
+                  "yearly"
+                ],
+                "type": "string"
+              },
+              "month": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "time": {
+                "pattern": "^\\d{2}:\\d{2}(:\\d{2})?$",
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "text": {
+            "type": "string"
+          },
+          "timeout_secs": {
+            "maximum": 86400,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": {
+            "maxLength": 120,
+            "pattern": "^[^\\r\\n]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "predicted_connector_permissions",
+          "enabled",
+          "mode",
+          "schedule"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.list",
+      "namespace": "cron",
+      "description": "List schedule summaries with lifecycle owners.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.remove",
+      "namespace": "cron",
+      "description": "Remove a schedule by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.run",
+      "namespace": "cron",
+      "description": "Enqueue an immediate manual run of a schedule by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.runs",
+      "namespace": "cron",
+      "description": "Recent run records (status, timing, attempt, error text), optionally scoped by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.status",
+      "namespace": "cron",
+      "description": "Scheduler-wide counts, or one schedule's scheduler state when id is given.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.stop",
+      "namespace": "cron",
+      "description": "Stop a schedule's in-flight run by id (or one exact run via run). The schedule itself is unchanged.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "run": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.update",
+      "namespace": "cron",
+      "description": "Update an existing schedule (omitted fields stay the same, except as noted for schedule starts and predicted_connector_permissions).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "delivery": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "chat_id": {
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chat_id"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "execution": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "args": {
+                "type": "object"
+              },
+              "kind": {
+                "enum": [
+                  "agent",
+                  "space_action"
+                ],
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "task"
+            ],
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "predicted_connector_permissions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "connector": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9_.-]+$",
+                  "type": "string"
+                },
+                "method": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9_.-]+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "connector",
+                "method"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "retry": {
+            "additionalProperties": false,
+            "properties": {
+              "max_retries": {
+                "type": "integer"
+              },
+              "on_failure": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "schedule": {
+            "additionalProperties": false,
+            "properties": {
+              "at": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?$",
+                "type": "string"
+              },
+              "dom": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "dow": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "every": {
+                "pattern": "^\\d+\\s*[smh]$",
+                "type": "string"
+              },
+              "flexible_time": {
+                "type": "boolean"
+              },
+              "kind": {
+                "enum": [
+                  "runonce",
+                  "interval",
+                  "daily",
+                  "weekly",
+                  "monthly",
+                  "yearly"
+                ],
+                "type": "string"
+              },
+              "month": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              "time": {
+                "pattern": "^\\d{2}:\\d{2}(:\\d{2})?$",
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "text": {
+            "type": "string"
+          },
+          "timeout_secs": {
+            "maximum": 86400,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": {
+            "maxLength": 120,
+            "pattern": "^[^\\r\\n]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "cron.view",
+      "namespace": "cron",
+      "description": "View one schedule's details by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/cron.json",
+      "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+    },
+    {
+      "name": "device.describe",
+      "namespace": "device",
+      "description": "Show everything one paired device can do: runnable commands with argument schemas, data sources, permission state, stored-data freshness, platform metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "device"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/device.json"
+    },
+    {
+      "name": "device.invoke",
+      "namespace": "device",
+      "description": "Run one command on one paired device (command id exactly as device.describe lists it; params_json as a JSON object). Invoking an ungranted command prompts the user on the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "device": {
+            "type": "string"
+          },
+          "params_json": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "device",
+          "command"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/device.json"
+    },
+    {
+      "name": "device.list",
+      "namespace": "device",
+      "description": "List paired devices with live state (device_id, display_name, connection_state, command_count, data sources, platform, last_seen_at). Takes no parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/device.json"
+    },
+    {
+      "name": "device.unpair",
+      "namespace": "device",
+      "description": "Remove one device's pairing (confirm with the user first; only the user can re-pair from the device).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "device"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/device.json"
+    },
+    {
+      "name": "feed.inspect_logs",
+      "namespace": "feed",
+      "description": "Introspect Feed generation runs (step-by-step ledger with timings, attempts, errors).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt_id": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "step_id": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.prompt_get",
+      "namespace": "feed",
+      "description": "Read the user's feed prompt as JSON (prompt_id and full text). Read-only, no parameters needed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.prompt_reset",
+      "namespace": "feed",
+      "description": "Reset the user's Feed prompt to the shipped default text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.prompt_update",
+      "namespace": "feed",
+      "description": "Change the user's ONE feed prompt (full replacement text).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.regenerate",
+      "namespace": "feed",
+      "description": "Generate one fresh Feed unit now (background; no completion message).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt_id": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.search",
+      "namespace": "feed",
+      "description": "Search published Feed units (keyword + meaning search). At least one of query/category is required in prose; schema required list is empty.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "query": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.status",
+      "namespace": "feed",
+      "description": "Read one feed's generation status as plain text (read-only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt_id": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_create",
+      "namespace": "feed",
+      "description": "Generate one bespoke unit on the user's Feed from a full brief (background).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "instruction": {
+            "maxLength": 4000,
+            "type": "string"
+          },
+          "prompt_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "instruction"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_delete",
+      "namespace": "feed",
+      "description": "Permanently remove one unit from the Feed by unit_id (no undo).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "unit_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_get",
+      "namespace": "feed",
+      "description": "Read one published Feed unit in full by unit_id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "unit_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_list",
+      "namespace": "feed",
+      "description": "List the Feed as whole days, newest first, three days per page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string"
+          },
+          "prompt_id": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_reorder",
+      "namespace": "feed",
+      "description": "Move one Feed unit to a new 1-based position within its day.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "prompt_id": {
+            "type": "string"
+          },
+          "unit_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit_id",
+          "position"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "feed.unit_update",
+      "namespace": "feed",
+      "description": "Replace content fields on one published Feed unit (full replacement text per field).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body_md": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "kicker": {
+            "type": "string"
+          },
+          "stats": {
+            "items": {
+              "properties": {
+                "label": {
+                  "maxLength": 40,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "value": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "value"
+              ],
+              "type": "object"
+            },
+            "maxItems": 6,
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unit_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/feed.json"
+    },
+    {
+      "name": "forget.confirm",
+      "namespace": "forget",
+      "description": "After the user approves the most recent forget plan, start a fresh ordinary untyped subagent to re-read that plan and confirmation, revalidate it, execute it, and verify the result. Takes no plan or agent id. Do not call for silence, ambiguity, partial approval, or changed scope.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/forget.json"
+    },
+    {
+      "name": "forget.plan",
+      "namespace": "forget",
+      "description": "Start an ordinary untyped read-only planning subagent to find active copies, derivatives, and future producers of information the user explicitly asked Muse to forget. The current conversation supplies the subject, so this tool takes no sensitive text. Wait for its plan, show the user the scope and limits, and ask for confirmation before using forget.confirm.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/forget.json"
+    },
+    {
+      "name": "hooks.add",
+      "namespace": "hooks",
+      "description": "Add an event hook definition (write the Bash script first). A new hook starts disabled.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "delivery": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "surface": {
+                  "enum": [
+                    "main",
+                    "side_chat"
+                  ],
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "surface"
+              ],
+              "type": "object"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "poll_interval_secs": {
+            "default": 60,
+            "maximum": 604800,
+            "minimum": 5,
+            "type": "integer"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "script_path": {
+            "type": "string"
+          },
+          "script_timeout_secs": {
+            "default": 600,
+            "maximum": 600,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "script_path",
+          "prompt"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.disable",
+      "namespace": "hooks",
+      "description": "Disable a hook; the definition stays but polling stops.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.dry_run",
+      "namespace": "hooks",
+      "description": "Synchronously test only the script with HATCH_HOOK_DRY_RUN=1 and no wake/disable side effects.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.enable",
+      "namespace": "hooks",
+      "description": "Enable a hook so its polling script runs again.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.list",
+      "namespace": "hooks",
+      "description": "List hook definitions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.logs",
+      "namespace": "hooks",
+      "description": "Recent entries from the hook's append-only JSONL invocation log.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 200,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.remove",
+      "namespace": "hooks",
+      "description": "Remove a hook definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.run",
+      "namespace": "hooks",
+      "description": "Live run with HATCH_HOOK_DRY_RUN=0: a wake starts the asynchronous agent lifecycle.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.update",
+      "namespace": "hooks",
+      "description": "Update an event hook definition in place (current enabled state preserved; test with dry_run after).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "delivery": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "surface": {
+                  "enum": [
+                    "main",
+                    "side_chat"
+                  ],
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "surface"
+              ],
+              "type": "object"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          },
+          "poll_interval_secs": {
+            "maximum": 604800,
+            "minimum": 5,
+            "type": "integer"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "script_path": {
+            "type": "string"
+          },
+          "script_timeout_secs": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "hooks.view",
+      "namespace": "hooks",
+      "description": "View one hook definition by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/hooks.json"
+    },
+    {
+      "name": "idea.create_idea_widget",
+      "namespace": "idea",
+      "description": "Present an existing saved idea by its idea_id (transient in-chat widget).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idea_id": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "idea_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/idea.json"
+    },
+    {
+      "name": "idea.get",
+      "namespace": "idea",
+      "description": "Read one saved idea in full (title, domain, category, summary, How it works, match reason, data connections, components with execution plans).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idea_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idea_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/idea.json"
+    },
+    {
+      "name": "idea.list",
+      "namespace": "idea",
+      "description": "Read-only list of Ideas tab cards the user acted on (engaged, rated, accepted, dismissed, built), newest action first.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string"
+          },
+          "limit": {
+            "default": 24,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/idea.json"
+    },
+    {
+      "name": "idea.list_starters",
+      "namespace": "idea",
+      "description": "Fetch the curated onboarding starter ideas, in recommended order (onboarding flow only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/idea.json"
+    },
+    {
+      "name": "idea.search",
+      "namespace": "idea",
+      "description": "Free-text search over Ideas (saved ideas full-text + bundled starter catalog keyword match), answered on-machine with no network calls.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string"
+          },
+          "limit": {
+            "default": 10,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/idea.json"
+    },
+    {
+      "name": "map.geocode",
+      "namespace": "map",
+      "description": "Resolve a place name or address to geographic coordinates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "county": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "house_number": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "lat": {
+            "maximum": 90,
+            "minimum": -90,
+            "type": "number"
+          },
+          "limit": {
+            "default": 1,
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "lon": {
+            "maximum": 180,
+            "minimum": -180,
+            "type": "number"
+          },
+          "min_match": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "provider": {
+            "enum": [
+              "AUTO",
+              "HERE",
+              "ZENRIN",
+              "LOKI"
+            ],
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "radius": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "state": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "target_match": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/map.json"
+    },
+    {
+      "name": "map.reverse_geocode",
+      "namespace": "map",
+      "description": "Resolve latitude/longitude coordinates to the nearest place or address.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "lat": {
+            "maximum": 90,
+            "minimum": -90,
+            "type": "number"
+          },
+          "limit": {
+            "default": 1,
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "lon": {
+            "maximum": 180,
+            "minimum": -180,
+            "type": "number"
+          },
+          "min_match": {
+            "type": "string"
+          },
+          "provider": {
+            "enum": [
+              "AUTO",
+              "HERE",
+              "ZENRIN",
+              "LOKI"
+            ],
+            "type": "string"
+          },
+          "radius": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "target_match": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lat",
+          "lon"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/map.json"
+    },
+    {
+      "name": "media.generate_icon",
+      "namespace": "media",
+      "description": "Generate square icon artwork for a product surface.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "output_dir": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "resume_from_snapshot_id": {
+            "type": "string"
+          },
+          "surface": {
+            "enum": [
+              "space",
+              "podcast",
+              "discovery_pool",
+              "app",
+              "generic"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/media.json"
+    },
+    {
+      "name": "media.generate_image",
+      "namespace": "media",
+      "description": "Generate or edit images via a subagent (user request text passed verbatim, with Context/identity/attire handling).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "output_dir": {
+            "type": "string"
+          },
+          "output_format": {
+            "enum": [
+              "png",
+              "jpg",
+              "jpeg",
+              "webp"
+            ],
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "prompt": {
+            "items": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "text",
+                    "image"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "value"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "resume_from_snapshot_id": {
+            "type": "string"
+          },
+          "start_fresh": {
+            "type": "boolean"
+          },
+          "style_preset": {
+            "enum": [
+              "product_try_on",
+              "product_try_on_head_and_shoulders"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/media.json"
+    },
+    {
+      "name": "media.generate_video",
+      "namespace": "media",
+      "description": "Generate videos via a specialized video generation subagent (request passed verbatim; max 6 videos per user message).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "output_dir": {
+            "type": "string"
+          },
+          "prompt": {
+            "items": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "text",
+                    "image"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "value"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "resume_from_snapshot_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/media.json"
+    },
+    {
+      "name": "muse.connector_search",
+      "namespace": "muse",
+      "description": "Find connectors by name, alias, or the action needed (searches names, aliases, descriptions; returns name, docs path, description). Does not connect accounts or perform actions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "queries": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.create_options",
+      "namespace": "muse",
+      "description": "For a known, bounded choice, create reply options; embed the returned embed_token unchanged in the reply. Tapping an option sends its exact text as the user's next message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "button_style": {
+            "default": "dotted_lines",
+            "enum": [
+              "dotted_lines",
+              "center_aligned_filled"
+            ],
+            "type": "string"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "options"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.db",
+      "namespace": "muse",
+      "description": "Run bounded, read-only SQL SELECT queries against database-backed Muse records (transcripts, messages, agent executions, tool calls, goals, memories, scheduled work, Feed/Ideas records, artifacts, device-sync data). Prefer purpose-built tools for ordinary reads.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sql": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sql"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.edit",
+      "namespace": "muse",
+      "description": "Edit a file by replacing exact text (first occurrence; multi-match lists other locations).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "new_text": {
+            "type": "string"
+          },
+          "old_text": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "old_text",
+          "new_text"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.exec",
+      "namespace": "muse",
+      "description": "Execute a shell command. If still running after yield_ms, it backgrounds and the runtime delivers the terminal result automatically.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "background": {
+            "type": "boolean"
+          },
+          "command": {
+            "type": "string"
+          },
+          "env": {
+            "type": "object"
+          },
+          "pty": {
+            "type": "boolean"
+          },
+          "stdin": {
+            "type": "string"
+          },
+          "workdir": {
+            "type": "string"
+          },
+          "yield_ms": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.memory_explain",
+      "namespace": "muse",
+      "description": "Show where one memory came from and what replaced what (claim id, memory:// uri, or citation like MEMORY.md#L7). Read only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.memory_get",
+      "namespace": "muse",
+      "description": "Read a snippet from MEMORY.md, memory/**/*.md, or side-chat memory (with optional from/lines window).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "number"
+          },
+          "lines": {
+            "type": "number"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.memory_search",
+      "namespace": "muse",
+      "description": "Search saved memory and past conversations (1-3 queries; maxResults per source; minScore applies only to saved memories).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "number"
+          },
+          "minScore": {
+            "type": "number"
+          },
+          "queries": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.nothing_to_do",
+      "namespace": "muse",
+      "description": "Signal that an internal handoff or ignorable group/channel message should produce no user-visible reply.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.offer_preference",
+      "namespace": "muse",
+      "description": "After a connector completes a task, check whether to ask about making it the preferred connector for that task category. Returns should_offer at most once per category.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "category"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.react_to_user_message",
+      "namespace": "muse",
+      "description": "Attach an emoji reaction to the user's current message (one Unicode emoji or a supported custom reaction id).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "emoji": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "emoji"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.read",
+      "namespace": "muse",
+      "description": "Read file contents or list directory contents (text paged by lines; images injected into context; documents converted to Markdown).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.session_status",
+      "namespace": "muse",
+      "description": "Report conversation context-window usage (tokens filled/remaining), the serving model, and the user's local time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.set_preferred",
+      "namespace": "muse",
+      "description": "Save or clear the preferred skill/connector for a kind of task.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "for": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "preferred": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "preferred"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.skill_search",
+      "namespace": "muse",
+      "description": "Search the full skill catalog (bundled + custom) by keyword (bm25) or regex. Returns names, paths, and full skill descriptions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "default": 8,
+            "maximum": 25,
+            "type": "number"
+          },
+          "mode": {
+            "enum": [
+              "bm25",
+              "regex"
+            ],
+            "type": "string"
+          },
+          "queries": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.visual_grounding",
+      "namespace": "muse",
+      "description": "Locate, label, or count objects in an image (bbox/point/count; coordinates normalized 0-1000 to the exact file passed).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format_type": {
+            "enum": [
+              "bbox",
+              "point",
+              "count"
+            ],
+            "type": "string"
+          },
+          "image_path": {
+            "type": "string"
+          },
+          "object_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "object_names",
+          "image_path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "muse.write",
+      "namespace": "muse",
+      "description": "Write content to a file (overwrite by default; append mode for incremental chunks). Overwriting existing content fails unless the file was read earlier in the conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "overwrite",
+              "append"
+            ],
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/muse.json"
+    },
+    {
+      "name": "onboarding.create_name_widget",
+      "namespace": "onboarding",
+      "description": "Create the onboarding assistant-name option widget (samples two name options plus an editable custom-name option, or a fixed Muse option when keep_muse is true). Pass user_name when known to persist it to USER.md before the widget is returned.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "keep_muse": {
+            "type": "boolean"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/onboarding.json"
+    },
+    {
+      "name": "onboarding.update_identity",
+      "namespace": "onboarding",
+      "description": "Persist the assistant name or vibe the user chose during onboarding.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "vibe": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/onboarding.json"
+    },
+    {
+      "name": "permissions.history",
+      "namespace": "permissions",
+      "description": "Read resolved permission requests as Markdown (newest first), or look up one pending/resolved request by approval_id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "approval_id": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "cursor": {
+            "maxLength": 1024,
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/permissions.json"
+    },
+    {
+      "name": "permissions.list_active",
+      "namespace": "permissions",
+      "description": "List current permission settings and grants, including scope and expiry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "maxLength": 1024,
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/permissions.json"
+    },
+    {
+      "name": "permissions.list_pending",
+      "namespace": "permissions",
+      "description": "List permission requests currently waiting for the user (newest first, max 20 per page; follow next_cursor).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "maxLength": 1024,
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/permissions.json"
+    },
+    {
+      "name": "proactivity.read",
+      "namespace": "proactivity",
+      "description": "Look back at what a background proactivity worker prepared earlier (edition_id to list items; item_id for drafts, sources, acceptance scope). A past snapshot: reconfirm freshness before presenting or acting.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "edition_id": {
+            "type": "string"
+          },
+          "item_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edition_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/proactivity.json"
+    },
+    {
+      "name": "proactivity.select",
+      "namespace": "proactivity",
+      "description": "Record a decision for every item in the active proactive delivery (send with a format, or skip with a reason). Decisions accumulate; a successful call records them but sends nothing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "decisions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "decision": {
+                  "enum": [
+                    "send",
+                    "skip"
+                  ],
+                  "type": "string"
+                },
+                "format": {
+                  "enum": [
+                    "text",
+                    "options",
+                    "letter",
+                    "html_widget",
+                    "map_widget",
+                    "list_widget",
+                    "artifact"
+                  ],
+                  "type": "string"
+                },
+                "item_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reason": {
+                  "enum": [
+                    "time_sensitive",
+                    "changed",
+                    "requested",
+                    "ready_for_decision",
+                    "new_opportunity",
+                    "moot",
+                    "already_handled",
+                    "unconfirmed",
+                    "preferences",
+                    "not_useful_now"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "item_id",
+                "decision"
+              ],
+              "type": "object"
+            },
+            "maxItems": 8,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "decisions"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/proactivity.json"
+    },
+    {
+      "name": "process.clear",
+      "namespace": "process",
+      "description": "Remove a finished background process session from tracking (fails if still running or unknown).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.kill",
+      "namespace": "process",
+      "description": "Terminate a background process session (whole process tree); output stays readable via process.log until cleared.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.list",
+      "namespace": "process",
+      "description": "List every background process session the current agent started through exec (running or finished). Takes no parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.log",
+      "namespace": "process",
+      "description": "Read a paged window of a session's accumulated output (offset/limit; non-destructive, repeatable).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 200,
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.poll",
+      "namespace": "process",
+      "description": "Wait up to timeout ms for a session to produce new output or exit, then return deltas (consumed once). Backgrounded commands deliver terminal results automatically; never poll just to wait for completion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "timeout": {
+            "default": 1000,
+            "maximum": 120000,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "session_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.send_keys",
+      "namespace": "process",
+      "description": "Send named terminal key presses to a PTY session (enter, tab, escape, arrows, f1-f12, c-<char> chords).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eof": {
+            "type": "boolean"
+          },
+          "keys": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "keys"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "process.write",
+      "namespace": "process",
+      "description": "Write raw text to a session's stdin (include a trailing newline to submit a line; eof=true closes stdin).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "eof": {
+            "type": "boolean"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "data"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/process.json"
+    },
+    {
+      "name": "shopping.create_shopping_cart_widget",
+      "namespace": "shopping",
+      "description": "Present a verified shopping cart using a reference returned by shopping.read_cart.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cart_ref": {
+            "type": "string"
+          },
+          "present_now": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cart_ref"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/shopping.json"
+    },
+    {
+      "name": "shopping.create_shopping_results_widget",
+      "namespace": "shopping",
+      "description": "Present shopping product cards from resolved catalog/Marketplace/connector/browser results (standalone card; subagents/background workers cannot call it).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "products": {
+            "items": {
+              "properties": {
+                "brand": {
+                  "type": "string"
+                },
+                "citation_id": {
+                  "type": "string"
+                },
+                "image_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "is_agentic_checkout_completion_enabled": {
+                  "type": "boolean"
+                },
+                "is_agentic_checkout_creation_enabled": {
+                  "type": "boolean"
+                },
+                "is_image_available": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "string"
+                },
+                "primary_action": {
+                  "enum": [
+                    "add_to_cart"
+                  ],
+                  "type": "string"
+                },
+                "product_id": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "retailer_name": {
+                  "type": "string"
+                },
+                "sale_price": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "catalog",
+                    "marketplace",
+                    "browser"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "name"
+              ],
+              "type": "object"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/shopping.json"
+    },
+    {
+      "name": "shopping.read_cart",
+      "namespace": "shopping",
+      "description": "Read the current cart without changing it; return a short-lived cart_ref. Only when a loaded connector doc explicitly documents shopping.read_cart and supplies the provider identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/shopping.json"
+    },
+    {
+      "name": "shopping.resolve_results",
+      "namespace": "shopping",
+      "description": "Resolve selected product IDs against product-search result files; write one normalized shopping-results artifact and prepare runtime-validated product citation markers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "result_paths": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "selected_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "result_paths",
+          "selected_ids"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/shopping.json"
+    },
+    {
+      "name": "social.search",
+      "namespace": "social",
+      "description": "Search content across Instagram, Threads, and Facebook, including the user's own posts and activity. Use post_url for a direct lookup of one exact post URL instead of translating the link into a query. Ranking intent: informational (default), engagement, or recency. Results come back with the writing system searched in first; posts in a different script sit below a marked line. NOTE: the full prose description (including authors/relation_to_author guidance, language handling, and citation guidance) is summarized in this file; parameter names, types, and enums are exact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "content_type": {
+            "enum": [
+              "image",
+              "video"
+            ],
+            "type": "string"
+          },
+          "group_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "key_celebrities": {
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "platform": {
+            "enum": [
+              "facebook",
+              "instagram",
+              "threads"
+            ],
+            "type": "string"
+          },
+          "post_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ranking_intent": {
+            "enum": [
+              "informational",
+              "engagement",
+              "recency"
+            ],
+            "type": "string"
+          },
+          "relation_to_author": {
+            "default": "all",
+            "enum": [
+              "all",
+              "friend",
+              "followee",
+              "follower"
+            ],
+            "type": "string"
+          },
+          "semantic_queries": {
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "since": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "top": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "until": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/social.json",
+      "transcription_note": "social.search's long prose description is summarized here; all parameter names, types, enums, and defaults are exact. No parameter is required (all optional)."
+    },
+    {
+      "name": "subagent.close",
+      "namespace": "subagent",
+      "description": "Stop one child agent by id (direct or descendants scope). Closing a browser task owner stops the whole browser task.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "direct",
+              "descendants"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/subagent.json"
+    },
+    {
+      "name": "subagent.list",
+      "namespace": "subagent",
+      "description": "List child agents (active and recent) with normalized status, task/final-response previews, timing, and whether a finished result was already seen.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 20,
+            "maximum": 200,
+            "type": "integer"
+          },
+          "scope": {
+            "enum": [
+              "direct",
+              "descendants"
+            ],
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/subagent.json"
+    },
+    {
+      "name": "subagent.resume",
+      "namespace": "subagent",
+      "description": "Resume one interrupted child agent by id (browser task owners and in-flight artifact builders refuse generic resume).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "direct",
+              "descendants"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/subagent.json"
+    },
+    {
+      "name": "subagent.send",
+      "namespace": "subagent",
+      "description": "Deliver follow-up input to a running child agent by id (async; items take precedence over message; interrupt=true cuts off current work first).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "interrupt": {
+            "type": "boolean"
+          },
+          "items": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "data_base64": {
+                  "type": "string"
+                },
+                "filename": {
+                  "type": "string"
+                },
+                "mime_type": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "text",
+                    "image",
+                    "file"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "direct",
+              "descendants"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/subagent.json"
+    },
+    {
+      "name": "subagent.spawn",
+      "namespace": "subagent",
+      "description": "Delegate a task to a new child agent (async; the response only confirms the spawn). Spawn independent agents in parallel in the same turn.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "data_base64": {
+                  "type": "string"
+                },
+                "filename": {
+                  "type": "string"
+                },
+                "mime_type": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "text",
+                    "image",
+                    "file"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/subagent.json"
+    },
+    {
+      "name": "todo.write",
+      "namespace": "todo",
+      "description": "Record the working todo list for the current task, replacing the previous list. Keep one item in_progress while work can proceed; mark blocked when progress depends on new input or a result; remove completed/cancelled items before ending a turn.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "todos": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "pending",
+                    "in_progress",
+                    "blocked",
+                    "completed",
+                    "cancelled"
+                  ],
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "text",
+                "status"
+              ],
+              "type": "object"
+            },
+            "maxItems": 25,
+            "type": "array"
+          }
+        },
+        "required": [
+          "todos"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/todo.json"
+    },
+    {
+      "name": "tool_search.load_tool_namespace",
+      "namespace": "tool_search",
+      "description": "Load all function descriptions and parameter schemas for one or more tool namespaces. A namespace counts as loaded while the full interfaces from its load are still in context. Skills and connector docs are not tool namespaces.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "paths"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tool_search.json"
+    },
+    {
+      "name": "tracking.create",
+      "namespace": "tracking",
+      "description": "Create a tracked item (title, current_state pulse, description). Resolve identity first with list/search; never create a replacement for an existing item or a shadow of a user goal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emoji": {
+            "type": "string"
+          },
+          "goal_kind": {
+            "enum": [
+              "outcome",
+              "behavior",
+              "learning",
+              "habit",
+              "maintenance",
+              "recovery",
+              "identity",
+              "exploratory"
+            ],
+            "type": "string"
+          },
+          "parent_goal_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "value_alignment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "current_state",
+          "description"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.create_entry",
+      "namespace": "tracking",
+      "description": "Add one activity entry to a tracked item's timeline.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effective_at": {
+            "type": "string"
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id",
+          "title",
+          "current_state",
+          "description"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.delete",
+      "namespace": "tracking",
+      "description": "Permanently delete a tracked item by goal_id (workspace files preserved on disk). For finished work use set_status completed instead.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.delete_entry",
+      "namespace": "tracking",
+      "description": "Delete one activity entry by its update_id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "update_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "update_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.get",
+      "namespace": "tracking",
+      "description": "Read one tracked item in full by goal_id, with its complete activity timeline.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.list",
+      "namespace": "tracking",
+      "description": "List tracked work items (default limit 100).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 100,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.search",
+      "namespace": "tracking",
+      "description": "Keyword search across tracked items (id, title, current_state, description).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 10,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "minLength": 2,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.set_status",
+      "namespace": "tracking",
+      "description": "Set a tracked item's lifecycle to active or completed, with a required user-facing reason.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "completed"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id",
+          "status",
+          "reason"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.update",
+      "namespace": "tracking",
+      "description": "Patch a tracked item's metadata by goal_id (only passed fields change). Lifecycle is not editable here.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "escalation": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "notify",
+                  "ask"
+                ],
+                "type": "string"
+              },
+              "condition": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "condition",
+              "due_at",
+              "action"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "goal_kind": {
+            "enum": [
+              "outcome",
+              "behavior",
+              "learning",
+              "habit",
+              "maintenance",
+              "recovery",
+              "identity",
+              "exploratory"
+            ],
+            "type": "string"
+          },
+          "parent_goal_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "value_alignment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "tracking.update_entry",
+      "namespace": "tracking",
+      "description": "Edit an existing activity entry by update_id; at least one of title/current_state/description/effective_at.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effective_at": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "update_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "update_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/tracking.json"
+    },
+    {
+      "name": "trash.list",
+      "namespace": "trash",
+      "description": "List every entry in Muse's recoverable trash (trash_id, status, expiry date, original path, top-level contents). Takes no parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/trash.json"
+    },
+    {
+      "name": "trash.put",
+      "namespace": "trash",
+      "description": "Move one file or directory into Muse's recoverable trash; returns a trash_id (entries expire 30 days after trashing).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/trash.json"
+    },
+    {
+      "name": "trash.restore",
+      "namespace": "trash",
+      "description": "Move an active trash entry back out (to its original path, or custom_path). Never overwrites an existing path.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "custom_path": {
+            "type": "string"
+          },
+          "trash_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "trash_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/trash.json"
+    },
+    {
+      "name": "travel.create_hotel_results_widget",
+      "namespace": "travel",
+      "description": "Create native hotel cards from an unmodified saved Expedia search JSON file (up to four preview properties; See all opens the original search).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hotel_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "path": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/travel.json"
+    },
+    {
+      "name": "ui.create_navigation_widget",
+      "namespace": "ui",
+      "description": "Create a native card that opens an app tab or invokes a UI control when tapped (the widget only stores the control; the client performs it on click).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string"
+          },
+          "image_path": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "ui_control": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "navigate",
+                  "set"
+                ],
+                "type": "string"
+              },
+              "mode": {
+                "enum": [
+                  "suggest",
+                  "perform"
+                ],
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "target",
+              "params",
+              "mode"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "title",
+          "ui_control"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/ui.json"
+    },
+    {
+      "name": "ui.list",
+      "namespace": "ui",
+      "description": "Return the UI commands the user's active Muse client declares right now, with each target's parameter schema.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/ui.json"
+    },
+    {
+      "name": "ui.navigate",
+      "namespace": "ui",
+      "description": "Drive the user's active Muse UI to a target view (perform executes immediately; suggest renders a confirmable hint). Open at most one view per request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "enum": [
+              "suggest",
+              "perform"
+            ],
+            "type": "string"
+          },
+          "params": {
+            "type": "object"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/ui.json"
+    },
+    {
+      "name": "ui.set",
+      "namespace": "ui",
+      "description": "Apply a UI setting on the user's active Muse client (perform/suggest as ui.navigate).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "enum": [
+              "suggest",
+              "perform"
+            ],
+            "type": "string"
+          },
+          "params": {
+            "type": "object"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/ui.json"
+    },
+    {
+      "name": "user_goal.create",
+      "namespace": "user_goal",
+      "description": "Create a goal (conversational intake first unless the opening message already carries concrete specifics). Resolve identity first with list/search.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "enum": [
+              "health",
+              "relationships",
+              "money",
+              "career",
+              "interests",
+              "productivity",
+              "something_else"
+            ],
+            "type": "string"
+          },
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emoji": {
+            "type": "string"
+          },
+          "goal_kind": {
+            "enum": [
+              "outcome",
+              "behavior",
+              "learning",
+              "habit",
+              "maintenance",
+              "recovery",
+              "identity",
+              "exploratory"
+            ],
+            "type": "string"
+          },
+          "parent_goal_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "value_alignment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "current_state",
+          "description"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.create_entry",
+      "namespace": "user_goal",
+      "description": "Add one activity entry to a user goal's timeline.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effective_at": {
+            "type": "string"
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id",
+          "title",
+          "current_state",
+          "description"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.delete",
+      "namespace": "user_goal",
+      "description": "Permanently delete a user goal by goal_id (workspace files preserved). Finished goals should be completed with set_status instead.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.delete_briefing",
+      "namespace": "user_goal",
+      "description": "Delete one stored briefing from a user goal by briefing_id (historical delivery/engagement records retained).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "briefing_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "briefing_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.delete_entry",
+      "namespace": "user_goal",
+      "description": "Delete one activity entry by update_id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "update_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "update_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.get",
+      "namespace": "user_goal",
+      "description": "Read one user goal by goal_id, with full timeline, suggestions, associations, and briefings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.list",
+      "namespace": "user_goal",
+      "description": "List the user's own goals (default limit 100).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 100,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.search",
+      "namespace": "user_goal",
+      "description": "Keyword search across user goals (id, title, current_state, description).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 10,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "minLength": 2,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.set_status",
+      "namespace": "user_goal",
+      "description": "Set a user goal's lifecycle to active or completed, with a required user-facing reason.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal_id": {
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "completed"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id",
+          "status",
+          "reason"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.update",
+      "namespace": "user_goal",
+      "description": "Update a user goal's metadata (only passed fields change). pushable=false stops proactive brief pushes for that goal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "enum": [
+              "health",
+              "relationships",
+              "money",
+              "career",
+              "interests",
+              "productivity",
+              "something_else"
+            ],
+            "type": "string"
+          },
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "escalation": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "notify",
+                  "ask"
+                ],
+                "type": "string"
+              },
+              "condition": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "condition",
+              "due_at",
+              "action"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "goal_id": {
+            "type": "string"
+          },
+          "goal_kind": {
+            "enum": [
+              "outcome",
+              "behavior",
+              "learning",
+              "habit",
+              "maintenance",
+              "recovery",
+              "identity",
+              "exploratory"
+            ],
+            "type": "string"
+          },
+          "parent_goal_id": {
+            "type": "string"
+          },
+          "pushable": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": "string"
+          },
+          "value_alignment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "goal_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "user_goal.update_entry",
+      "namespace": "user_goal",
+      "description": "Edit an existing activity entry by update_id; at least one of title/current_state/description/effective_at.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "current_state": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effective_at": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "update_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "update_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/user_goal.json"
+    },
+    {
+      "name": "wallet.add_payment_method",
+      "namespace": "wallet",
+      "description": "Start adding a payment method to one connected wallet provider; returns the provider's secure entry page for the user to complete themselves.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "stripe-link",
+              "shop-pay"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/wallet.json"
+    },
+    {
+      "name": "wallet.get_connection_status",
+      "namespace": "wallet",
+      "description": "Read a provider's connection state and one secure next_action (connect/reauthenticate or disconnect). Does not connect or disconnect.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "stripe-link",
+              "shop-pay"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/wallet.json"
+    },
+    {
+      "name": "wallet.get_user_info",
+      "namespace": "wallet",
+      "description": "Retrieve the profile claims a connected wallet provider reports (name, email, phone, verification status, spending limits in minor units).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "stripe-link",
+              "shop-pay"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/wallet.json"
+    },
+    {
+      "name": "wallet.list_payment_methods",
+      "namespace": "wallet",
+      "description": "List payment methods saved with one wallet provider and its connection status. For checkout use only methods whose type is card; method IDs are opaque and must not be exposed to the user or saved to memory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "stripe-link",
+              "shop-pay"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/wallet.json"
+    },
+    {
+      "name": "wallet.list_shipping_addresses",
+      "namespace": "wallet",
+      "description": "List shipping addresses saved with one connected wallet provider.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "enum": [
+              "stripe-link",
+              "shop-pay"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/wallet.json"
+    },
+    {
+      "name": "widget.create_html_file_widget",
+      "namespace": "widget",
+      "description": "Create an in-chat HTML widget from a local .html/.htm file (max 1 MB; never under workspace/your_files/ or workspace/visual_grounding/).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "display_text": {
+            "type": "string"
+          },
+          "fallback_text": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.create_html_widget",
+      "namespace": "widget",
+      "description": "Create compact interactive HTML in the current chat reply (fragment only, no document wrappers; theme-aware; state via the window.hatchWidget bridge).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "display_text": {
+            "type": "string"
+          },
+          "fallback_text": {
+            "type": "string"
+          },
+          "html": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "html"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.create_letter_widget",
+      "namespace": "widget",
+      "description": "Present an existing briefing or relationship brief as a native Letter (presents immediately; subagents/background workers cannot call it).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "additionalProperties": false,
+            "properties": {
+              "data": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "type": {
+                "enum": [
+                  "briefing",
+                  "relationship_brief"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.create_list_widget",
+      "namespace": "widget",
+      "description": "Create a native list card of skill-directed results, links, flights, calendar entries, or email entries (1-20 rows). NOTE: the full flight-input contract prose is summarized here; row fields and the flight_data shape (id, passengers, slices[].segments[] with from/to/depart/arrive required; refundable/changeable yes/no/not stated) are exact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "flight_action": {
+            "additionalProperties": false,
+            "properties": {
+              "cta_text": {
+                "type": "string"
+              },
+              "response_message_prefix": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cta_text",
+              "response_message_prefix"
+            ],
+            "type": "object"
+          },
+          "items": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "data": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "icons": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "image_url": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tertiary_title": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "generic",
+                    "link",
+                    "send_message",
+                    "calendar",
+                    "email",
+                    "flight"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "type": "array"
+          },
+          "language": {
+            "type": "string"
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "items"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.create_map_widget",
+      "namespace": "widget",
+      "description": "Create a map showing real-world places and location pins (1-24 elements; rich_place with a verbatim place_id, or plain marker).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "display_text": {
+            "type": "string"
+          },
+          "elements": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "background_image_url": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "coordinate": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "latitude": {
+                      "maximum": 90,
+                      "minimum": -90,
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "maximum": 180,
+                      "minimum": -180,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "latitude",
+                    "longitude"
+                  ],
+                  "type": "object"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "rich_place",
+                    "marker"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "place_id": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "coordinate"
+              ],
+              "type": "object"
+            },
+            "maxItems": 24,
+            "minItems": 1,
+            "type": "array"
+          },
+          "initial_zoom": {
+            "maximum": 20,
+            "minimum": 1,
+            "type": "number"
+          },
+          "motivation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "present_now": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "elements"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.present",
+      "namespace": "widget",
+      "description": "Present an already-created widget as a standalone chat presentation (not for inline-only widgets such as muse.create_options).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "widget_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "widget_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "widget.state",
+      "namespace": "widget",
+      "description": "Read the durable state of a widget created with create_html_widget/create_html_file_widget (returns widget_id, kind, display_text, state, version; version-0 reads return {} meaning still on seeded defaults).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "widget_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "widget_id"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/widget.json",
+      "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+    },
+    {
+      "name": "worker.update_discretion",
+      "namespace": "worker",
+      "description": "Replace the user's own rules in a side chat's ~/side-chats/<chat-id>/DISCRETION.md (guidance becomes everything after the default-discretion:end marker; the runtime keeps the default section). Applies directly only when the user's messages on this turn ask for every added/removed line and the added lines open up nothing sensitive; otherwise the user approves on a card first.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "chat_id": {
+            "type": "string"
+          },
+          "guidance": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat_id",
+          "guidance"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/worker.json"
+    },
+    {
+      "name": "workflow.create",
+      "namespace": "workflow",
+      "description": "Create a new saved workflow script (fails if the name already exists; never runs it).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "script"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.delete",
+      "namespace": "workflow",
+      "description": "Delete one saved workflow script by invocation name (past runs stay inspectable; running workflows keep executing their snapshot).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.launch",
+      "namespace": "workflow",
+      "description": "Launch a VM-local JavaScript workflow and wait for it to resolve. Exactly one script source: scriptPath (highest precedence), script, or name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "args": {
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resumeFromRunId": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          },
+          "scriptPath": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.launch_async",
+      "namespace": "workflow",
+      "description": "Launch a VM-local JavaScript workflow asynchronously and return immediately with the run id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "args": {
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resumeFromRunId": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          },
+          "scriptPath": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.list",
+      "namespace": "workflow",
+      "description": "List saved workflow scripts (default limit 100, max 200).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "default": 100,
+            "maximum": 200,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.list_runs",
+      "namespace": "workflow",
+      "description": "List workflow runs launched from this root session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "maximum": 200,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": []
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.pause",
+      "namespace": "workflow",
+      "description": "Pause one queued/running workflow run by run id (terminal runs cannot be paused).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.resume",
+      "namespace": "workflow",
+      "description": "Resume one paused workflow run by run id (a synchronous run's resume waits for it to resolve).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.save_run",
+      "namespace": "workflow",
+      "description": "Save a workflow run's script snapshot as a saved workspace workflow (overwrites an existing saved workflow with the same name).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.stop",
+      "namespace": "workflow",
+      "description": "Stop one workflow run by run id (terminal; a stopped run must never be resumed or relaunched).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.stop_agent",
+      "namespace": "workflow",
+      "description": "Stop one child agent call inside a workflow run without stopping the run (needs runId and callId from view_run).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "callId": {
+            "type": "string"
+          },
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId",
+          "callId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.update",
+      "namespace": "workflow",
+      "description": "Replace the script of an existing saved workspace workflow (fails if none exists; affects only future launches).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "script"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.view",
+      "namespace": "workflow",
+      "description": "View one saved workspace workflow script by invocation name (source plus metadata).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    },
+    {
+      "name": "workflow.view_run",
+      "namespace": "workflow",
+      "description": "View one workflow run by run id (status, phase progress, child calls with call ids, timing, final result or error).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId"
+        ]
+      },
+      "source": "evidence/muse/runtime-export/schemas/workflow.json",
+      "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.log
+.DS_Store
+
+# Credentials and unreviewed local collection material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials/
+secrets/
+private/
+local/
+raw-captures/
+work/
+*.har
+*.pcap
+*.pcapng
+*.mitm
+
+# Derived output
+dist/
+build/
+*.zip

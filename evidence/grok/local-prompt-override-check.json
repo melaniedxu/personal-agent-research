@@ -1,0 +1,16 @@
+{
+  "product_version": "0.75.8",
+  "method": "read-only, field-scoped inspection",
+  "static_config": "grok_bot_system_prompt_override",
+  "static_value_schema": {
+    "basePrompt": "string"
+  },
+  "static_fallback": {
+    "basePrompt": ""
+  },
+  "cache_file_basename": "sand-statsig-bootstrap.json",
+  "cached_named_config_matches": 0,
+  "cached_basePrompt_field_matches": 0,
+  "conclusion": "No prompt override recovered by this specific cache check; no conclusion about server-side prompt assembly.",
+  "privacy_boundary": "Only matching prompt fields emitted; no unrelated config, identity, credentials, cookies, or sessions exported."
+}

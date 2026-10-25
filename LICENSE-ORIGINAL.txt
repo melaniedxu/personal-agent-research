@@ -1,0 +1,27 @@
+MIT License
+
+Copyright (c) 2026 Community Personal Agent Study contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of the original community reference code, original prompts, and original
+documentation in this package, to deal in that original material without
+restriction, including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies, and to permit
+persons to whom the material is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of that original material.
+
+THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE MATERIAL OR ITS USE.
+
+This grant excludes all vendor files, vendor-derived schemas/manifests,
+captures, quoted third-party material, and externally linked projects.
+Their inclusion as research evidence does not grant rights in the original
+products. No vendor branding, binaries, assets, credentials, or sessions are
+licensed by this file. Third-party provenance is recorded in sources.json and
+the evidence directories.

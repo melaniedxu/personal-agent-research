@@ -1,0 +1,4894 @@
+{
+ "title": "Muse tool namespace schemas (in-session definitions, transcribed 2026-10-24/25)",
+ "namespace_count": 33,
+ "function_count": 193,
+ "namespaces": {
+  "ads": {
+   "description": "Required finalization for Ads responses that name an ad account, campaign, ad set, or ad from Ads tool results: call before composing the final response and copy returned markers exactly where entity names belong.",
+   "functions": {
+    "ads.resolve_entities": {
+     "description": "Resolve Ads entities to chips before a final response names them. Include only entities read from actual tool output; campaigns, ad sets, and ads also require their owning ad account ID. Never invent names or IDs.",
+     "parameters": {
+      "entities": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "account_id": {
+          "minLength": 1,
+          "type": "string"
+         },
+         "display_name": {
+          "minLength": 1,
+          "type": "string"
+         },
+         "entity_id": {
+          "minLength": 1,
+          "type": "string"
+         },
+         "type": {
+          "enum": [
+           "ad_account",
+           "campaign",
+           "ad_set",
+           "ad"
+          ],
+          "type": "string"
+         }
+        },
+        "required": [
+         "type",
+         "entity_id",
+         "display_name"
+        ],
+        "type": "object"
+       },
+       "maxItems": 50,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "entities"
+     ]
+    }
+   },
+   "namespace": "ads"
+  },
+  "artifact": {
+   "description": "Durable artifacts: web pages/apps, editable documents, PDFs, presentations, spreadsheets/CSV, markdown, other plain files. Web artifacts live on the hosted web runtime; file artifacts land under workspace/your_files/<slug>/ by default.",
+   "functions": {
+    "artifact.cancel": {
+     "description": "Stop an artifact's running build.",
+     "parameters": {
+      "agent_id": {
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    },
+    "artifact.create_file": {
+     "description": "Build a file artifact when the user asks for a deliverable.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      },
+      "kind": {
+       "enum": [
+        "document",
+        "pdf",
+        "presentation",
+        "spreadsheet",
+        "markdown",
+        "other"
+       ],
+       "type": "string"
+      },
+      "name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "output_formats": {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "slide_count_target": {
+       "type": "unspecified"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      },
+      "verbatim_request": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "kind",
+      "name",
+      "slug",
+      "verbatim_request"
+     ]
+    },
+    "artifact.create_web_fullstack": {
+     "description": "Build a hosted web app with a storage/server layer.",
+     "parameters": {
+      "capabilities": {
+       "properties": {
+        "connectors": {
+         "items": {
+          "properties": {
+           "connector": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+           },
+           "methods": {
+            "items": {
+             "maxLength": 128,
+             "minLength": 1,
+             "type": "string"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+           },
+           "purpose": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+           }
+          },
+          "required": [
+           "connector",
+           "methods",
+           "purpose"
+          ],
+          "type": "object"
+         },
+         "maxItems": 16,
+         "type": "array"
+        },
+        "public_web_read": {
+         "type": "boolean"
+        }
+       },
+       "required": [
+        "public_web_read",
+        "connectors"
+       ],
+       "type": "object"
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "icon_subject": {
+       "maxLength": 900,
+       "minLength": 1,
+       "type": "string"
+      },
+      "name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "refresh_triggers": {
+       "items": {
+        "properties": {
+         "kind": {
+          "enum": [
+           "cron"
+          ],
+          "type": "string"
+         },
+         "schedule": {
+          "minLength": 1,
+          "type": "string"
+         }
+        },
+        "required": [
+         "kind",
+         "schedule"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "research_dir": {
+       "type": "string"
+      },
+      "template": {
+       "enum": [
+        "muse"
+       ],
+       "type": "string"
+      },
+      "verbatim_request": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "icon_subject",
+      "verbatim_request",
+      "capabilities"
+     ]
+    },
+    "artifact.create_web_static": {
+     "description": "Build a hosted web page or app (static; resets on reload; shareable as a public link).",
+     "parameters": {
+      "capabilities": {
+       "properties": {
+        "connectors": {
+         "items": {
+          "properties": {
+           "connector": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+           },
+           "methods": {
+            "items": {
+             "maxLength": 128,
+             "minLength": 1,
+             "type": "string"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+           },
+           "purpose": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+           }
+          },
+          "required": [
+           "connector",
+           "methods",
+           "purpose"
+          ],
+          "type": "object"
+         },
+         "maxItems": 16,
+         "type": "array"
+        },
+        "public_web_read": {
+         "type": "boolean"
+        }
+       },
+       "required": [
+        "public_web_read",
+        "connectors"
+       ],
+       "type": "object"
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "icon_subject": {
+       "maxLength": 900,
+       "minLength": 1,
+       "type": "string"
+      },
+      "name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "research_dir": {
+       "type": "string"
+      },
+      "template": {
+       "enum": [
+        "muse"
+       ],
+       "type": "string"
+      },
+      "verbatim_request": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "icon_subject",
+      "verbatim_request",
+      "capabilities"
+     ]
+    },
+    "artifact.delete": {
+     "description": "Permanently delete an artifact and its data at the user's request.",
+     "parameters": {
+      "kind": {
+       "enum": [
+        "web_fullstack",
+        "web_static",
+        "document",
+        "pdf",
+        "presentation",
+        "spreadsheet",
+        "markdown",
+        "other"
+       ],
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug",
+      "kind"
+     ]
+    },
+    "artifact.edit": {
+     "description": "Change an existing artifact (feature, content, styling, layout, data-model, fix, debugging).",
+     "parameters": {
+      "capabilities": {
+       "properties": {
+        "connectors": {
+         "items": {
+          "properties": {
+           "connector": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+           },
+           "methods": {
+            "items": {
+             "maxLength": 128,
+             "minLength": 1,
+             "type": "string"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+           },
+           "purpose": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+           }
+          },
+          "required": [
+           "connector",
+           "methods",
+           "purpose"
+          ],
+          "type": "object"
+         },
+         "maxItems": 16,
+         "type": "array"
+        },
+        "public_web_read": {
+         "type": "boolean"
+        }
+       },
+       "required": [
+        "public_web_read",
+        "connectors"
+       ],
+       "type": "object"
+      },
+      "icon_subject": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "inspection_id": {
+       "type": "string"
+      },
+      "kind": {
+       "enum": [
+        "web_fullstack",
+        "web_static",
+        "document",
+        "pdf",
+        "presentation",
+        "spreadsheet",
+        "markdown",
+        "other"
+       ],
+       "type": "string"
+      },
+      "name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "output_formats": {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "research_dir": {
+       "type": "string"
+      },
+      "slide_count_target": {
+       "type": "unspecified"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      },
+      "verbatim_request": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    },
+    "artifact.export": {
+     "description": "Save an existing web_static web artifact as one self-contained .html file, only when the user explicitly asks for the file itself.",
+     "parameters": {
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    },
+    "artifact.inspect": {
+     "description": "Start delegated diagnosis of an existing web artifact.",
+     "parameters": {
+      "repair_authorized": {
+       "type": "boolean"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      },
+      "verbatim_request": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug",
+      "verbatim_request",
+      "repair_authorized"
+     ]
+    },
+    "artifact.invoke_action": {
+     "description": "Run an action a web artifact publishes, with JSON args.",
+     "parameters": {
+      "action_name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "args": {
+       "type": "object"
+      },
+      "invocation_id": {
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug",
+      "action_name"
+     ]
+    },
+    "artifact.list": {
+     "description": "Browse or search the catalog of hosted web artifacts (up to 50 entries per page).",
+     "parameters": {
+      "cursor": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "query": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "artifact.list_actions": {
+     "description": "List the actions a web artifact publishes, or fetch one action's request schema.",
+     "parameters": {
+      "action_name": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    },
+    "artifact.send_input": {
+     "description": "Send follow-up direction into an artifact's running build.",
+     "parameters": {
+      "agent_id": {
+       "type": "string"
+      },
+      "input": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug",
+      "input"
+     ]
+    },
+    "artifact.share": {
+     "description": "Publish a web artifact at a public link, only when the user asks.",
+     "parameters": {
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    },
+    "artifact.status": {
+     "description": "Report artifact build activity and share state.",
+     "parameters": {
+      "agent_id": {
+       "type": "string"
+      },
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "artifact.unshare": {
+     "description": "Revoke a web artifact's public share link.",
+     "parameters": {
+      "slug": {
+       "minLength": 1,
+       "pattern": "^[a-z0-9][a-z0-9-]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "slug"
+     ]
+    }
+   },
+   "namespace": "artifact"
+  },
+  "avatar": {
+   "description": "Create or update the assistant's own avatar (never the user's profile picture). Nothing becomes active until avatar.set is called with a candidate_id.",
+   "functions": {
+    "avatar.clear": {
+     "description": "Remove the current custom avatar and restore the shipped default avatar.",
+     "parameters": {},
+     "required": []
+    },
+    "avatar.create": {
+     "description": "Create fresh candidate options for the assistant's avatar.",
+     "parameters": {
+      "num_options": {
+       "enum": [
+        1,
+        2,
+        4
+       ],
+       "type": "integer"
+      },
+      "preset": {
+       "enum": [
+        "halloween_costume"
+       ],
+       "type": "string"
+      },
+      "reference_image": {
+       "type": "string"
+      },
+      "user_request": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "user_request"
+     ]
+    },
+    "avatar.create_avatar_share_widget": {
+     "description": "Create a native sharing card for the assistant avatar.",
+     "parameters": {
+      "button_text": {
+       "type": "string"
+      },
+      "fallback_text": {
+       "type": "string"
+      },
+      "image_url": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      },
+      "subtitle": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "button_text",
+      "title",
+      "subtitle",
+      "fallback_text"
+     ]
+    },
+    "avatar.edit": {
+     "description": "Restyle the currently active avatar with a contextual change while preserving identity and style.",
+     "parameters": {
+      "user_request": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "user_request"
+     ]
+    },
+    "avatar.get": {
+     "description": "Report the current state of the assistant's avatar (read-only).",
+     "parameters": {
+      "default": {
+       "type": "boolean"
+      }
+     },
+     "required": []
+    },
+    "avatar.set": {
+     "description": "Activate an avatar candidate as the live avatar.",
+     "parameters": {
+      "candidate_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "candidate_id"
+     ]
+    },
+    "avatar.wear": {
+     "description": "Instantly wear the assistant's own avatar (look 'base') or a default costume, with nothing regenerated.",
+     "parameters": {
+      "look": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "look"
+     ]
+    }
+   },
+   "namespace": "avatar"
+  },
+  "browser": {
+   "description": "Web search, page-text fetch, live browser tasks, isolated deep research, and browser window/profile management. Search/fetch do not open the user's browser; requests to visit or act on a site belong to a live browser task.",
+   "functions": {
+    "browser.browse": {
+     "description": "Give website work to a browser agent, or continue a browser task (task_id new, or an existing window's task_id). The browser cannot read the conversation; write a self-contained assignment. Acceptance is not completion.",
+     "parameters": {
+      "account_hint": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "answer_to": {
+       "pattern": "^question_[0-9a-f]{16}$",
+       "type": "string"
+      },
+      "files": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "file": {
+          "minLength": 1,
+          "type": "string"
+         },
+         "purpose": {
+          "minLength": 1,
+          "type": "string"
+         }
+        },
+        "required": [
+         "file",
+         "purpose"
+        ],
+        "type": "object"
+       },
+       "minItems": 0,
+       "type": "array"
+      },
+      "profile": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "tab": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "task": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "task_id": {
+       "type": "string"
+      },
+      "url": {
+       "format": "uri",
+       "minLength": 1,
+       "pattern": "^https?://",
+       "type": "string"
+      },
+      "verification_code": {
+       "additionalProperties": false,
+       "properties": {
+        "credential_id": {
+         "format": "uuid",
+         "type": "string"
+        },
+        "origin": {
+         "pattern": "^https://",
+         "type": "string"
+        }
+       },
+       "required": [
+        "credential_id",
+        "origin"
+       ],
+       "type": "object"
+      },
+      "wallet": {
+       "properties": {
+        "action": {
+         "enum": [
+          "keep"
+         ],
+         "type": "string"
+        },
+        "payment_method_id": {
+         "minLength": 1,
+         "type": "string"
+        },
+        "provider": {
+         "enum": [
+          "stripe-link",
+          "shop-pay"
+         ],
+         "type": "string"
+        }
+       },
+       "type": [
+        "object",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "task_id",
+      "task"
+     ]
+    },
+    "browser.deep_research": {
+     "description": "Send an isolated, signed-out research agent to the live web; findings return as a handoff. Only when the user asks for web research. One call per ask.",
+     "parameters": {
+      "mission": {
+       "type": "string"
+      },
+      "slug": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "mission"
+     ]
+    },
+    "browser.find": {
+     "description": "Find exact matches of pattern in a page already opened with browser.open.",
+     "parameters": {
+      "line_start": {
+       "minimum": 0,
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "pattern": {
+       "type": "string"
+      },
+      "url_id": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "pattern",
+      "url_id"
+     ]
+    },
+    "browser.lookup_citation_url": {
+     "description": "Resolve search result URLs from a prior browser.search call without fetching the page (pass outlink_indices, or omit for all; max 30).",
+     "parameters": {
+      "outlink_indices": {
+       "default": [],
+       "items": {
+        "format": "uint",
+        "minimum": 0,
+        "type": "integer"
+       },
+       "type": "array"
+      },
+      "url_id": {
+       "format": "uint64",
+       "minimum": 0,
+       "type": "integer"
+      }
+     },
+     "required": [
+      "url_id"
+     ]
+    },
+    "browser.open": {
+     "description": "Fetch page text (does not open the page in the user's browser; cannot click, sign in, fill forms, or purchase). Prefer returned page references; literal URLs must be copied verbatim from a tool result or the user.",
+     "parameters": {
+      "line_start": {
+       "minimum": 0,
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "outlink_idx": {
+       "minimum": 0,
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "url_id": {
+       "type": [
+        "integer",
+        "string"
+       ]
+      }
+     },
+     "required": [
+      "url_id"
+     ]
+    },
+    "browser.profiles": {
+     "description": "Create or delete a named browser profile (a separate cookie jar for a second account on the same site). The default profile cannot be deleted.",
+     "parameters": {
+      "action": {
+       "enum": [
+        "create",
+        "delete"
+       ],
+       "type": "string"
+      },
+      "label": {
+       "maxLength": 64,
+       "minLength": 1,
+       "type": "string"
+      },
+      "profile": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": [
+      "action"
+     ]
+    },
+    "browser.search": {
+     "description": "Search the web by text query (not a URL). Set the matching vertical (news, sports, weather, finance, datetime) when one applies, at most one. General results may be stale; verify live state via a skill/connector or the live browser.",
+     "parameters": {
+      "primary_query": {
+       "additionalProperties": false,
+       "properties": {
+        "language_code": {
+         "type": [
+          "string",
+          "null"
+         ]
+        },
+        "query": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "query"
+       ],
+       "type": "object"
+      },
+      "verticals": {
+       "items": {
+        "enum": [
+         "news",
+         "sports",
+         "weather",
+         "finance",
+         "datetime"
+        ],
+        "type": "string"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "primary_query"
+     ]
+    },
+    "browser.windows": {
+     "description": "List, open, and close browser windows/tabs and see browser profiles. A window's ID is the task_id for browser.browse. Idle windows close after about two hours.",
+     "parameters": {
+      "action": {
+       "enum": [
+        "list",
+        "open",
+        "close"
+       ],
+       "type": "string"
+      },
+      "cursor": {
+       "minLength": 1,
+       "pattern": "^[A-Za-z][A-Za-z0-9:_-]*$",
+       "type": "string"
+      },
+      "profile": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "tab": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "task_id": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "url": {
+       "format": "uri",
+       "minLength": 1,
+       "pattern": "^https?://",
+       "type": "string"
+      }
+     },
+     "required": [
+      "action"
+     ]
+    }
+   },
+   "namespace": "browser",
+   "transcription_note": "Long prose descriptions (browse assignment rules, search freshness rules, windows behavior) are summarized; parameter names, types, patterns, enums, and required fields are exact."
+  },
+  "chat": {
+   "description": "Manage chats: list, create side chats, read messages from or send a message to another chat's agent, rename, archive, or permanently delete a side chat. Also: connected-provider preferences and status for side-chat providers.",
+   "functions": {
+    "chat.archive": {
+     "description": "Archive a side chat (history kept; scheduled jobs delivering into it redirect to the main chat). The main chat cannot be archived.",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id"
+     ]
+    },
+    "chat.configure_connection": {
+     "description": "Read or update a connected provider's preferences (omit settings to read; partial settings object to update). Requires the user's own Muse chat.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "whatsapp"
+       ],
+       "type": "string"
+      },
+      "settings": {
+       "additionalProperties": true,
+       "type": "object"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "chat.connection_status": {
+     "description": "Check a connection that supplies side chats (providers: whatsapp). Call before chat.disconnect.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "whatsapp"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "chat.create": {
+     "description": "Create a new side chat (private 1:1 with the user). context_mode fork (from main chat only) or fresh; optional name (max 120 chars) and message (context for the title, not delivered as a message).",
+     "parameters": {
+      "context_mode": {
+       "enum": [
+        "fork",
+        "fresh"
+       ],
+       "type": "string"
+      },
+      "message": {
+       "type": "string"
+      },
+      "name": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "context_mode"
+     ]
+    },
+    "chat.delete": {
+     "description": "Permanently delete a side chat including its history (irreversible; only when the user explicitly asks). The main chat cannot be deleted.",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id"
+     ]
+    },
+    "chat.disconnect": {
+     "description": "Disconnect a side-chat provider (providers: whatsapp). Call chat.connection_status first. Chat history remains available.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "whatsapp"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "chat.list": {
+     "description": "List the user's Muse chats (chat_id UUID, name, Main flag, archived/pinned flags, status; external chats include provider; group chats include room name and people).",
+     "parameters": {
+      "include_archived": {
+       "type": "boolean"
+      }
+     },
+     "required": []
+    },
+    "chat.read_messages": {
+     "description": "Read an existing main or side chat (by message_id with before/after context, or by chat_id newest-first with cursor pagination).",
+     "parameters": {
+      "after": {
+       "default": 2,
+       "maximum": 20,
+       "minimum": 0,
+       "type": "integer"
+      },
+      "before": {
+       "default": 2,
+       "maximum": 20,
+       "minimum": 0,
+       "type": "integer"
+      },
+      "chat_id": {
+       "type": "string"
+      },
+      "cursor": {
+       "type": "string"
+      },
+      "limit": {
+       "default": 5,
+       "maximum": 20,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "message_id": {
+       "minLength": 1,
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "chat.rename": {
+     "description": "Rename an existing chat (max 120 chars; extra whitespace collapsed).",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      },
+      "name": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id",
+      "name"
+     ]
+    },
+    "chat.send_message": {
+     "description": "Send an instruction to another chat by chat_id (native chat's agent, or a group chat's worker as a private task). Returns a submission receipt only, not delivery/completion.",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      },
+      "message": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id",
+      "message"
+     ]
+    },
+    "chat.unarchive": {
+     "description": "Restore an archived side chat to the active chat list (exact chat_id from chat.list with include_archived=true).",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id"
+     ]
+    }
+   },
+   "namespace": "chat"
+  },
+  "credentials": {
+   "description": "Secure entry cards for website logins and API credentials. Values go straight to the Secure Vault without passing through the conversation. No tool reads a stored value back.",
+   "functions": {
+    "credentials.list": {
+     "description": "List the website logins the Secure Vault holds (metadata only: site, label, saved field names, availability).",
+     "parameters": {
+      "domain": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "credentials.request_api_access": {
+     "description": "Set up access to a third-party provider's API (API key or OAuth 2.0 authorization-code flow only).",
+     "parameters": {
+      "api_hosts": {
+       "items": {
+        "type": "string"
+       },
+       "maxItems": 10,
+       "minItems": 1,
+       "type": "array"
+      },
+      "auth_scheme": {
+       "enum": [
+        "api_key",
+        "oauth2_code",
+        "password",
+        "session_cookie",
+        "signed_request",
+        "multi_secret"
+       ],
+       "type": "string"
+      },
+      "authorization_url": {
+       "type": "string"
+      },
+      "issuer_domain": {
+       "type": "string"
+      },
+      "placement": {
+       "type": "string"
+      },
+      "provider": {
+       "type": "string"
+      },
+      "reconnect": {
+       "type": "boolean"
+      },
+      "registration_url": {
+       "type": "string"
+      },
+      "resource": {
+       "type": "string"
+      },
+      "revoke_url": {
+       "type": "string"
+      },
+      "scopes": {
+       "type": "string"
+      },
+      "token_endpoint_auth_method": {
+       "enum": [
+        "client_secret_basic",
+        "client_secret_post",
+        "none"
+       ],
+       "type": "string"
+      },
+      "token_url": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ],
+     "required_note": "Schema-required is [provider] only; other fields are conditionally required by auth_scheme per the description (api_hosts always described as required; oauth2_code requires authorization_url, issuer_domain, token_url, token_endpoint_auth_method)."
+    },
+    "credentials.request_login": {
+     "description": "Show a secure entry card asking for username and password for the website at page_url.",
+     "parameters": {
+      "page_url": {
+       "type": "string"
+      },
+      "username_hint": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "page_url"
+     ]
+    },
+    "credentials.request_new_password": {
+     "description": "Show a secure entry card asking the user to set a new password for the website at page_url.",
+     "parameters": {
+      "page_url": {
+       "type": "string"
+      },
+      "username_hint": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "page_url"
+     ]
+    }
+   },
+   "namespace": "credentials"
+  },
+  "cron": {
+   "description": "Manage saved scheduled jobs (reminders and recurring tasks). A reminder cron with no owner is a routing error; goal-owned jobs use owner goal:<goal-slug>. Definition files under workspace/cron.d/ etc. are read-only copies; editing them does not change saved definitions.",
+   "functions": {
+    "cron.add": {
+     "description": "Add a new scheduled cron job. Before adding, list existing jobs and reuse/update instead of creating overlapping schedules.",
+     "parameters": {
+      "body": {
+       "type": "string"
+      },
+      "delivery": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "chat_id": {
+          "format": "uuid",
+          "type": "string"
+         }
+        },
+        "required": [
+         "chat_id"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "enabled": {
+       "type": "boolean"
+      },
+      "execution": {
+       "additionalProperties": false,
+       "properties": {
+        "action": {
+         "type": "string"
+        },
+        "args": {
+         "type": "object"
+        },
+        "kind": {
+         "enum": [
+          "agent",
+          "space_action"
+         ],
+         "type": "string"
+        },
+        "slug": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "kind"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "string"
+      },
+      "mode": {
+       "enum": [
+        "task"
+       ],
+       "type": "string"
+      },
+      "owner": {
+       "type": "string"
+      },
+      "predicted_connector_permissions": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "connector": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-z0-9_.-]+$",
+          "type": "string"
+         },
+         "method": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-z0-9_.-]+$",
+          "type": "string"
+         }
+        },
+        "required": [
+         "connector",
+         "method"
+        ],
+        "type": "object"
+       },
+       "maxItems": 32,
+       "type": "array",
+       "uniqueItems": true
+      },
+      "retry": {
+       "additionalProperties": false,
+       "properties": {
+        "max_retries": {
+         "type": "integer"
+        },
+        "on_failure": {
+         "type": "boolean"
+        }
+       },
+       "type": "object"
+      },
+      "schedule": {
+       "additionalProperties": false,
+       "properties": {
+        "at": {
+         "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?$",
+         "type": "string"
+        },
+        "dom": {
+         "items": {
+          "type": "integer"
+         },
+         "type": "array"
+        },
+        "dow": {
+         "items": {
+          "type": "string"
+         },
+         "type": "array"
+        },
+        "every": {
+         "pattern": "^\\d+\\s*[smh]$",
+         "type": "string"
+        },
+        "flexible_time": {
+         "type": "boolean"
+        },
+        "kind": {
+         "enum": [
+          "runonce",
+          "interval",
+          "daily",
+          "weekly",
+          "monthly",
+          "yearly"
+         ],
+         "type": "string"
+        },
+        "month": {
+         "items": {
+          "type": "integer"
+         },
+         "type": "array"
+        },
+        "time": {
+         "pattern": "^\\d{2}:\\d{2}(:\\d{2})?$",
+         "type": "string"
+        },
+        "timezone": {
+         "type": "string"
+        }
+       },
+       "type": "object"
+      },
+      "text": {
+       "type": "string"
+      },
+      "timeout_secs": {
+       "maximum": 86400,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "title": {
+       "maxLength": 120,
+       "pattern": "^[^\\r\\n]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id",
+      "predicted_connector_permissions",
+      "enabled",
+      "mode",
+      "schedule"
+     ]
+    },
+    "cron.list": {
+     "description": "List schedule summaries with lifecycle owners.",
+     "parameters": {
+      "include_disabled": {
+       "type": "boolean"
+      }
+     },
+     "required": []
+    },
+    "cron.remove": {
+     "description": "Remove a schedule by id.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "cron.run": {
+     "description": "Enqueue an immediate manual run of a schedule by id.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "reason": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "cron.runs": {
+     "description": "Recent run records (status, timing, attempt, error text), optionally scoped by id.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "limit": {
+       "type": "number"
+      }
+     },
+     "required": []
+    },
+    "cron.status": {
+     "description": "Scheduler-wide counts, or one schedule's scheduler state when id is given.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "cron.stop": {
+     "description": "Stop a schedule's in-flight run by id (or one exact run via run). The schedule itself is unchanged.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "run": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "cron.update": {
+     "description": "Update an existing schedule (omitted fields stay the same, except as noted for schedule starts and predicted_connector_permissions).",
+     "parameters": {
+      "body": {
+       "type": "string"
+      },
+      "delivery": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "chat_id": {
+          "format": "uuid",
+          "type": "string"
+         }
+        },
+        "required": [
+         "chat_id"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "enabled": {
+       "type": "boolean"
+      },
+      "execution": {
+       "additionalProperties": false,
+       "properties": {
+        "action": {
+         "type": "string"
+        },
+        "args": {
+         "type": "object"
+        },
+        "kind": {
+         "enum": [
+          "agent",
+          "space_action"
+         ],
+         "type": "string"
+        },
+        "slug": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "kind"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "string"
+      },
+      "mode": {
+       "enum": [
+        "task"
+       ],
+       "type": "string"
+      },
+      "owner": {
+       "type": "string"
+      },
+      "predicted_connector_permissions": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "connector": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-z0-9_.-]+$",
+          "type": "string"
+         },
+         "method": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-z0-9_.-]+$",
+          "type": "string"
+         }
+        },
+        "required": [
+         "connector",
+         "method"
+        ],
+        "type": "object"
+       },
+       "maxItems": 32,
+       "type": "array",
+       "uniqueItems": true
+      },
+      "retry": {
+       "additionalProperties": false,
+       "properties": {
+        "max_retries": {
+         "type": "integer"
+        },
+        "on_failure": {
+         "type": "boolean"
+        }
+       },
+       "type": "object"
+      },
+      "schedule": {
+       "additionalProperties": false,
+       "properties": {
+        "at": {
+         "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?$",
+         "type": "string"
+        },
+        "dom": {
+         "items": {
+          "type": "integer"
+         },
+         "type": "array"
+        },
+        "dow": {
+         "items": {
+          "type": "string"
+         },
+         "type": "array"
+        },
+        "every": {
+         "pattern": "^\\d+\\s*[smh]$",
+         "type": "string"
+        },
+        "flexible_time": {
+         "type": "boolean"
+        },
+        "kind": {
+         "enum": [
+          "runonce",
+          "interval",
+          "daily",
+          "weekly",
+          "monthly",
+          "yearly"
+         ],
+         "type": "string"
+        },
+        "month": {
+         "items": {
+          "type": "integer"
+         },
+         "type": "array"
+        },
+        "time": {
+         "pattern": "^\\d{2}:\\d{2}(:\\d{2})?$",
+         "type": "string"
+        },
+        "timezone": {
+         "type": "string"
+        }
+       },
+       "type": "object"
+      },
+      "text": {
+       "type": "string"
+      },
+      "timeout_secs": {
+       "maximum": 86400,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "title": {
+       "maxLength": 120,
+       "pattern": "^[^\\r\\n]*$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "cron.view": {
+     "description": "View one schedule's details by id.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    }
+   },
+   "namespace": "cron",
+   "transcription_note": "Schedule-field prose (required nested fields per kind, timezone rules, day-word rules) is summarized; field names, types, patterns, enums, and required arrays are exact."
+  },
+  "device": {
+   "description": "Run commands on the user's paired devices and pull data from them. Call device.list first; call device.describe before device.invoke.",
+   "functions": {
+    "device.describe": {
+     "description": "Show everything one paired device can do: runnable commands with argument schemas, data sources, permission state, stored-data freshness, platform metadata.",
+     "parameters": {
+      "device": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "device"
+     ]
+    },
+    "device.invoke": {
+     "description": "Run one command on one paired device (command id exactly as device.describe lists it; params_json as a JSON object). Invoking an ungranted command prompts the user on the device.",
+     "parameters": {
+      "command": {
+       "type": "string"
+      },
+      "device": {
+       "type": "string"
+      },
+      "params_json": {
+       "type": "object"
+      }
+     },
+     "required": [
+      "device",
+      "command"
+     ]
+    },
+    "device.list": {
+     "description": "List paired devices with live state (device_id, display_name, connection_state, command_count, data sources, platform, last_seen_at). Takes no parameters.",
+     "parameters": {},
+     "required": []
+    },
+    "device.unpair": {
+     "description": "Remove one device's pairing (confirm with the user first; only the user can re-pair from the device).",
+     "parameters": {
+      "device": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "device"
+     ]
+    }
+   },
+   "namespace": "device"
+  },
+  "feed": {
+   "description": "Manage the user's Feed (personal newspaper in the Feed tab): its single prompt, fresh units, and individual units. Only for a user who explicitly asks about their Feed.",
+   "functions": {
+    "feed.inspect_logs": {
+     "description": "Introspect Feed generation runs (step-by-step ledger with timings, attempts, errors).",
+     "parameters": {
+      "prompt_id": {
+       "type": "string"
+      },
+      "run_id": {
+       "type": "string"
+      },
+      "step_id": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "feed.prompt_get": {
+     "description": "Read the user's feed prompt as JSON (prompt_id and full text). Read-only, no parameters needed.",
+     "parameters": {},
+     "required": []
+    },
+    "feed.prompt_reset": {
+     "description": "Reset the user's Feed prompt to the shipped default text.",
+     "parameters": {},
+     "required": []
+    },
+    "feed.prompt_update": {
+     "description": "Change the user's ONE feed prompt (full replacement text).",
+     "parameters": {
+      "prompt": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "prompt"
+     ]
+    },
+    "feed.regenerate": {
+     "description": "Generate one fresh Feed unit now (background; no completion message).",
+     "parameters": {
+      "prompt_id": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "feed.search": {
+     "description": "Search published Feed units (keyword + meaning search). At least one of query/category is required in prose; schema required list is empty.",
+     "parameters": {
+      "category": {
+       "type": "string"
+      },
+      "limit": {
+       "type": "integer"
+      },
+      "query": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "feed.status": {
+     "description": "Read one feed's generation status as plain text (read-only).",
+     "parameters": {
+      "prompt_id": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "feed.unit_create": {
+     "description": "Generate one bespoke unit on the user's Feed from a full brief (background).",
+     "parameters": {
+      "instruction": {
+       "maxLength": 4000,
+       "type": "string"
+      },
+      "prompt_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "instruction"
+     ]
+    },
+    "feed.unit_delete": {
+     "description": "Permanently remove one unit from the Feed by unit_id (no undo).",
+     "parameters": {
+      "unit_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "unit_id"
+     ]
+    },
+    "feed.unit_get": {
+     "description": "Read one published Feed unit in full by unit_id.",
+     "parameters": {
+      "unit_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "unit_id"
+     ]
+    },
+    "feed.unit_list": {
+     "description": "List the Feed as whole days, newest first, three days per page.",
+     "parameters": {
+      "cursor": {
+       "type": "string"
+      },
+      "prompt_id": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "feed.unit_reorder": {
+     "description": "Move one Feed unit to a new 1-based position within its day.",
+     "parameters": {
+      "position": {
+       "minimum": 1,
+       "type": "integer"
+      },
+      "prompt_id": {
+       "type": "string"
+      },
+      "unit_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "unit_id",
+      "position"
+     ]
+    },
+    "feed.unit_update": {
+     "description": "Replace content fields on one published Feed unit (full replacement text per field).",
+     "parameters": {
+      "body_md": {
+       "type": "string"
+      },
+      "category": {
+       "type": "string"
+      },
+      "kicker": {
+       "type": "string"
+      },
+      "stats": {
+       "items": {
+        "properties": {
+         "label": {
+          "maxLength": 40,
+          "minLength": 1,
+          "type": "string"
+         },
+         "value": {
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+         }
+        },
+        "required": [
+         "label",
+         "value"
+        ],
+        "type": "object"
+       },
+       "maxItems": 6,
+       "type": "array"
+      },
+      "title": {
+       "type": "string"
+      },
+      "unit_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "unit_id"
+     ]
+    }
+   },
+   "namespace": "feed"
+  },
+  "forget": {
+   "description": "Remove information the user explicitly asks Muse to forget from memory, its copies, and work that could bring it back.",
+   "functions": {
+    "forget.confirm": {
+     "description": "After the user approves the most recent forget plan, start a fresh ordinary untyped subagent to re-read that plan and confirmation, revalidate it, execute it, and verify the result. Takes no plan or agent id. Do not call for silence, ambiguity, partial approval, or changed scope.",
+     "parameters": {},
+     "required": []
+    },
+    "forget.plan": {
+     "description": "Start an ordinary untyped read-only planning subagent to find active copies, derivatives, and future producers of information the user explicitly asked Muse to forget. The current conversation supplies the subject, so this tool takes no sensitive text. Wait for its plan, show the user the scope and limits, and ask for confirmation before using forget.confirm.",
+     "parameters": {},
+     "required": []
+    }
+   },
+   "namespace": "forget"
+  },
+  "hooks": {
+   "description": "Event hooks: a Bash polling script under ~/hooks/scripts/ decides when to wake a worker agent. New hooks start disabled; test with dry_run, then enable. Cron is for time/cadence triggers; hooks are for changing conditions.",
+   "functions": {
+    "hooks.add": {
+     "description": "Add an event hook definition (write the Bash script first). A new hook starts disabled.",
+     "parameters": {
+      "delivery": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "surface": {
+          "enum": [
+           "main",
+           "side_chat"
+          ],
+          "type": "string"
+         },
+         "to": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "surface"
+        ],
+        "type": "object"
+       },
+       "maxItems": 1,
+       "minItems": 1,
+       "type": "array"
+      },
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      },
+      "poll_interval_secs": {
+       "default": 60,
+       "maximum": 604800,
+       "minimum": 5,
+       "type": "integer"
+      },
+      "prompt": {
+       "type": "string"
+      },
+      "script_path": {
+       "type": "string"
+      },
+      "script_timeout_secs": {
+       "default": 600,
+       "maximum": 600,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": [
+      "id",
+      "script_path",
+      "prompt"
+     ]
+    },
+    "hooks.disable": {
+     "description": "Disable a hook; the definition stays but polling stops.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.dry_run": {
+     "description": "Synchronously test only the script with HATCH_HOOK_DRY_RUN=1 and no wake/disable side effects.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.enable": {
+     "description": "Enable a hook so its polling script runs again.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.list": {
+     "description": "List hook definitions.",
+     "parameters": {
+      "include_disabled": {
+       "type": "boolean"
+      }
+     },
+     "required": []
+    },
+    "hooks.logs": {
+     "description": "Recent entries from the hook's append-only JSONL invocation log.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      },
+      "limit": {
+       "maximum": 200,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.remove": {
+     "description": "Remove a hook definition.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.run": {
+     "description": "Live run with HATCH_HOOK_DRY_RUN=0: a wake starts the asynchronous agent lifecycle.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.update": {
+     "description": "Update an event hook definition in place (current enabled state preserved; test with dry_run after).",
+     "parameters": {
+      "delivery": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "surface": {
+          "enum": [
+           "main",
+           "side_chat"
+          ],
+          "type": "string"
+         },
+         "to": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "surface"
+        ],
+        "type": "object"
+       },
+       "maxItems": 1,
+       "minItems": 1,
+       "type": "array"
+      },
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      },
+      "poll_interval_secs": {
+       "maximum": 604800,
+       "minimum": 5,
+       "type": "integer"
+      },
+      "prompt": {
+       "type": "string"
+      },
+      "script_path": {
+       "type": "string"
+      },
+      "script_timeout_secs": {
+       "maximum": 600,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "hooks.view": {
+     "description": "View one hook definition by id.",
+     "parameters": {
+      "id": {
+       "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    }
+   },
+   "namespace": "hooks"
+  },
+  "idea": {
+   "description": "Access Ideas behind the Ideas tab. The background Ideas loop owns creation, duplicate resolution, ranking, build status, and feed refresh.",
+   "functions": {
+    "idea.create_idea_widget": {
+     "description": "Present an existing saved idea by its idea_id (transient in-chat widget).",
+     "parameters": {
+      "idea_id": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "idea_id"
+     ]
+    },
+    "idea.get": {
+     "description": "Read one saved idea in full (title, domain, category, summary, How it works, match reason, data connections, components with execution plans).",
+     "parameters": {
+      "idea_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "idea_id"
+     ]
+    },
+    "idea.list": {
+     "description": "Read-only list of Ideas tab cards the user acted on (engaged, rated, accepted, dismissed, built), newest action first.",
+     "parameters": {
+      "domain": {
+       "type": "string"
+      },
+      "limit": {
+       "default": 24,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": []
+    },
+    "idea.list_starters": {
+     "description": "Fetch the curated onboarding starter ideas, in recommended order (onboarding flow only).",
+     "parameters": {},
+     "required": []
+    },
+    "idea.search": {
+     "description": "Free-text search over Ideas (saved ideas full-text + bundled starter catalog keyword match), answered on-machine with no network calls.",
+     "parameters": {
+      "domain": {
+       "type": "string"
+      },
+      "limit": {
+       "default": 10,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "query": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "query"
+     ]
+    }
+   },
+   "missing": [
+    "idea.share is named in the namespace description ('when present in the current tool catalog, idea.share publishes one portable Idea') but no idea.share function was returned by the namespace load in this session; treat as not exposed here."
+   ],
+   "namespace": "idea"
+  },
+  "map": {
+   "description": "Find coordinates for a place/address, or identify a place from coordinates.",
+   "functions": {
+    "map.geocode": {
+     "description": "Resolve a place name or address to geographic coordinates.",
+     "parameters": {
+      "city": {
+       "type": "string"
+      },
+      "country": {
+       "type": "string"
+      },
+      "county": {
+       "type": "string"
+      },
+      "district": {
+       "type": "string"
+      },
+      "house_number": {
+       "type": "string"
+      },
+      "language": {
+       "type": "string"
+      },
+      "lat": {
+       "maximum": 90,
+       "minimum": -90,
+       "type": "number"
+      },
+      "limit": {
+       "default": 1,
+       "maximum": 20,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "lon": {
+       "maximum": 180,
+       "minimum": -180,
+       "type": "number"
+      },
+      "min_match": {
+       "type": "string"
+      },
+      "postal_code": {
+       "type": "string"
+      },
+      "provider": {
+       "enum": [
+        "AUTO",
+        "HERE",
+        "ZENRIN",
+        "LOKI"
+       ],
+       "type": "string"
+      },
+      "query": {
+       "type": "string"
+      },
+      "radius": {
+       "minimum": 0,
+       "type": "integer"
+      },
+      "state": {
+       "type": "string"
+      },
+      "street": {
+       "type": "string"
+      },
+      "target_match": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "query"
+     ]
+    },
+    "map.reverse_geocode": {
+     "description": "Resolve latitude/longitude coordinates to the nearest place or address.",
+     "parameters": {
+      "language": {
+       "type": "string"
+      },
+      "lat": {
+       "maximum": 90,
+       "minimum": -90,
+       "type": "number"
+      },
+      "limit": {
+       "default": 1,
+       "maximum": 20,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "lon": {
+       "maximum": 180,
+       "minimum": -180,
+       "type": "number"
+      },
+      "min_match": {
+       "type": "string"
+      },
+      "provider": {
+       "enum": [
+        "AUTO",
+        "HERE",
+        "ZENRIN",
+        "LOKI"
+       ],
+       "type": "string"
+      },
+      "radius": {
+       "minimum": 0,
+       "type": "integer"
+      },
+      "target_match": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "lat",
+      "lon"
+     ]
+    }
+   },
+   "namespace": "map"
+  },
+  "media": {
+   "description": "Generate or edit images and video through the structured media pipeline. Video is limited to 6 videos per user message, including videos made by handed-off agents.",
+   "functions": {
+    "media.generate_icon": {
+     "description": "Generate square icon artwork for a product surface.",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "output_dir": {
+       "type": "string"
+      },
+      "prompt": {
+       "type": "string"
+      },
+      "resume_from_snapshot_id": {
+       "type": "string"
+      },
+      "surface": {
+       "enum": [
+        "space",
+        "podcast",
+        "discovery_pool",
+        "app",
+        "generic"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "prompt"
+     ]
+    },
+    "media.generate_image": {
+     "description": "Generate or edit images via a subagent (user request text passed verbatim, with Context/identity/attire handling).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "output_dir": {
+       "type": "string"
+      },
+      "output_format": {
+       "enum": [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp"
+       ],
+       "type": "string"
+      },
+      "product": {
+       "type": "string"
+      },
+      "prompt": {
+       "items": {
+        "properties": {
+         "kind": {
+          "enum": [
+           "text",
+           "image"
+          ],
+          "type": "string"
+         },
+         "value": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "kind",
+         "value"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "resume_from_snapshot_id": {
+       "type": "string"
+      },
+      "start_fresh": {
+       "type": "boolean"
+      },
+      "style_preset": {
+       "enum": [
+        "product_try_on",
+        "product_try_on_head_and_shoulders"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "prompt"
+     ]
+    },
+    "media.generate_video": {
+     "description": "Generate videos via a specialized video generation subagent (request passed verbatim; max 6 videos per user message).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "output_dir": {
+       "type": "string"
+      },
+      "prompt": {
+       "items": {
+        "properties": {
+         "kind": {
+          "enum": [
+           "text",
+           "image"
+          ],
+          "type": "string"
+         },
+         "value": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "kind",
+         "value"
+        ],
+        "type": "object"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      "resume_from_snapshot_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "prompt"
+     ]
+    }
+   },
+   "namespace": "media"
+  },
+  "muse": {
+   "description": "Core agent tools: files, shell, memory, options widgets, skills/connectors discovery, and session info.",
+   "functions": {
+    "muse.connector_search": {
+     "description": "Find connectors by name, alias, or the action needed (searches names, aliases, descriptions; returns name, docs path, description). Does not connect accounts or perform actions.",
+     "parameters": {
+      "maxResults": {
+       "minimum": 1,
+       "type": "integer"
+      },
+      "queries": {
+       "items": {
+        "type": "string"
+       },
+       "maxItems": 5,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "queries"
+     ]
+    },
+    "muse.create_options": {
+     "description": "For a known, bounded choice, create reply options; embed the returned embed_token unchanged in the reply. Tapping an option sends its exact text as the user's next message.",
+     "parameters": {
+      "button_style": {
+       "default": "dotted_lines",
+       "enum": [
+        "dotted_lines",
+        "center_aligned_filled"
+       ],
+       "type": "string"
+      },
+      "options": {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "type": "array",
+       "uniqueItems": true
+      }
+     },
+     "required": [
+      "options"
+     ]
+    },
+    "muse.db": {
+     "description": "Run bounded, read-only SQL SELECT queries against database-backed Muse records (transcripts, messages, agent executions, tool calls, goals, memories, scheduled work, Feed/Ideas records, artifacts, device-sync data). Prefer purpose-built tools for ordinary reads.",
+     "parameters": {
+      "sql": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "sql"
+     ]
+    },
+    "muse.edit": {
+     "description": "Edit a file by replacing exact text (first occurrence; multi-match lists other locations).",
+     "parameters": {
+      "new_text": {
+       "type": "string"
+      },
+      "old_text": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "path",
+      "old_text",
+      "new_text"
+     ]
+    },
+    "muse.exec": {
+     "description": "Execute a shell command. If still running after yield_ms, it backgrounds and the runtime delivers the terminal result automatically.",
+     "parameters": {
+      "background": {
+       "type": "boolean"
+      },
+      "command": {
+       "type": "string"
+      },
+      "env": {
+       "type": "object"
+      },
+      "pty": {
+       "type": "boolean"
+      },
+      "stdin": {
+       "type": "string"
+      },
+      "workdir": {
+       "type": "string"
+      },
+      "yield_ms": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "command"
+     ]
+    },
+    "muse.memory_explain": {
+     "description": "Show where one memory came from and what replaced what (claim id, memory:// uri, or citation like MEMORY.md#L7). Read only.",
+     "parameters": {
+      "target": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "target"
+     ]
+    },
+    "muse.memory_get": {
+     "description": "Read a snippet from MEMORY.md, memory/**/*.md, or side-chat memory (with optional from/lines window).",
+     "parameters": {
+      "from": {
+       "type": "number"
+      },
+      "lines": {
+       "type": "number"
+      },
+      "path": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "path"
+     ]
+    },
+    "muse.memory_search": {
+     "description": "Search saved memory and past conversations (1-3 queries; maxResults per source; minScore applies only to saved memories).",
+     "parameters": {
+      "maxResults": {
+       "type": "number"
+      },
+      "minScore": {
+       "type": "number"
+      },
+      "queries": {
+       "items": {
+        "type": "string"
+       },
+       "maxItems": 3,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "queries"
+     ]
+    },
+    "muse.nothing_to_do": {
+     "description": "Signal that an internal handoff or ignorable group/channel message should produce no user-visible reply.",
+     "parameters": {},
+     "required": []
+    },
+    "muse.offer_preference": {
+     "description": "After a connector completes a task, check whether to ask about making it the preferred connector for that task category. Returns should_offer at most once per category.",
+     "parameters": {
+      "category": {
+       "maxLength": 80,
+       "minLength": 1,
+       "type": "string"
+      },
+      "name": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "category"
+     ]
+    },
+    "muse.react_to_user_message": {
+     "description": "Attach an emoji reaction to the user's current message (one Unicode emoji or a supported custom reaction id).",
+     "parameters": {
+      "emoji": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "emoji"
+     ]
+    },
+    "muse.read": {
+     "description": "Read file contents or list directory contents (text paged by lines; images injected into context; documents converted to Markdown).",
+     "parameters": {
+      "limit": {
+       "minimum": 1,
+       "type": "integer"
+      },
+      "offset": {
+       "minimum": 1,
+       "type": "integer"
+      },
+      "path": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "path"
+     ]
+    },
+    "muse.session_status": {
+     "description": "Report conversation context-window usage (tokens filled/remaining), the serving model, and the user's local time.",
+     "parameters": {},
+     "required": []
+    },
+    "muse.set_preferred": {
+     "description": "Save or clear the preferred skill/connector for a kind of task.",
+     "parameters": {
+      "for": {
+       "type": "string"
+      },
+      "name": {
+       "type": "string"
+      },
+      "preferred": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "name",
+      "preferred"
+     ]
+    },
+    "muse.skill_search": {
+     "description": "Search the full skill catalog (bundled + custom) by keyword (bm25) or regex. Returns names, paths, and full skill descriptions.",
+     "parameters": {
+      "maxResults": {
+       "default": 8,
+       "maximum": 25,
+       "type": "number"
+      },
+      "mode": {
+       "enum": [
+        "bm25",
+        "regex"
+       ],
+       "type": "string"
+      },
+      "queries": {
+       "items": {
+        "type": "string"
+       },
+       "maxItems": 5,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "queries"
+     ]
+    },
+    "muse.visual_grounding": {
+     "description": "Locate, label, or count objects in an image (bbox/point/count; coordinates normalized 0-1000 to the exact file passed).",
+     "parameters": {
+      "format_type": {
+       "enum": [
+        "bbox",
+        "point",
+        "count"
+       ],
+       "type": "string"
+      },
+      "image_path": {
+       "type": "string"
+      },
+      "object_names": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "title": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "object_names",
+      "image_path"
+     ]
+    },
+    "muse.write": {
+     "description": "Write content to a file (overwrite by default; append mode for incremental chunks). Overwriting existing content fails unless the file was read earlier in the conversation.",
+     "parameters": {
+      "content": {
+       "type": "string"
+      },
+      "mode": {
+       "enum": [
+        "overwrite",
+        "append"
+       ],
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "path",
+      "content"
+     ]
+    }
+   },
+   "namespace": "muse"
+  },
+  "onboarding": {
+   "description": "Onboarding: assistant-name picker and identity persistence.",
+   "functions": {
+    "onboarding.create_name_widget": {
+     "description": "Create the onboarding assistant-name option widget (samples two name options plus an editable custom-name option, or a fixed Muse option when keep_muse is true). Pass user_name when known to persist it to USER.md before the widget is returned.",
+     "parameters": {
+      "keep_muse": {
+       "type": "boolean"
+      },
+      "user_name": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "onboarding.update_identity": {
+     "description": "Persist the assistant name or vibe the user chose during onboarding.",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "vibe": {
+       "type": "string"
+      }
+     },
+     "required": []
+    }
+   },
+   "namespace": "onboarding"
+  },
+  "permissions": {
+   "description": "Read resolved and pending permission requests and current permission grants. Read-only; does not change permissions or approve actions.",
+   "functions": {
+    "permissions.history": {
+     "description": "Read resolved permission requests as Markdown (newest first), or look up one pending/resolved request by approval_id.",
+     "parameters": {
+      "approval_id": {
+       "maxLength": 128,
+       "type": "string"
+      },
+      "cursor": {
+       "maxLength": 1024,
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "permissions.list_active": {
+     "description": "List current permission settings and grants, including scope and expiry.",
+     "parameters": {
+      "cursor": {
+       "maxLength": 1024,
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "permissions.list_pending": {
+     "description": "List permission requests currently waiting for the user (newest first, max 20 per page; follow next_cursor).",
+     "parameters": {
+      "cursor": {
+       "maxLength": 1024,
+       "type": "string"
+      }
+     },
+     "required": []
+    }
+   },
+   "namespace": "permissions"
+  },
+  "proactivity": {
+   "description": "Proactive delivery decisions: read what a background proactivity worker prepared, then record a send/skip decision per item before presenting anything.",
+   "functions": {
+    "proactivity.read": {
+     "description": "Look back at what a background proactivity worker prepared earlier (edition_id to list items; item_id for drafts, sources, acceptance scope). A past snapshot: reconfirm freshness before presenting or acting.",
+     "parameters": {
+      "edition_id": {
+       "type": "string"
+      },
+      "item_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "edition_id"
+     ]
+    },
+    "proactivity.select": {
+     "description": "Record a decision for every item in the active proactive delivery (send with a format, or skip with a reason). Decisions accumulate; a successful call records them but sends nothing.",
+     "parameters": {
+      "decisions": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "decision": {
+          "enum": [
+           "send",
+           "skip"
+          ],
+          "type": "string"
+         },
+         "format": {
+          "enum": [
+           "text",
+           "options",
+           "letter",
+           "html_widget",
+           "map_widget",
+           "list_widget",
+           "artifact"
+          ],
+          "type": "string"
+         },
+         "item_id": {
+          "minLength": 1,
+          "type": "string"
+         },
+         "reason": {
+          "enum": [
+           "time_sensitive",
+           "changed",
+           "requested",
+           "ready_for_decision",
+           "new_opportunity",
+           "moot",
+           "already_handled",
+           "unconfirmed",
+           "preferences",
+           "not_useful_now"
+          ],
+          "type": "string"
+         }
+        },
+        "required": [
+         "item_id",
+         "decision"
+        ],
+        "type": "object"
+       },
+       "maxItems": 8,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "decisions"
+     ]
+    }
+   },
+   "namespace": "proactivity"
+  },
+  "process": {
+   "description": "Long-running shell processes started via muse.exec: list, read output, send input, wait, and stop.",
+   "functions": {
+    "process.clear": {
+     "description": "Remove a finished background process session from tracking (fails if still running or unknown).",
+     "parameters": {
+      "session_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "session_id"
+     ]
+    },
+    "process.kill": {
+     "description": "Terminate a background process session (whole process tree); output stays readable via process.log until cleared.",
+     "parameters": {
+      "session_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "session_id"
+     ]
+    },
+    "process.list": {
+     "description": "List every background process session the current agent started through exec (running or finished). Takes no parameters.",
+     "parameters": {},
+     "required": []
+    },
+    "process.log": {
+     "description": "Read a paged window of a session's accumulated output (offset/limit; non-destructive, repeatable).",
+     "parameters": {
+      "limit": {
+       "default": 200,
+       "maximum": 1000,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "offset": {
+       "default": 0,
+       "minimum": 0,
+       "type": "integer"
+      },
+      "session_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "session_id"
+     ]
+    },
+    "process.poll": {
+     "description": "Wait up to timeout ms for a session to produce new output or exit, then return deltas (consumed once). Backgrounded commands deliver terminal results automatically; never poll just to wait for completion.",
+     "parameters": {
+      "session_id": {
+       "type": "string"
+      },
+      "timeout": {
+       "default": 1000,
+       "maximum": 120000,
+       "minimum": 0,
+       "type": "integer"
+      }
+     },
+     "required": [
+      "session_id"
+     ]
+    },
+    "process.send_keys": {
+     "description": "Send named terminal key presses to a PTY session (enter, tab, escape, arrows, f1-f12, c-<char> chords).",
+     "parameters": {
+      "eof": {
+       "type": "boolean"
+      },
+      "keys": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "session_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "session_id",
+      "keys"
+     ]
+    },
+    "process.write": {
+     "description": "Write raw text to a session's stdin (include a trailing newline to submit a line; eof=true closes stdin).",
+     "parameters": {
+      "data": {
+       "type": "string"
+      },
+      "eof": {
+       "type": "boolean"
+      },
+      "session_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "session_id",
+      "data"
+     ]
+    }
+   },
+   "namespace": "process"
+  },
+  "shopping": {
+   "description": "Present verified shopping carts/results. Cart widgets save a snapshot; supported clients read the current cart when View cart opens.",
+   "functions": {
+    "shopping.create_shopping_cart_widget": {
+     "description": "Present a verified shopping cart using a reference returned by shopping.read_cart.",
+     "parameters": {
+      "cart_ref": {
+       "type": "string"
+      },
+      "present_now": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "cart_ref"
+     ]
+    },
+    "shopping.create_shopping_results_widget": {
+     "description": "Present shopping product cards from resolved catalog/Marketplace/connector/browser results (standalone card; subagents/background workers cannot call it).",
+     "parameters": {
+      "path": {
+       "type": "string"
+      },
+      "products": {
+       "items": {
+        "properties": {
+         "brand": {
+          "type": "string"
+         },
+         "citation_id": {
+          "type": "string"
+         },
+         "image_url": {
+          "type": [
+           "string",
+           "null"
+          ]
+         },
+         "is_agentic_checkout_completion_enabled": {
+          "type": "boolean"
+         },
+         "is_agentic_checkout_creation_enabled": {
+          "type": "boolean"
+         },
+         "is_image_available": {
+          "type": "boolean"
+         },
+         "name": {
+          "type": "string"
+         },
+         "price": {
+          "type": "string"
+         },
+         "primary_action": {
+          "enum": [
+           "add_to_cart"
+          ],
+          "type": "string"
+         },
+         "product_id": {
+          "type": "string"
+         },
+         "provider": {
+          "type": "string"
+         },
+         "retailer_name": {
+          "type": "string"
+         },
+         "sale_price": {
+          "type": "string"
+         },
+         "type": {
+          "enum": [
+           "catalog",
+           "marketplace",
+           "browser"
+          ],
+          "type": "string"
+         },
+         "url": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "url",
+         "name"
+        ],
+        "type": "object"
+       },
+       "maxItems": 50,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": []
+    },
+    "shopping.read_cart": {
+     "description": "Read the current cart without changing it; return a short-lived cart_ref. Only when a loaded connector doc explicitly documents shopping.read_cart and supplies the provider identifier.",
+     "parameters": {
+      "provider": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "shopping.resolve_results": {
+     "description": "Resolve selected product IDs against product-search result files; write one normalized shopping-results artifact and prepare runtime-validated product citation markers.",
+     "parameters": {
+      "result_paths": {
+       "items": {
+        "minLength": 1,
+        "type": "string"
+       },
+       "maxItems": 16,
+       "minItems": 1,
+       "type": "array"
+      },
+      "selected_ids": {
+       "items": {
+        "minLength": 1,
+        "type": "string"
+       },
+       "maxItems": 50,
+       "minItems": 1,
+       "type": "array"
+      }
+     },
+     "required": [
+      "result_paths",
+      "selected_ids"
+     ]
+    }
+   },
+   "namespace": "shopping"
+  },
+  "social": {
+   "description": "Search Instagram, Threads, and Facebook by topic, including the user's own posts and activity. For platform links use the respective CLIs directly; fall back to social.search or browser if CLI results are insufficient.",
+   "functions": {
+    "social.search": {
+     "description": "Search content across Instagram, Threads, and Facebook, including the user's own posts and activity. Use post_url for a direct lookup of one exact post URL instead of translating the link into a query. Ranking intent: informational (default), engagement, or recency. Results come back with the writing system searched in first; posts in a different script sit below a marked line. NOTE: the full prose description (including authors/relation_to_author guidance, language handling, and citation guidance) is summarized in this file; parameter names, types, and enums are exact.",
+     "parameters": {
+      "authors": {
+       "items": {
+        "type": "string"
+       },
+       "type": [
+        "array",
+        "null"
+       ]
+      },
+      "content_type": {
+       "enum": [
+        "image",
+        "video"
+       ],
+       "type": "string"
+      },
+      "group_names": {
+       "items": {
+        "type": "string"
+       },
+       "type": [
+        "array",
+        "null"
+       ]
+      },
+      "key_celebrities": {
+       "items": {
+        "type": "string"
+       },
+       "type": [
+        "array",
+        "null"
+       ]
+      },
+      "languages": {
+       "items": {
+        "type": "string"
+       },
+       "type": [
+        "array",
+        "null"
+       ]
+      },
+      "location": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "platform": {
+       "enum": [
+        "facebook",
+        "instagram",
+        "threads"
+       ],
+       "type": "string"
+      },
+      "post_url": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "ranking_intent": {
+       "enum": [
+        "informational",
+        "engagement",
+        "recency"
+       ],
+       "type": "string"
+      },
+      "relation_to_author": {
+       "default": "all",
+       "enum": [
+        "all",
+        "friend",
+        "followee",
+        "follower"
+       ],
+       "type": "string"
+      },
+      "semantic_queries": {
+       "items": {
+        "type": "string"
+       },
+       "type": [
+        "array",
+        "null"
+       ]
+      },
+      "since": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "top": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "until": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": []
+    }
+   },
+   "namespace": "social",
+   "transcription_note": "social.search's long prose description is summarized here; all parameter names, types, enums, and defaults are exact. No parameter is required (all optional)."
+  },
+  "subagent": {
+   "description": "Delegate work to child agents that run in the background; results arrive via the runtime. Do not use for live-browser work (that belongs to browser tasks) or artifacts (artifact tools build in the background).",
+   "functions": {
+    "subagent.close": {
+     "description": "Stop one child agent by id (direct or descendants scope). Closing a browser task owner stops the whole browser task.",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "scope": {
+       "enum": [
+        "direct",
+        "descendants"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "subagent.list": {
+     "description": "List child agents (active and recent) with normalized status, task/final-response previews, timing, and whether a finished result was already seen.",
+     "parameters": {
+      "limit": {
+       "default": 20,
+       "maximum": 200,
+       "type": "integer"
+      },
+      "scope": {
+       "enum": [
+        "direct",
+        "descendants"
+       ],
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "subagent.resume": {
+     "description": "Resume one interrupted child agent by id (browser task owners and in-flight artifact builders refuse generic resume).",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "scope": {
+       "enum": [
+        "direct",
+        "descendants"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "subagent.send": {
+     "description": "Deliver follow-up input to a running child agent by id (async; items take precedence over message; interrupt=true cuts off current work first).",
+     "parameters": {
+      "id": {
+       "type": "string"
+      },
+      "interrupt": {
+       "type": "boolean"
+      },
+      "items": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "caption": {
+          "type": "string"
+         },
+         "data_base64": {
+          "type": "string"
+         },
+         "filename": {
+          "type": "string"
+         },
+         "mime_type": {
+          "type": "string"
+         },
+         "text": {
+          "type": "string"
+         },
+         "type": {
+          "enum": [
+           "text",
+           "image",
+           "file"
+          ],
+          "type": "string"
+         }
+        },
+        "required": [
+         "type"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "message": {
+       "type": "string"
+      },
+      "scope": {
+       "enum": [
+        "direct",
+        "descendants"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "id"
+     ]
+    },
+    "subagent.spawn": {
+     "description": "Delegate a task to a new child agent (async; the response only confirms the spawn). Spawn independent agents in parallel in the same turn.",
+     "parameters": {
+      "items": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "caption": {
+          "type": "string"
+         },
+         "data_base64": {
+          "type": "string"
+         },
+         "filename": {
+          "type": "string"
+         },
+         "mime_type": {
+          "type": "string"
+         },
+         "text": {
+          "type": "string"
+         },
+         "type": {
+          "enum": [
+           "text",
+           "image",
+           "file"
+          ],
+          "type": "string"
+         }
+        },
+        "required": [
+         "type"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "message": {
+       "type": "string"
+      }
+     },
+     "required": []
+    }
+   },
+   "namespace": "subagent"
+  },
+  "todo": {
+   "description": "Records the full working todo list for the current conversation. This call replaces the previous list; keep at most 25 items.",
+   "functions": {
+    "todo.write": {
+     "description": "Record the working todo list for the current task, replacing the previous list. Keep one item in_progress while work can proceed; mark blocked when progress depends on new input or a result; remove completed/cancelled items before ending a turn.",
+     "parameters": {
+      "todos": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "status": {
+          "enum": [
+           "pending",
+           "in_progress",
+           "blocked",
+           "completed",
+           "cancelled"
+          ],
+          "type": "string"
+         },
+         "text": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "text",
+         "status"
+        ],
+        "type": "object"
+       },
+       "maxItems": 25,
+       "type": "array"
+      }
+     },
+     "required": [
+      "todos"
+     ]
+    }
+   },
+   "namespace": "todo"
+  },
+  "tool_search": {
+   "description": "Load deferred tool namespaces and their full function schemas.",
+   "functions": {
+    "tool_search.load_tool_namespace": {
+     "description": "Load all function descriptions and parameter schemas for one or more tool namespaces. A namespace counts as loaded while the full interfaces from its load are still in context. Skills and connector docs are not tool namespaces.",
+     "parameters": {
+      "paths": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "paths"
+     ]
+    }
+   },
+   "namespace": "tool_search"
+  },
+  "tracking": {
+   "description": "Track concrete plans, commitments, and outcomes beyond the immediate conversation (reservations, deliveries, reminders, trips, projects). The user's own goals are a separate surface and never appear here.",
+   "functions": {
+    "tracking.create": {
+     "description": "Create a tracked item (title, current_state pulse, description). Resolve identity first with list/search; never create a replacement for an existing item or a shadow of a user goal.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "emoji": {
+       "type": "string"
+      },
+      "goal_kind": {
+       "enum": [
+        "outcome",
+        "behavior",
+        "learning",
+        "habit",
+        "maintenance",
+        "recovery",
+        "identity",
+        "exploratory"
+       ],
+       "type": "string"
+      },
+      "parent_goal_id": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "value_alignment": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "title",
+      "current_state",
+      "description"
+     ]
+    },
+    "tracking.create_entry": {
+     "description": "Add one activity entry to a tracked item's timeline.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "effective_at": {
+       "type": "string"
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id",
+      "title",
+      "current_state",
+      "description"
+     ]
+    },
+    "tracking.delete": {
+     "description": "Permanently delete a tracked item by goal_id (workspace files preserved on disk). For finished work use set_status completed instead.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "tracking.delete_entry": {
+     "description": "Delete one activity entry by its update_id.",
+     "parameters": {
+      "update_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "update_id"
+     ]
+    },
+    "tracking.get": {
+     "description": "Read one tracked item in full by goal_id, with its complete activity timeline.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "tracking.list": {
+     "description": "List tracked work items (default limit 100).",
+     "parameters": {
+      "limit": {
+       "default": 100,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "offset": {
+       "minimum": 0,
+       "type": "integer"
+      }
+     },
+     "required": []
+    },
+    "tracking.search": {
+     "description": "Keyword search across tracked items (id, title, current_state, description).",
+     "parameters": {
+      "limit": {
+       "default": 10,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "query": {
+       "minLength": 2,
+       "type": "string"
+      }
+     },
+     "required": [
+      "query"
+     ]
+    },
+    "tracking.set_status": {
+     "description": "Set a tracked item's lifecycle to active or completed, with a required user-facing reason.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      },
+      "reason": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "status": {
+       "enum": [
+        "active",
+        "completed"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id",
+      "status",
+      "reason"
+     ]
+    },
+    "tracking.update": {
+     "description": "Patch a tracked item's metadata by goal_id (only passed fields change). Lifecycle is not editable here.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "escalation": {
+       "additionalProperties": false,
+       "properties": {
+        "action": {
+         "enum": [
+          "notify",
+          "ask"
+         ],
+         "type": "string"
+        },
+        "condition": {
+         "type": "string"
+        },
+        "due_at": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "condition",
+        "due_at",
+        "action"
+       ],
+       "type": [
+        "object",
+        "null"
+       ]
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "goal_kind": {
+       "enum": [
+        "outcome",
+        "behavior",
+        "learning",
+        "habit",
+        "maintenance",
+        "recovery",
+        "identity",
+        "exploratory"
+       ],
+       "type": "string"
+      },
+      "parent_goal_id": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "value_alignment": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "tracking.update_entry": {
+     "description": "Edit an existing activity entry by update_id; at least one of title/current_state/description/effective_at.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "effective_at": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "update_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "update_id"
+     ]
+    }
+   },
+   "namespace": "tracking"
+  },
+  "trash": {
+   "description": "List Muse trash entries (read-only). Use trash.put to move files into recoverable trash and trash.restore to recover them.",
+   "functions": {
+    "trash.list": {
+     "description": "List every entry in Muse's recoverable trash (trash_id, status, expiry date, original path, top-level contents). Takes no parameters.",
+     "parameters": {},
+     "required": []
+    },
+    "trash.put": {
+     "description": "Move one file or directory into Muse's recoverable trash; returns a trash_id (entries expire 30 days after trashing).",
+     "parameters": {
+      "path": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "path"
+     ]
+    },
+    "trash.restore": {
+     "description": "Move an active trash entry back out (to its original path, or custom_path). Never overwrites an existing path.",
+     "parameters": {
+      "custom_path": {
+       "type": "string"
+      },
+      "trash_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "trash_id"
+     ]
+    }
+   },
+   "namespace": "trash"
+  },
+  "travel": {
+   "description": "Create native hotel cards from saved Expedia search JSON.",
+   "functions": {
+    "travel.create_hotel_results_widget": {
+     "description": "Create native hotel cards from an unmodified saved Expedia search JSON file (up to four preview properties; See all opens the original search).",
+     "parameters": {
+      "hotel_ids": {
+       "items": {
+        "minLength": 1,
+        "type": "string"
+       },
+       "maxItems": 4,
+       "minItems": 1,
+       "type": "array",
+       "uniqueItems": true
+      },
+      "path": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "path"
+     ]
+    }
+   },
+   "namespace": "travel"
+  },
+  "ui": {
+   "description": "Drive the user's active app UI alongside a prose reply. Targets vary by client; ui.list is the authority on what the active client declares. mode defaults to perform.",
+   "functions": {
+    "ui.create_navigation_widget": {
+     "description": "Create a native card that opens an app tab or invokes a UI control when tapped (the widget only stores the control; the client performs it on click).",
+     "parameters": {
+      "icon": {
+       "type": "string"
+      },
+      "image_path": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      },
+      "summary": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "ui_control": {
+       "additionalProperties": false,
+       "properties": {
+        "action": {
+         "enum": [
+          "navigate",
+          "set"
+         ],
+         "type": "string"
+        },
+        "mode": {
+         "enum": [
+          "suggest",
+          "perform"
+         ],
+         "type": "string"
+        },
+        "params": {
+         "additionalProperties": true,
+         "type": "object"
+        },
+        "target": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "action",
+        "target",
+        "params",
+        "mode"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "title",
+      "ui_control"
+     ]
+    },
+    "ui.list": {
+     "description": "Return the UI commands the user's active Muse client declares right now, with each target's parameter schema.",
+     "parameters": {},
+     "required": []
+    },
+    "ui.navigate": {
+     "description": "Drive the user's active Muse UI to a target view (perform executes immediately; suggest renders a confirmable hint). Open at most one view per request.",
+     "parameters": {
+      "mode": {
+       "enum": [
+        "suggest",
+        "perform"
+       ],
+       "type": "string"
+      },
+      "params": {
+       "type": "object"
+      },
+      "target": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "target"
+     ]
+    },
+    "ui.set": {
+     "description": "Apply a UI setting on the user's active Muse client (perform/suggest as ui.navigate).",
+     "parameters": {
+      "mode": {
+       "enum": [
+        "suggest",
+        "perform"
+       ],
+       "type": "string"
+      },
+      "params": {
+       "type": "object"
+      },
+      "target": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "target"
+     ]
+    }
+   },
+   "namespace": "ui"
+  },
+  "user_goal": {
+   "description": "Durable goals the user is working toward. Not goals: fleeting todos, one-time reminders, or work carried for the user (that is tracking).",
+   "functions": {
+    "user_goal.create": {
+     "description": "Create a goal (conversational intake first unless the opening message already carries concrete specifics). Resolve identity first with list/search.",
+     "parameters": {
+      "category": {
+       "enum": [
+        "health",
+        "relationships",
+        "money",
+        "career",
+        "interests",
+        "productivity",
+        "something_else"
+       ],
+       "type": "string"
+      },
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "emoji": {
+       "type": "string"
+      },
+      "goal_kind": {
+       "enum": [
+        "outcome",
+        "behavior",
+        "learning",
+        "habit",
+        "maintenance",
+        "recovery",
+        "identity",
+        "exploratory"
+       ],
+       "type": "string"
+      },
+      "parent_goal_id": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "value_alignment": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "title",
+      "current_state",
+      "description"
+     ]
+    },
+    "user_goal.create_entry": {
+     "description": "Add one activity entry to a user goal's timeline.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "effective_at": {
+       "type": "string"
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id",
+      "title",
+      "current_state",
+      "description"
+     ]
+    },
+    "user_goal.delete": {
+     "description": "Permanently delete a user goal by goal_id (workspace files preserved). Finished goals should be completed with set_status instead.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "user_goal.delete_briefing": {
+     "description": "Delete one stored briefing from a user goal by briefing_id (historical delivery/engagement records retained).",
+     "parameters": {
+      "briefing_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "briefing_id"
+     ]
+    },
+    "user_goal.delete_entry": {
+     "description": "Delete one activity entry by update_id.",
+     "parameters": {
+      "update_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "update_id"
+     ]
+    },
+    "user_goal.get": {
+     "description": "Read one user goal by goal_id, with full timeline, suggestions, associations, and briefings.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "user_goal.list": {
+     "description": "List the user's own goals (default limit 100).",
+     "parameters": {
+      "limit": {
+       "default": 100,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "offset": {
+       "minimum": 0,
+       "type": "integer"
+      }
+     },
+     "required": []
+    },
+    "user_goal.search": {
+     "description": "Keyword search across user goals (id, title, current_state, description).",
+     "parameters": {
+      "limit": {
+       "default": 10,
+       "maximum": 100,
+       "minimum": 1,
+       "type": "integer"
+      },
+      "query": {
+       "minLength": 2,
+       "type": "string"
+      }
+     },
+     "required": [
+      "query"
+     ]
+    },
+    "user_goal.set_status": {
+     "description": "Set a user goal's lifecycle to active or completed, with a required user-facing reason.",
+     "parameters": {
+      "goal_id": {
+       "type": "string"
+      },
+      "reason": {
+       "minLength": 1,
+       "type": "string"
+      },
+      "status": {
+       "enum": [
+        "active",
+        "completed"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id",
+      "status",
+      "reason"
+     ]
+    },
+    "user_goal.update": {
+     "description": "Update a user goal's metadata (only passed fields change). pushable=false stops proactive brief pushes for that goal.",
+     "parameters": {
+      "category": {
+       "enum": [
+        "health",
+        "relationships",
+        "money",
+        "career",
+        "interests",
+        "productivity",
+        "something_else"
+       ],
+       "type": "string"
+      },
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "escalation": {
+       "additionalProperties": false,
+       "properties": {
+        "action": {
+         "enum": [
+          "notify",
+          "ask"
+         ],
+         "type": "string"
+        },
+        "condition": {
+         "type": "string"
+        },
+        "due_at": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "condition",
+        "due_at",
+        "action"
+       ],
+       "type": [
+        "object",
+        "null"
+       ]
+      },
+      "goal_id": {
+       "type": "string"
+      },
+      "goal_kind": {
+       "enum": [
+        "outcome",
+        "behavior",
+        "learning",
+        "habit",
+        "maintenance",
+        "recovery",
+        "identity",
+        "exploratory"
+       ],
+       "type": "string"
+      },
+      "parent_goal_id": {
+       "type": "string"
+      },
+      "pushable": {
+       "type": "boolean"
+      },
+      "title": {
+       "type": "string"
+      },
+      "value_alignment": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "goal_id"
+     ]
+    },
+    "user_goal.update_entry": {
+     "description": "Edit an existing activity entry by update_id; at least one of title/current_state/description/effective_at.",
+     "parameters": {
+      "current_state": {
+       "type": "string"
+      },
+      "description": {
+       "type": "string"
+      },
+      "effective_at": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "update_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "update_id"
+     ]
+    }
+   },
+   "namespace": "user_goal"
+  },
+  "wallet": {
+   "description": "Payment-wallet providers (shop-pay, stripe-link): begin adding a payment method via the provider's secure page, or read connection state, profile, payment methods, and shipping addresses. Read-only except add_payment_method's secure entry page.",
+   "functions": {
+    "wallet.add_payment_method": {
+     "description": "Start adding a payment method to one connected wallet provider; returns the provider's secure entry page for the user to complete themselves.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "stripe-link",
+        "shop-pay"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "wallet.get_connection_status": {
+     "description": "Read a provider's connection state and one secure next_action (connect/reauthenticate or disconnect). Does not connect or disconnect.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "stripe-link",
+        "shop-pay"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "wallet.get_user_info": {
+     "description": "Retrieve the profile claims a connected wallet provider reports (name, email, phone, verification status, spending limits in minor units).",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "stripe-link",
+        "shop-pay"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "wallet.list_payment_methods": {
+     "description": "List payment methods saved with one wallet provider and its connection status. For checkout use only methods whose type is card; method IDs are opaque and must not be exposed to the user or saved to memory.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "stripe-link",
+        "shop-pay"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    },
+    "wallet.list_shipping_addresses": {
+     "description": "List shipping addresses saved with one connected wallet provider.",
+     "parameters": {
+      "provider": {
+       "enum": [
+        "stripe-link",
+        "shop-pay"
+       ],
+       "type": "string"
+      }
+     },
+     "required": [
+      "provider"
+     ]
+    }
+   },
+   "namespace": "wallet"
+  },
+  "widget": {
+   "description": "Create transient in-chat widgets (HTML, list, map, letter) and read widget state. Widgets are transient chat UI, not documents the user keeps.",
+   "functions": {
+    "widget.create_html_file_widget": {
+     "description": "Create an in-chat HTML widget from a local .html/.htm file (max 1 MB; never under workspace/your_files/ or workspace/visual_grounding/).",
+     "parameters": {
+      "display_text": {
+       "type": "string"
+      },
+      "fallback_text": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "path"
+     ]
+    },
+    "widget.create_html_widget": {
+     "description": "Create compact interactive HTML in the current chat reply (fragment only, no document wrappers; theme-aware; state via the window.hatchWidget bridge).",
+     "parameters": {
+      "display_text": {
+       "type": "string"
+      },
+      "fallback_text": {
+       "type": "string"
+      },
+      "html": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "html"
+     ]
+    },
+    "widget.create_letter_widget": {
+     "description": "Present an existing briefing or relationship brief as a native Letter (presents immediately; subagents/background workers cannot call it).",
+     "parameters": {
+      "content": {
+       "additionalProperties": false,
+       "properties": {
+        "data": {
+         "additionalProperties": false,
+         "properties": {
+          "id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "id"
+         ],
+         "type": "object"
+        },
+        "type": {
+         "enum": [
+          "briefing",
+          "relationship_brief"
+         ],
+         "type": "string"
+        }
+       },
+       "required": [
+        "type",
+        "data"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "content"
+     ]
+    },
+    "widget.create_list_widget": {
+     "description": "Create a native list card of skill-directed results, links, flights, calendar entries, or email entries (1-20 rows). NOTE: the full flight-input contract prose is summarized here; row fields and the flight_data shape (id, passengers, slices[].segments[] with from/to/depart/arrive required; refundable/changeable yes/no/not stated) are exact.",
+     "parameters": {
+      "flight_action": {
+       "additionalProperties": false,
+       "properties": {
+        "cta_text": {
+         "type": "string"
+        },
+        "response_message_prefix": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "cta_text",
+        "response_message_prefix"
+       ],
+       "type": "object"
+      },
+      "items": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "data": {
+          "additionalProperties": true,
+          "type": "object"
+         },
+         "icons": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         },
+         "image_url": {
+          "type": "string"
+         },
+         "subtitle": {
+          "type": "string"
+         },
+         "tertiary_title": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "type": {
+          "enum": [
+           "generic",
+           "link",
+           "send_message",
+           "calendar",
+           "email",
+           "flight"
+          ],
+          "type": "string"
+         }
+        },
+        "required": [],
+        "type": "object"
+       },
+       "maxItems": 20,
+       "minItems": 1,
+       "type": "array"
+      },
+      "language": {
+       "type": "string"
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      },
+      "subtitle": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "items"
+     ]
+    },
+    "widget.create_map_widget": {
+     "description": "Create a map showing real-world places and location pins (1-24 elements; rich_place with a verbatim place_id, or plain marker).",
+     "parameters": {
+      "display_text": {
+       "type": "string"
+      },
+      "elements": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "background_image_url": {
+          "type": "string"
+         },
+         "category": {
+          "type": "string"
+         },
+         "coordinate": {
+          "additionalProperties": false,
+          "properties": {
+           "latitude": {
+            "maximum": 90,
+            "minimum": -90,
+            "type": "number"
+           },
+           "longitude": {
+            "maximum": 180,
+            "minimum": -180,
+            "type": "number"
+           }
+          },
+          "required": [
+           "latitude",
+           "longitude"
+          ],
+          "type": "object"
+         },
+         "description": {
+          "type": "string"
+         },
+         "id": {
+          "type": "string"
+         },
+         "kind": {
+          "enum": [
+           "rich_place",
+           "marker"
+          ],
+          "type": "string"
+         },
+         "name": {
+          "type": "string"
+         },
+         "place_id": {
+          "type": "string"
+         },
+         "subtitle": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "kind",
+         "coordinate"
+        ],
+        "type": "object"
+       },
+       "maxItems": 24,
+       "minItems": 1,
+       "type": "array"
+      },
+      "initial_zoom": {
+       "maximum": 20,
+       "minimum": 1,
+       "type": "number"
+      },
+      "motivation": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "present_now": {
+       "default": false,
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "elements"
+     ]
+    },
+    "widget.present": {
+     "description": "Present an already-created widget as a standalone chat presentation (not for inline-only widgets such as muse.create_options).",
+     "parameters": {
+      "widget_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "widget_id"
+     ]
+    },
+    "widget.state": {
+     "description": "Read the durable state of a widget created with create_html_widget/create_html_file_widget (returns widget_id, kind, display_text, state, version; version-0 reads return {} meaning still on seeded defaults).",
+     "parameters": {
+      "widget_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "widget_id"
+     ]
+    }
+   },
+   "missing": [
+    "widget.create_image_picker_widget is named in the namespace description's rule list but no such function was returned by the namespace load in this session; treat as not exposed here."
+   ],
+   "namespace": "widget",
+   "transcription_note": "Long prose guidance (HTML widget authoring rules, list-widget flight contract) is summarized; parameter names, types, enums, defaults, and required fields are exact."
+  },
+  "worker": {
+   "description": "Record the user's rules for an external side chat (worker discretion).",
+   "functions": {
+    "worker.update_discretion": {
+     "description": "Replace the user's own rules in a side chat's ~/side-chats/<chat-id>/DISCRETION.md (guidance becomes everything after the default-discretion:end marker; the runtime keeps the default section). Applies directly only when the user's messages on this turn ask for every added/removed line and the added lines open up nothing sensitive; otherwise the user approves on a card first.",
+     "parameters": {
+      "chat_id": {
+       "type": "string"
+      },
+      "guidance": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "chat_id",
+      "guidance"
+     ]
+    }
+   },
+   "namespace": "worker"
+  },
+  "workflow": {
+   "description": "VM-local JavaScript workflows: orchestration code executed by the daemon that coordinates child agents. Saved workflows live in the workspace's saved-workflows directory and can be launched by name.",
+   "functions": {
+    "workflow.create": {
+     "description": "Create a new saved workflow script (fails if the name already exists; never runs it).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "script": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "script"
+     ]
+    },
+    "workflow.delete": {
+     "description": "Delete one saved workflow script by invocation name (past runs stay inspectable; running workflows keep executing their snapshot).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name"
+     ]
+    },
+    "workflow.launch": {
+     "description": "Launch a VM-local JavaScript workflow and wait for it to resolve. Exactly one script source: scriptPath (highest precedence), script, or name.",
+     "parameters": {
+      "args": {
+       "type": "object"
+      },
+      "name": {
+       "type": "string"
+      },
+      "resumeFromRunId": {
+       "type": "string"
+      },
+      "script": {
+       "type": "string"
+      },
+      "scriptPath": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "workflow.launch_async": {
+     "description": "Launch a VM-local JavaScript workflow asynchronously and return immediately with the run id.",
+     "parameters": {
+      "args": {
+       "type": "object"
+      },
+      "name": {
+       "type": "string"
+      },
+      "resumeFromRunId": {
+       "type": "string"
+      },
+      "script": {
+       "type": "string"
+      },
+      "scriptPath": {
+       "type": "string"
+      }
+     },
+     "required": []
+    },
+    "workflow.list": {
+     "description": "List saved workflow scripts (default limit 100, max 200).",
+     "parameters": {
+      "limit": {
+       "default": 100,
+       "maximum": 200,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": []
+    },
+    "workflow.list_runs": {
+     "description": "List workflow runs launched from this root session.",
+     "parameters": {
+      "limit": {
+       "maximum": 200,
+       "minimum": 1,
+       "type": "integer"
+      }
+     },
+     "required": []
+    },
+    "workflow.pause": {
+     "description": "Pause one queued/running workflow run by run id (terminal runs cannot be paused).",
+     "parameters": {
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId"
+     ]
+    },
+    "workflow.resume": {
+     "description": "Resume one paused workflow run by run id (a synchronous run's resume waits for it to resolve).",
+     "parameters": {
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId"
+     ]
+    },
+    "workflow.save_run": {
+     "description": "Save a workflow run's script snapshot as a saved workspace workflow (overwrites an existing saved workflow with the same name).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId"
+     ]
+    },
+    "workflow.stop": {
+     "description": "Stop one workflow run by run id (terminal; a stopped run must never be resumed or relaunched).",
+     "parameters": {
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId"
+     ]
+    },
+    "workflow.stop_agent": {
+     "description": "Stop one child agent call inside a workflow run without stopping the run (needs runId and callId from view_run).",
+     "parameters": {
+      "callId": {
+       "type": "string"
+      },
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId",
+      "callId"
+     ]
+    },
+    "workflow.update": {
+     "description": "Replace the script of an existing saved workspace workflow (fails if none exists; affects only future launches).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      },
+      "script": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "script"
+     ]
+    },
+    "workflow.view": {
+     "description": "View one saved workspace workflow script by invocation name (source plus metadata).",
+     "parameters": {
+      "name": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name"
+     ]
+    },
+    "workflow.view_run": {
+     "description": "View one workflow run by run id (status, phase progress, child calls with call ids, timing, final result or error).",
+     "parameters": {
+      "runId": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "runId"
+     ]
+    }
+   },
+   "namespace": "workflow",
+   "transcription_note": "The full workflow authoring contract (script shape, runtime globals, working directory, final return, verifier-repair loops, run recovery) is prose guidance in the namespace description and is summarized in the existing architecture notes; parameter names, types, and required fields above are exact."
+  }
+ }
+}

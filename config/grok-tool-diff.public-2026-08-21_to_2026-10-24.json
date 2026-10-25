@@ -1,0 +1,421 @@
+{
+  "evidence": "difference between two public transcriptions, not a vendor release changelog",
+  "older_archive": "2026-08-21",
+  "newer_archive": "2026-10-24",
+  "old_count": 51,
+  "new_count": 43,
+  "added_names": [
+    "CallDynamicTool",
+    "DisconnectChannel",
+    "GetDynamicTools",
+    "ListMachines",
+    "ListSections",
+    "RecallMemory",
+    "SendFeedback",
+    "SendToUser",
+    "UpdateAvatar",
+    "UpdateMemory",
+    "UpdateProfile",
+    "UpdateRoutine",
+    "UpdateSkill"
+  ],
+  "removed_names": [
+    "Computer",
+    "GetMcpTools",
+    "RemoveMcpAccount",
+    "RenameMcpAccount",
+    "SendMessage",
+    "browser_cdp",
+    "browser_click",
+    "browser_drag",
+    "browser_fill",
+    "browser_get_bounding_box",
+    "browser_highlight",
+    "browser_mouse_click_xy",
+    "browser_navigate",
+    "browser_press_key",
+    "browser_scroll",
+    "browser_select_option",
+    "browser_snapshot",
+    "browser_tabs",
+    "browser_take_screenshot",
+    "browser_type",
+    "update_state"
+  ],
+  "shared_names_changed_schema": [
+    {
+      "name": "AddMcpServer",
+      "added_root_properties": [
+        "auth"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "name"
+      ],
+      "required_after": [
+        "name"
+      ]
+    },
+    {
+      "name": "AuthenticateMcpServer",
+      "added_root_properties": [],
+      "removed_root_properties": [
+        "account_label"
+      ],
+      "required_before": [
+        "server_id",
+        "account_label"
+      ],
+      "required_after": [
+        "server_id"
+      ]
+    },
+    {
+      "name": "AwaitShell",
+      "added_root_properties": [
+        "machineId",
+        "shell_id"
+      ],
+      "removed_root_properties": [
+        "task_id"
+      ],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "CheckSubagent",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "CloudAgent",
+      "added_root_properties": [
+        "cursor",
+        "custom_mode",
+        "files",
+        "new_repo",
+        "pr_url",
+        "project",
+        "repo",
+        "search",
+        "secret_names"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "action"
+      ],
+      "required_after": [
+        "action"
+      ]
+    },
+    {
+      "name": "CopyFromBox",
+      "added_root_properties": [
+        "machineId"
+      ],
+      "removed_root_properties": [
+        "computer"
+      ],
+      "required_before": [
+        "box_path"
+      ],
+      "required_after": [
+        "box_path",
+        "machineId"
+      ]
+    },
+    {
+      "name": "CopyToBox",
+      "added_root_properties": [
+        "machineId"
+      ],
+      "removed_root_properties": [
+        "computer"
+      ],
+      "required_before": [
+        "computer_path"
+      ],
+      "required_after": [
+        "computer_path",
+        "machineId"
+      ]
+    },
+    {
+      "name": "CreateAgent",
+      "added_root_properties": [
+        "section_id"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "name"
+      ],
+      "required_after": [
+        "name"
+      ]
+    },
+    {
+      "name": "GenerateImage",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "description"
+      ],
+      "required_after": [
+        "description"
+      ]
+    },
+    {
+      "name": "GetMcpServerStatus",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "GetPlugin",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "plugin_id"
+      ],
+      "required_after": [
+        "plugin_id"
+      ]
+    },
+    {
+      "name": "InstallPlugin",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "plugin_id"
+      ],
+      "required_after": [
+        "plugin_id"
+      ]
+    },
+    {
+      "name": "MessageSubagent",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "subagent_id",
+        "message"
+      ],
+      "required_after": [
+        "subagent_id",
+        "message"
+      ]
+    },
+    {
+      "name": "ReactToMessage",
+      "added_root_properties": [
+        "end_turn"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "message_address",
+        "emoji"
+      ],
+      "required_after": [
+        "message_address",
+        "emoji"
+      ]
+    },
+    {
+      "name": "Read",
+      "added_root_properties": [
+        "machineId"
+      ],
+      "removed_root_properties": [
+        "include_line_numbers"
+      ],
+      "required_before": [
+        "path"
+      ],
+      "required_after": [
+        "path"
+      ]
+    },
+    {
+      "name": "RestartMcpServers",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "Screenshot",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "SearchPlugins",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [],
+      "required_after": []
+    },
+    {
+      "name": "SendToAgent",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "target_id",
+        "message"
+      ],
+      "required_after": [
+        "target_id",
+        "message",
+        "priority"
+      ]
+    },
+    {
+      "name": "SetMcpInstructions",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "server_id",
+        "instructions"
+      ],
+      "required_after": [
+        "server_id",
+        "instructions"
+      ]
+    },
+    {
+      "name": "Shell",
+      "added_root_properties": [
+        "machineId"
+      ],
+      "removed_root_properties": [
+        "notify_on_output",
+        "required_permissions"
+      ],
+      "required_before": [
+        "command"
+      ],
+      "required_after": [
+        "command"
+      ]
+    },
+    {
+      "name": "StopSubagent",
+      "added_root_properties": [
+        "all"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "subagent_id"
+      ],
+      "required_after": []
+    },
+    {
+      "name": "Task",
+      "added_root_properties": [],
+      "removed_root_properties": [
+        "cloud_base_branch",
+        "cloud_requested_environment_build_id",
+        "environment",
+        "interrupt",
+        "model"
+      ],
+      "required_before": [
+        "description",
+        "prompt"
+      ],
+      "required_after": [
+        "description",
+        "prompt",
+        "subagent_type"
+      ]
+    },
+    {
+      "name": "TodoWrite",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "todos",
+        "merge"
+      ],
+      "required_after": [
+        "todos",
+        "merge"
+      ]
+    },
+    {
+      "name": "UninstallMcpServer",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "server_id"
+      ],
+      "required_after": [
+        "server_id"
+      ]
+    },
+    {
+      "name": "UninstallPlugin",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "plugin_id"
+      ],
+      "required_after": [
+        "plugin_id"
+      ]
+    },
+    {
+      "name": "UpdateAgent",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "agent_id"
+      ],
+      "required_after": [
+        "agent_id"
+      ]
+    },
+    {
+      "name": "WebFetch",
+      "added_root_properties": [],
+      "removed_root_properties": [
+        "requestSmartModeApproval",
+        "smartModeBlockReason"
+      ],
+      "required_before": [
+        "url"
+      ],
+      "required_after": [
+        "url"
+      ]
+    },
+    {
+      "name": "WebSearch",
+      "added_root_properties": [],
+      "removed_root_properties": [],
+      "required_before": [
+        "search_term"
+      ],
+      "required_after": [
+        "search_term"
+      ]
+    },
+    {
+      "name": "request_box_help",
+      "added_root_properties": [
+        "url"
+      ],
+      "removed_root_properties": [],
+      "required_before": [
+        "instruction"
+      ],
+      "required_after": [
+        "instruction"
+      ]
+    }
+  ]
+}

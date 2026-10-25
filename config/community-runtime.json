@@ -1,0 +1,108 @@
+{
+  "format": "community-runtime-design/v1",
+  "provenance": "Original proposed design; target properties are not implemented security guarantees",
+  "reference": {
+    "engine": "reference/engine.py",
+    "storage": "SQLite WAL",
+    "active_run_policy": "one leased run per agent",
+    "priority_order": [
+      "user",
+      "child.completed",
+      "background"
+    ],
+    "preempts_active_runs": false,
+    "model": "deterministic stub in demo; provider adapter required",
+    "message_commit": "atomic local message plus turn completion",
+    "schedules": "one-off UTC epoch only",
+    "network_tools": false,
+    "security_sandbox": false
+  },
+  "production_target": {
+    "tenant": {
+      "default_isolation": "one VM per account, separately scoped workspaces per agent",
+      "agent_is_not_a_vm": true
+    },
+    "runtime_cell": {
+      "user": "unprivileged",
+      "root_filesystem": "immutable image",
+      "persistent_mount": "tenant workspace only",
+      "capabilities": "drop all by default",
+      "host_mounts": false,
+      "docker_socket": false,
+      "egress": "broker only; direct egress denied"
+    },
+    "trusted_host_services": [
+      "event ingress",
+      "durable queue and scheduler",
+      "run lease manager",
+      "policy and approval service",
+      "credential broker",
+      "browser broker",
+      "message outbox",
+      "audit log"
+    ],
+    "tool_discovery": {
+      "always_loaded": [
+        "turn.finish",
+        "task.spawn",
+        "task.cancel"
+      ],
+      "worker_tools": [
+        "task.complete"
+      ],
+      "deferred": [
+        "read-only connector tools",
+        "browser task broker",
+        "scoped execution tools"
+      ],
+      "catalog_entries": [
+        "name",
+        "description",
+        "schema_hash",
+        "capability_class",
+        "grant_requirement"
+      ],
+      "schema_changes": "version and snapshot per run"
+    },
+    "approvals": {
+      "authority": "outside cell",
+      "bind_to": [
+        "user_id",
+        "task_id",
+        "tool_name",
+        "canonical_args_hash",
+        "destination",
+        "data_classes",
+        "expires_at",
+        "permission_version"
+      ],
+      "credential_values_visible_to_model": false
+    },
+    "watchers": {
+      "cheap_gate_before_model": true,
+      "persist_cursor_and_wake_atomically": true,
+      "dedupe_key": "source + source_event_id or source + stable_observation_revision",
+      "no_change": "no model invocation"
+    },
+    "delivery": {
+      "worker_output": "private",
+      "default_target": "origin chat",
+      "visible_messages": "explicit typed projection",
+      "outbox": "transactionally committed; channel delivery retries separately",
+      "message_upsert_key": "channel + canonical message id"
+    },
+    "limits": {
+      "max_child_depth": 2,
+      "max_concurrent_children_per_task": 4,
+      "wall_clock_and_token_budget_required": true,
+      "unknown_external_write_outcome": "reconcile before retry"
+    },
+    "recurrence": {
+      "timezone": "explicit IANA zone",
+      "DST_policy": "explicit per job",
+      "misfire_policy": "coalesce or skip, chosen per job",
+      "lifecycle_owner_required": true,
+      "cancelled_jobs": "do not restart without user authorization"
+    }
+  }
+}

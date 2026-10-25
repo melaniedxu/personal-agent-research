@@ -1,0 +1,56 @@
+{
+  "repository": "https://github.com/EliFuzz/awesome-system-prompts",
+  "commit": "186242765637f87e9bfdd4169c94bc2375ee8987",
+  "repo_license": "GPL-3.0 (repository declaration)",
+  "evidence": "historical, unauthenticated public transcription",
+  "cue_current_prompt": false,
+  "date_note": "2025-07-20 is the filename label, not a verified runtime version or capture timestamp.",
+  "tool_count": 29,
+  "files": [
+    {
+      "file": "2025-07-20_prompt.txt",
+      "sha256": "c13fa64374c80dc7b48243f48c94e831ea228da1d1917cb3698521606180cda1",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_agent-loop.txt",
+      "sha256": "2ee373d3c5f1837e25e750872887c8874d4b1847e56ac0e268d979b0f27675f3",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_agent-loop.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_environment.txt",
+      "sha256": "f7ac95ed342428fb5a8c292cb1c28ab6fe050ea4607fc8d1191968bd54f486c1",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_environment.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_guidelines.txt",
+      "sha256": "50792c611a23c097e16fcbe1e8be095eceacf990229564dd146728f0a20f5181",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_guidelines.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_modules.txt",
+      "sha256": "091c8eb2bc485a49c11e24b409f6947b39ee3c1895383b96317e0ea93960dd3e",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_modules.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_persona.txt",
+      "sha256": "4515ca940fbee7c26fbc43fc38fd859b55ae1d8b77e8d77e46284c4c7cea04de",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_persona.txt"
+    },
+    {
+      "file": "2025-07-20_prompt_prompting-guide.txt",
+      "sha256": "9fc85539f468182a512d127c3e40f6e2129aed5cf7dbf7f57be9dfb7e930a470",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_prompt_prompting-guide.txt"
+    },
+    {
+      "file": "2025-07-20_tools.json",
+      "sha256": "87b9ead0071ebce94ff86c94e2582f9af8cbc29e2ea31dc8420de3fe318c6945",
+      "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus/2025-07-20_tools.json"
+    }
+  ],
+  "corroborating_mirror": {
+    "repository": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "commit": "162db92f54d717d8ebd12292e155aeef32bb4b3c",
+    "note": "29 parsed tool definitions identical; duplication is not independent source authentication."
+  }
+}

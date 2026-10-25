@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "addonId": "manus-computer-use",
+  "version": "1.0.20",
+  "platforms": {
+    "darwin": {
+      "helper": "helper/darwin/Cue Computer Use.app",
+      "mcp": {
+        "server": "computer-use",
+        "description": "Use the computer-use/js tool to run JavaScript. Read its definition and the computer-use skill for the initialization entry supported by this device, then await cu.<native_method>(arguments). Operate the user's own computer: capture the screen, read UI elements, and drive mouse and keyboard input on local desktop apps. On Linux, prefer existing file/app APIs or controlled browser tooling when suitable; never invent integrations. Before GUI input, announce whole-screen takeover that may move the pointer, change focus, and type into the foreground app; ask the user to pause interaction and agree. First check computer_use_status without requesting permissions. On Wayland, explicitly request request_permissions=true with capture_source=monitor for control; single-window capture is read-only. Explain the visible GNOME active screen-sharing indicator's Stop Sharing control for revoking access. Do not promise background automation or automatic user-input detection. Stop immediately on user cancellation or revocation; do not retry authorization or fall back to X11/XWayland. Read the Linux skill reference before proceeding.",
+        "transport": "socket"
+      }
+    }
+  }
+}

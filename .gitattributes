@@ -1,0 +1,2 @@
+# Preserve exact bytes for the source and repository SHA-256 inventories.
+* -text

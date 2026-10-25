@@ -1,0 +1,178 @@
+{
+  "format": "community-tool-manifest/v1",
+  "provenance": "Original proposed contract; not a vendor schema",
+  "role_filter_required": true,
+  "tools": [
+    {
+      "name": "turn.finish",
+      "roles": [
+        "coordinator"
+      ],
+      "description": "Atomically end the current turn, optionally committing one user-visible message to its host-bound originating chat. Omit message for silence.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "binding": "Engine.finish(host.current_run, message-or-None)",
+      "host_checks": [
+        "current run lease",
+        "originating chat fixed by host",
+        "coordinator role"
+      ]
+    },
+    {
+      "name": "task.spawn",
+      "roles": [
+        "coordinator"
+      ],
+      "description": "Accept one bounded private child task. Receipt means accepted, not completed; completion later wakes its parent.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "instructions": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "instructions"
+        ],
+        "additionalProperties": false
+      },
+      "binding": "Engine.spawn(host.agent_id, host.tool_call_nonce, instructions)",
+      "host_checks": [
+        "current run lease before dispatch",
+        "child budget",
+        "capabilities are a subset of parent grant",
+        "host-provided idempotency nonce"
+      ]
+    },
+    {
+      "name": "task.complete",
+      "roles": [
+        "worker"
+      ],
+      "description": "Finish the current worker with a private structured result. The parent receives a completion wake; no user bubble is emitted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "completed",
+                  "blocked",
+                  "failed"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "uncertainties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "status",
+              "summary",
+              "evidence",
+              "uncertainties"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false
+      },
+      "binding": "Engine.complete_worker(host.worker_id, result)",
+      "host_checks": [
+        "authenticated internal worker callback",
+        "current worker identity and lease in production adapter",
+        "parent not cancelled"
+      ]
+    },
+    {
+      "name": "task.cancel",
+      "roles": [
+        "coordinator"
+      ],
+      "description": "Cancel a child and its descendants. Cannot undo completed external effects.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "worker_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "worker_id"
+        ],
+        "additionalProperties": false
+      },
+      "binding": "Engine.cancel(worker_id)",
+      "host_checks": [
+        "worker belongs to current coordinator",
+        "current user/task scope",
+        "invalidate in-flight grants and external dispatch leases in production"
+      ]
+    },
+    {
+      "name": "schedule.once",
+      "roles": [
+        "coordinator"
+      ],
+      "requires_grant": "schedule.once",
+      "description": "Save an explicitly authorized one-off job. The host interprets and verifies the UTC due time; recurring schedules are not implemented in this reference.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "schedule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "due": {
+            "type": "number"
+          },
+          "body": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "schedule_id",
+          "due",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "binding": "Engine.schedule_once(schedule_id, host.agent_id, due, body)",
+      "host_checks": [
+        "user authorized this future run",
+        "host-bound chat, owner, permission reference",
+        "read back saved schedule before claiming it exists"
+      ]
+    }
+  ]
+}

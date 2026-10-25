@@ -1,0 +1,90 @@
+{
+  "source_url": "https://github.com/asgeirtj/system_prompts_leaks/blob/be9efc3ce7f31a79b698d95b4a93fee6178ce88b/xAI/grok-bot/grok-bot.md",
+  "source_commit": "be9efc3ce7f31a79b698d95b4a93fee6178ce88b",
+  "source_sha256": "89f9619bf6a89855845c0e1b4911933aafe183126beb56ee962d095a619f47c0",
+  "reviewed_date": "2026-10-24",
+  "archive_label": "2026-10-24",
+  "evidence": "public transcription, not locally captured inference",
+  "vendor_version": null,
+  "capture_method": "not documented by source",
+  "repo_license": "CC0-1.0 (repository declaration; not authentication of upstream rights)",
+  "split_method": "Strip outer numbered headings; retain section bodies verbatim apart from boundary whitespace.",
+  "main_file": "prompts/grok-public-2026-10-24/system.md",
+  "variants": [
+    {
+      "name": "executor",
+      "file": "variants/01-executor.md",
+      "source_heading": "## 2.1 executor"
+    },
+    {
+      "name": "executor (readonly)",
+      "file": "variants/02-executor-readonly.md",
+      "source_heading": "## 2.2 executor (readonly)"
+    },
+    {
+      "name": "computerUse",
+      "file": "variants/03-computeruse.md",
+      "source_heading": "## 2.3 computerUse"
+    },
+    {
+      "name": "userComputerUse",
+      "file": "variants/04-usercomputeruse.md",
+      "source_heading": "## 2.4 userComputerUse"
+    },
+    {
+      "name": "Automation run",
+      "file": "variants/05-automation-run.md",
+      "source_heading": "## 2.5 Automation run"
+    },
+    {
+      "name": "Meeting request agent",
+      "file": "variants/06-meeting-request-agent.md",
+      "source_heading": "## 2.6 Meeting request agent"
+    },
+    {
+      "name": "Team Bot",
+      "file": "variants/07-team-bot.md",
+      "source_heading": "## 2.7 Team Bot"
+    },
+    {
+      "name": "Group chat turns",
+      "file": "variants/08-group-chat-turns.md",
+      "source_heading": "## 2.8 Group chat turns"
+    }
+  ],
+  "runtime_templates": [
+    {
+      "name": "First run",
+      "file": "runtime/01-first-run.md",
+      "source_heading": "## 3.1 First run"
+    },
+    {
+      "name": "Event",
+      "file": "runtime/02-event.md",
+      "source_heading": "## 3.2 Event"
+    },
+    {
+      "name": "Routine run on demand",
+      "file": "runtime/03-routine-run-on-demand.md",
+      "source_heading": "## 3.3 Routine run on demand"
+    },
+    {
+      "name": "Routine due",
+      "file": "runtime/04-routine-due.md",
+      "source_heading": "## 3.4 Routine due"
+    },
+    {
+      "name": "MCP server authorized",
+      "file": "runtime/05-mcp-server-authorized.md",
+      "source_heading": "## 3.5 MCP server authorized"
+    },
+    {
+      "name": "Routine due (subagent)",
+      "file": "runtime/06-routine-due-subagent.md",
+      "source_heading": "## 3.6 Routine due (subagent)"
+    }
+  ],
+  "tool_count": 43,
+  "normalization_repairs": 41,
+  "normalization_manifest": "config/grok-tools.public-2026-10-24.json"
+}

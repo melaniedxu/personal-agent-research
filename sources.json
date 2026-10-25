@@ -1,0 +1,161 @@
+[
+  {
+    "title": "Grok 0.18 reconstruction",
+    "url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed",
+    "kind": "third-party reconstruction",
+    "caveat": "Historical 0.18.0, archived; reconstructed and extended, not upstream source.",
+    "reviewed_local_date": "2026-10-24",
+    "commit": "a9f633e09d49a85829b8236331b9e21f7e612634",
+    "license_files": [
+      "NOTICE.md"
+    ]
+  },
+  {
+    "title": "Open-Grokbot",
+    "url": "https://github.com/LING71671/open-grokbot",
+    "kind": "independent implementation",
+    "caveat": "GPL-3.0-only; author claims clean-room architecture reconstruction; not production Grok source.",
+    "reviewed_local_date": "2026-10-24",
+    "commit": "ea516084251a9ff95f32a447e61d2bfa2938a7d4",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "title": "Muse prompt transcription",
+    "url": "https://github.com/RomanSlack/Meta_Muse_Agent_System_Prompt_Tools",
+    "kind": "third-party prompt transcription",
+    "caveat": "PDF-to-Markdown transcription; original prompt provenance is not authenticated. Superseded for this study by direct session exports.",
+    "reviewed_local_date": "2026-10-24",
+    "commit": "0f037a518b68d92bbc29f3ae95a8745852ed5cd5",
+    "license_files": []
+  },
+  {
+    "title": "Muse runtime teardown",
+    "url": "https://rohanadwankar.github.io/posts/sandbox2.html",
+    "kind": "first-person technical investigation",
+    "caveat": "Observations from one cloud runtime; not an audit of this account.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Muse control-plane experiments",
+    "url": "https://blog.cygankiewicz.com/en/meta-muse-black-box-testing/",
+    "kind": "first-person technical experiments",
+    "caveat": "Small number of runs; lock contention inference is not identification of a lock or capacity threshold.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Meta security architecture",
+    "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse",
+    "kind": "vendor documentation",
+    "caveat": "Architecture and safety claims are vendor self-report, independently consistent with parts of the teardown.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Grok shared computer and collaboration",
+    "url": "https://prod.cursor.com/docs/grok-bot/work",
+    "kind": "vendor documentation",
+    "caveat": "Current account-level computer sharing must not be replaced with older per-bot-machine assumptions.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Grok routines",
+    "url": "https://prod.cursor.com/help/grok-bot/routines",
+    "kind": "vendor documentation",
+    "caveat": "Schedules and event/webhook triggers; product semantics, not scheduler source.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Cue agent API",
+    "url": "https://open.manus.im/docs/v2/agents-overview",
+    "kind": "vendor API documentation",
+    "caveat": "Public API object model, not necessarily model-facing tools.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Manus 2.0 launch",
+    "url": "https://manus.im/blog/introducing-manus-2-0",
+    "kind": "vendor documentation",
+    "caveat": "Cue infrastructure and Cascade product claims do not prove private task/sandbox topology.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Manus context engineering",
+    "url": "https://manus.im/uk/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus",
+    "kind": "vendor engineering article",
+    "caveat": "Historical context engineering; do not assume every 2025 mechanism is current Cue/Cascade.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Grok transcript format",
+    "url": "https://docs.rs/crate/txcript/latest/source/docs/formats/grok-bot.md",
+    "kind": "first-person format reverse engineering",
+    "caveat": "Transcript paths and codecs observed in September 2026; version-specific.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Earlier shared research",
+    "url": "https://chatgpt.com/share/6add8bb0-7e24-83e8-adc2-55366d37537b",
+    "kind": "user-supplied prior research",
+    "caveat": "Used to locate primary investigations, not independent evidence.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Grok Bot public prompt and skills collection, October update",
+    "url": "https://github.com/asgeirtj/system_prompts_leaks/tree/be9efc3ce7f31a79b698d95b4a93fee6178ce88b/xAI/grok-bot",
+    "kind": "third-party public prompt transcription",
+    "commit": "be9efc3ce7f31a79b698d95b4a93fee6178ce88b",
+    "commit_timestamp": "2026-10-24T05:25:04Z",
+    "caveat": "No source capture trace/version or account authentication; mixed older runtime names and omitted role-specific tools. 43 tool schemas require 41 logged quoting repairs.",
+    "license_files": [
+      "LICENSE (CC0-1.0 repository declaration)"
+    ],
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Grok Bot earlier public prompt archive",
+    "url": "https://github.com/asgeirtj/system_prompts_leaks/blob/2c2d038d6ce4b20a101a99c9eea4f3952b24c1bd/xAI/grok-bot.md",
+    "kind": "historical third-party public prompt transcription",
+    "commit": "2c2d038d6ce4b20a101a99c9eea4f3952b24c1bd",
+    "first_path_commit": "aeadf7724b47cfbfcdc6bf95d581bc5ea866670b",
+    "first_path_commit_timestamp": "2026-08-21T08:58:17Z",
+    "caveat": "August 21 is repository creation date, not verified runtime capture date. 51-tool cross-role catalog; not an installed-version dump.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Historical Manus prompts and 29 tool schemas",
+    "url": "https://github.com/EliFuzz/awesome-system-prompts/tree/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/manus",
+    "kind": "historical third-party prompt transcription",
+    "commit": "186242765637f87e9bfdd4169c94bc2375ee8987",
+    "caveat": "Filenames labelled 2025-07-20; not current Cue/Cascade. The file named prompt is a capabilities essay. No original capture is authenticated.",
+    "license_files": [
+      "LICENSE (GPL-3.0 repository declaration)"
+    ],
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Manus archive mirror comparison",
+    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/tree/162db92f54d717d8ebd12292e155aeef32bb4b3c/Manus%20Agent%20Tools%20%26%20Prompt",
+    "kind": "duplicate historical public transcription",
+    "commit": "162db92f54d717d8ebd12292e155aeef32bb4b3c",
+    "caveat": "Parsed 29-tool list identical to EliFuzz archive; duplication is not independent authentication.",
+    "license_files": [
+      "LICENSE.md (GPL-3.0)"
+    ],
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Decoding Grok Bot: Message Mechanism",
+    "url": "https://www.weisu.io/articles/decoding-grok-bot/message-mechanism",
+    "kind": "first-person code walkthrough",
+    "caveat": "Explains historical SendMessage tool and conditional prompt/tool exposure, not authenticated installed 0.75.8 source.",
+    "reviewed_local_date": "2026-10-24"
+  },
+  {
+    "title": "Excluded Cue name collision: Naver 2023",
+    "url": "https://github.com/EliFuzz/awesome-system-prompts/blob/186242765637f87e9bfdd4169c94bc2375ee8987/leaks/cue/2023-09-20_prompt.txt",
+    "kind": "false-positive checked and excluded",
+    "caveat": "Korean source explicitly identifies Naver Cue search, not Manus Cue.",
+    "reviewed_local_date": "2026-10-24"
+  }
+]

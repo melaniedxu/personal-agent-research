@@ -1,0 +1,69 @@
+{
+  "source_url": "https://github.com/asgeirtj/system_prompts_leaks/blob/2c2d038d6ce4b20a101a99c9eea4f3952b24c1bd/xAI/grok-bot.md",
+  "source_commit": "2c2d038d6ce4b20a101a99c9eea4f3952b24c1bd",
+  "source_sha256": "5cf4d3f7ba98604f37992122e6be01ae00da57dcc447bf838ac27f686650dc0b",
+  "reviewed_date": "2026-10-24",
+  "archive_label": "2026-08-21",
+  "evidence": "public transcription, not locally captured inference",
+  "vendor_version": null,
+  "capture_method": "not documented by source",
+  "repo_license": "CC0-1.0 (repository declaration; not authentication of upstream rights)",
+  "split_method": "Strip outer numbered headings; retain section bodies verbatim apart from boundary whitespace.",
+  "main_file": "prompts/grok-public-2026-08-21/system.md",
+  "variants": [
+    {
+      "name": "computerUse",
+      "file": "variants/01-computeruse.md",
+      "source_heading": "## 2.1 computerUse"
+    },
+    {
+      "name": "browserUse",
+      "file": "variants/02-browseruse.md",
+      "source_heading": "## 2.2 browserUse"
+    },
+    {
+      "name": "debug",
+      "file": "variants/03-debug.md",
+      "source_heading": "## 2.3 debug"
+    },
+    {
+      "name": "videoReview",
+      "file": "variants/04-videoreview.md",
+      "source_heading": "## 2.4 videoReview"
+    },
+    {
+      "name": "vmSetupHelper",
+      "file": "variants/05-vmsetuphelper.md",
+      "source_heading": "## 2.5 vmSetupHelper"
+    },
+    {
+      "name": "watchVideo",
+      "file": "variants/06-watchvideo.md",
+      "source_heading": "## 2.6 watchVideo"
+    },
+    {
+      "name": "cursor-guide",
+      "file": "variants/07-cursor-guide.md",
+      "source_heading": "## 2.7 cursor-guide"
+    },
+    {
+      "name": "explore",
+      "file": "variants/08-explore.md",
+      "source_heading": "## 2.8 explore"
+    },
+    {
+      "name": "shell",
+      "file": "variants/09-shell.md",
+      "source_heading": "## 2.9 shell"
+    },
+    {
+      "name": "generalPurpose",
+      "file": "variants/10-generalpurpose.md",
+      "source_heading": "## 2.10 generalPurpose"
+    }
+  ],
+  "runtime_templates": [],
+  "tool_count": 51,
+  "normalization_repairs": 0,
+  "normalization_manifest": "config/grok-tools.public-2026-08-21.json"
+}

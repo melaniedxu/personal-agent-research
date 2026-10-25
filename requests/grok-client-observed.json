@@ -1,0 +1,134 @@
+{
+  "evidence_class": "observed-client-serialization",
+  "date_local": "2026-10-24 America/Los_Angeles",
+  "method": "Non-replaying observers at client serialization and received event boundaries via app-scoped debugger with temporary in-memory wrappers. No TLS interception and no inference-request capture.",
+  "redactions": "Identifiers, nonces, trace IDs and replica keys consistently pseudonymized. Payload text is synthetic. Duplicate observer records removed.",
+  "records": [
+    {
+      "app": "Grok Bot",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "MessagePort.postMessage",
+      "body": {
+        "kind": "request",
+        "requestId": "REF_1",
+        "method": "sendPrompt",
+        "args": {
+          "agentId": "REF_2",
+          "prompt": "RESEARCH_PROBE_20261024_FOURTH: Reply only \"RESEARCH_PROBE_20261024_FOURTH_ACK\". No tools or other actions.",
+          "clientNonce": "REF_3",
+          "directAddressedAcceptance": true,
+          "source": "desktop",
+          "firstSentAtMs": 1792905121379,
+          "richText": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"RESEARCH_PROBE_20261024_FOURTH: Reply only \\\"RESEARCH_PROBE_20261024_FOURTH_ACK\\\". No tools or other actions.\"}]}]}",
+          "language": "en",
+          "traceparent": "REF_4",
+          "enterEpochMs": 1792905121331
+        }
+      }
+    },
+    {
+      "app": "Grok Bot",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "MessagePort.message",
+      "body": {
+        "kind": "event",
+        "family": "transcript",
+        "payload": {
+          "type": "appended",
+          "entry": {
+            "kind": "message",
+            "id": "REF_5",
+            "role": "user",
+            "content": "RESEARCH_PROBE_20261024_FOURTH: Reply only \"RESEARCH_PROBE_20261024_FOURTH_ACK\". No tools or other actions.",
+            "richText": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"RESEARCH_PROBE_20261024_FOURTH: Reply only \\\"RESEARCH_PROBE_20261024_FOURTH_ACK\\\". No tools or other actions.\"}]}]}",
+            "isStreaming": false,
+            "timestampMs": 1792905121401,
+            "clientNonce": "REF_3",
+            "requestId": "REF_6",
+            "seq": 13
+          },
+          "agentId": "REF_2",
+          "ordered": {
+            "replicaKey": "REF_7",
+            "epoch": "REF_8",
+            "sequence": 8
+          }
+        }
+      }
+    },
+    {
+      "app": "Grok Bot",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "MessagePort.message",
+      "body": {
+        "kind": "event",
+        "family": "transcript",
+        "payload": {
+          "type": "appended",
+          "entry": {
+            "kind": "send-message",
+            "id": "REF_9",
+            "message": {
+              "type": "text",
+              "content": "RESEARCH_PROBE_20261024_FOURTH_ACK"
+            },
+            "timestampMs": 1792905124902,
+            "requestId": "REF_6",
+            "seq": 14
+          },
+          "agentId": "REF_2",
+          "ordered": {
+            "replicaKey": "REF_7",
+            "epoch": "REF_8",
+            "sequence": 9
+          }
+        }
+      }
+    },
+    {
+      "app": "Grok Bot",
+      "evidence_class": "observed-client-serialization",
+      "capture_method": "app-scoped debugger observation of outbound serialization; not TLS MITM",
+      "kind": "MessagePort.message",
+      "body": {
+        "kind": "event",
+        "family": "agent-activity",
+        "payload": {
+          "agentId": "REF_2",
+          "live": {
+            "isRunning": false,
+            "isRunningTurn": false,
+            "isComposingMessage": false,
+            "isRetrying": false,
+            "awaitingUserResponse": null,
+            "lastTurnSettlement": {
+              "clientNonce": "REF_10",
+              "outcome": "success",
+              "settledAtMs": 1792905124955
+            }
+          },
+          "client": {
+            "hasUnread": true,
+            "unreadCount": 2,
+            "lastViewedAt": 1792904924590,
+            "lastActivityAt": 1792905124902,
+            "newestEntryId": "REF_9",
+            "lastMessageId": "REF_9",
+            "lastMessagePreview": "RESEARCH_PROBE_20261024_FOURTH_ACK",
+            "lastMessagePreviewSource": {
+              "kind": "message_text",
+              "text": "RESEARCH_PROBE_20261024_FOURTH_ACK"
+            },
+            "isHiddenFromSidebar": false,
+            "isRemovedFromSidebar": false,
+            "notifyOnUpdatesEnabled": true,
+            "stateUpdatedAt": 1792905125136
+          }
+        }
+      }
+    }
+  ]
+}
